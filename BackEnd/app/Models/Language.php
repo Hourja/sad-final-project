@@ -5,22 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Phrase extends Model
+class Language extends Model
 {
     use HasFactory;
 
-    public function topic()
+    public function city()
     {
-        return $this->belongsTo(Topic::class);
+
+        return $this->hasMany(City::class);
     }
 
-    public function user()
-    {
-        return $this->belongsToMany(User::class);
-    }
 
     public function translation()
     {
+
         return $this->hasMany(Translation::class);
     }
 }
