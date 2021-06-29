@@ -17,6 +17,7 @@ class CreateTranslationsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('phrase_id');
             $table->unsignedBigInteger('language_id');
+            $table->text('text');
             $table->string('audio_url')->nullable();
             $table->timestamps();
         });
