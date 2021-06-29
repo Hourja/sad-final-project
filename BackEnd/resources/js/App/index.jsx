@@ -12,8 +12,16 @@ import Header from './Header/Header.jsx';
 ReactDOM.render(
     // <Router>
     //     <Switch>
-        
-    //     </Switch>
+                // endpoint: /  -> Home
+                // /login    -> Login
+                // /Register -> register
+                // /:city/ -> City
+                // /:city/discover -> discover
+                // /:city/learn -> Learn
+                // -> about us
+                // -> contact
+                
+                //</Switch>
     // </Router>
     <>
         <h1>Hello this is main page</h1>
