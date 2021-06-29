@@ -42,7 +42,7 @@ class User extends Authenticatable
     ];
 
 
-    public function phrase()
+    public function phrases()
     {
         return $this->belongsToMany(Phrase::class);
     }

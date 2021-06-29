@@ -9,14 +9,14 @@ class Language extends Model
 {
     use HasFactory;
 
-    public function city()
+    public function cities()
     {
 
         return $this->hasMany(City::class);
     }
 
 
-    public function translation()
+    public function translations()
     {
 
         return $this->hasMany(Translation::class);

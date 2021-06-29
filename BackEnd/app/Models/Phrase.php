@@ -14,12 +14,12 @@ class Phrase extends Model
         return $this->belongsTo(Topic::class);
     }
 
-    public function user()
+    public function users()
     {
         return $this->belongsToMany(User::class);
     }
 
-    public function translation()
+    public function translations()
     {
         return $this->hasMany(Translation::class);
     }

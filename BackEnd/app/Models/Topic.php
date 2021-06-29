@@ -10,12 +10,12 @@ class Topic extends Model
     use HasFactory;
 
 
-    public function category()
+    public function categories()
     {
         return $this->belongsToMany(Category::class);
     }
 
-    public function phrase()
+    public function phrases()
     {
         return $this->hasMany(Phrase::class);
     }

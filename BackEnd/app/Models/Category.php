@@ -10,12 +10,12 @@ class Category extends Model
     use HasFactory;
 
 
-    public function city()
+    public function cities()
     {
         return $this->belongsToMany(City::class);
     }
 
-    public function topic()
+    public function topics()
     {
         return $this->belongsToMany(Topic::class);
     }
