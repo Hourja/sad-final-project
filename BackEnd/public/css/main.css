@@ -1,3 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  color: #131C23;
+}
+
 body {
   background-color: #2F80EE;
 }

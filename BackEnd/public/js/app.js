@@ -239,10 +239,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Home_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Home.scss */ "./resources/js/App/pages/home/Home.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 function Homepage() {
-  return "Hello I'm the homepage";
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
+    className: "header",
+    children: "Hello"
+  });
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Homepage);
@@ -269,7 +274,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "", "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".header {\n  color: #131C23;\n}", "",{"version":3,"sources":["webpack://./resources/js/App/pages/home/Home.scss","webpack://./resources/js/App/common/colors.scss"],"names":[],"mappings":"AAEA;EACI,cCGI;ADJR","sourcesContent":["@import '../../common/colors.scss';\r\n\r\n.header {\r\n    color: $black;\r\n}","$white: #F7F7F7;\r\n\r\n$blue:#2F80EE ;\r\n\r\n$light-grey: #FFFFFF;\r\n\r\n$black: #131C23 ;"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1653,9 +1658,12 @@ var index = react__WEBPACK_IMPORTED_MODULE_0__.createContext || createReactConte
 /*!*******************************************!*\
   !*** ./resources/js/App/common/main.scss ***!
   \*******************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: Can't find stylesheet to import.\n  ╷\n7 │ @import 'Home';\n  │         ^^^^^^\n  ╵\n  resources/js/App/common/main.scss 7:9  root stylesheet\n    at processResult (/Users/amanda/web-dev/bootcamp/project/sad-final-project/BackEnd/node_modules/webpack/lib/NormalModule.js:701:19)\n    at /Users/amanda/web-dev/bootcamp/project/sad-final-project/BackEnd/node_modules/webpack/lib/NormalModule.js:807:5\n    at /Users/amanda/web-dev/bootcamp/project/sad-final-project/BackEnd/node_modules/loader-runner/lib/LoaderRunner.js:399:11\n    at /Users/amanda/web-dev/bootcamp/project/sad-final-project/BackEnd/node_modules/loader-runner/lib/LoaderRunner.js:251:18\n    at context.callback (/Users/amanda/web-dev/bootcamp/project/sad-final-project/BackEnd/node_modules/loader-runner/lib/LoaderRunner.js:124:13)\n    at /Users/amanda/web-dev/bootcamp/project/sad-final-project/BackEnd/node_modules/sass-loader/dist/index.js:54:7\n    at Function.call$2 (/Users/amanda/web-dev/bootcamp/project/sad-final-project/BackEnd/node_modules/sass/sass.dart.js:93417:16)\n    at _render_closure1.call$2 (/Users/amanda/web-dev/bootcamp/project/sad-final-project/BackEnd/node_modules/sass/sass.dart.js:81775:12)\n    at _RootZone.runBinary$3$3 (/Users/amanda/web-dev/bootcamp/project/sad-final-project/BackEnd/node_modules/sass/sass.dart.js:27547:18)\n    at _FutureListener.handleError$1 (/Users/amanda/web-dev/bootcamp/project/sad-final-project/BackEnd/node_modules/sass/sass.dart.js:26096:19)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
 
 /***/ }),
 
@@ -35860,7 +35868,41 @@ function valueEqual(a, b) {
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var [chunkIds, fn, priority] = deferred[i];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					result = fn();
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
@@ -35913,13 +35955,66 @@ function valueEqual(a, b) {
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"/js/app": 0,
+/******/ 			"css/main": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			for(moduleId in moreModules) {
+/******/ 				if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 					__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 				}
+/******/ 			}
+/******/ 			if(runtime) var result = runtime(__webpack_require__);
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkIds[i]] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = self["webpackChunk"] = self["webpackChunk"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
 /************************************************************************/
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	__webpack_require__("./resources/js/App/index.jsx");
-/******/ 	// This entry module doesn't tell about it's top-level declarations so it can't be inlined
-/******/ 	var __webpack_exports__ = __webpack_require__("./resources/js/App/common/main.scss");
+/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	__webpack_require__.O(undefined, ["css/main"], () => (__webpack_require__("./resources/js/App/index.jsx")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/main"], () => (__webpack_require__("./resources/js/App/common/main.scss")))
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
 ;

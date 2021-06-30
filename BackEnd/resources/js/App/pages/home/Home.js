@@ -1,7 +1,9 @@
 import './Home.scss'
 
 function Homepage() {
-    return "Hello I'm the homepage";
+    return(
+        <h1 className="header">Hello</h1>
+    )
 }
 
 export default Homepage;
