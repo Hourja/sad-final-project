@@ -2,11 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Footer from './components/Footer.jsx';
 import Header from './components/Header.jsx';
-// import {
-//     BrowserRouter as Router,
-//     Switch,
-//     Route,
-// } from "react-router-dom";
+import Homepage from './pages/Home.js';
+import {
+    BrowserRouter,
+    Switch,
+    Route,
+} from "react-router-dom";
 
 
 ReactDOM.render(
@@ -26,6 +27,14 @@ ReactDOM.render(
     <>
         <h1>Hello this is main page</h1>
         <Header />
+        <BrowserRouter>
+        <div className='app'>
+          <NavBar />
+          <Switch>
+            <Route path='/' exact component={Homepage} />
+          </Switch>
+        </div>
+      </BrowserRouter>
         <Footer />
 
     </>
