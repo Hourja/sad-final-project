@@ -16,7 +16,7 @@ class CreatePhrasesTable extends Migration
         Schema::create('phrases', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedBigInteger('priority');
+            $table->unsignedBigInteger('priority')->nullable();
             $table->unsignedBigInteger('topic_id');
             $table->string('audio_url')->nullable();
             $table->timestamps();

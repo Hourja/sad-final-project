@@ -4,14 +4,14 @@ function Footer() {
     return (
         <footer>
             <nav className="top-menu">
-                <a href="">Register</a>
-                <a href="">Login</a>
+                <Link to="/sign-up">Register</Link>
+                <Link to="/sign-in">Login</Link>
                 <Link to="/about-us">About</Link>
                 <a href="">Contact</a>
             </nav>
             <p>S.A.D Final Project</p>
         </footer>
-        
+
     )
 }
 
