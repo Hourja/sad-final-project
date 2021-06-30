@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom"
+
 function Header() {
     return (
         <nav className="top-menu">
-            <a href="">Register</a>
-            <a href="">Login</a>
-            <a href="">About</a>
+            <Link to="/sign-up">Register</Link>
+            <Link to="/sign-in">Login</Link>
+            <Link to="/about-us">About</Link>
             <a href="">Contact</a>
         </nav>
     )
