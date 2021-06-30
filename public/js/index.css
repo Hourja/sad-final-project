@@ -1,0 +1,24 @@
+.header {
+  color: #131C23;
+  background-color: #F7F7F7;
+}
+.about {
+  background-color: orange;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  color: #131C23;
+  background-color: #F7F7F7;
+}
+
+body {
+  background-color: #2F80EE;
+}
+
+/*# sourceMappingURL=index.css.map*/
