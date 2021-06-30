@@ -1,6 +1,11 @@
 function Header() {
     return (
-        <h1>Header</h1>
+        <nav className="top-menu">
+            <a href="">Register</a>
+            <a href="">Login</a>
+            <a href="">About</a>
+            <a href="">Contact</a>
+        </nav>
     )
 }
 

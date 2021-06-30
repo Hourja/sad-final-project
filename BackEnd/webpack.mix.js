@@ -23,7 +23,7 @@ if (!mix.inProduction()) {
 }
 
 // define what you want to compile and how:
-mix.sass('resources/sass/app.scss', 'public/css');
+mix.sass('resources/js/App/common/main.scss', 'public/css');
 mix.js('resources/js/App/index.jsx', 'public/js/app.js').react();
 
     mix.browserSync({
