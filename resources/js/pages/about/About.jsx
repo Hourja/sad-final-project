@@ -4,8 +4,12 @@ export default function  About(){
 
     return (
         
-        <div className="about">
-            <p>bla</p>
+        <div className="container">
+            <h1>About Us </h1>
+            <div className="container_content">
+
+            </div>
+            
         </div>
 
         

@@ -13,14 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-Route::get('/home', function () {
-    return view('home');
-});
+
 
 
 // AUTHENTICATION ROUTES
-Route::view('/sign-in', 'home');
-Route::view('/sign-up', 'home');
+Route::view('/{path?}', 'home')
+    ->where('path', '.*')
+    ->name('react');
