@@ -17,6 +17,7 @@
         "@pmmmwh/react-refresh-webpack-plugin": "^0.5.0-rc.0",
         "browser-sync": "^2.27.3",
         "browser-sync-webpack-plugin": "^2.3.0",
+        "eslint": "^7.29.0",
         "eslint-config-prettier": "^8.3.0",
         "eslint-config-react-app": "^6.0.0",
         "eslint-plugin-prettier": "^3.4.0",
@@ -33,6 +34,13 @@
         "sass-loader": "^12.1.0"
     },
     "eslintConfig": {
+        "parserOptions": {
+            "ecmaVersion": 6,
+            "sourceType": "module",
+            "ecmaFeatures": {
+                "jsx": true
+            }
+        },
         "plugins": [
             "prettier"
         ],
