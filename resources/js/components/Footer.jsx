@@ -4,6 +4,7 @@ function Footer() {
     return (
         <footer>
             <nav className="top-menu">
+                <Link to="/">Home</Link>
                 <Link to="/sign-up">Register</Link>
                 <Link to="/sign-in">Login</Link>
                 <Link to="/about-us">About</Link>

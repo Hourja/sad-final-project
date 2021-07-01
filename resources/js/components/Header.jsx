@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 function Header() {
     return (
         <nav className="top-menu">
+            <Link to="/">Home</Link>
             <Link to="/sign-up">Register</Link>
             <Link to="/sign-in">Login</Link>
             <Link to="/about-us">About</Link>
