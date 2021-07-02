@@ -48,7 +48,7 @@ function Homepage() {
             </div>
             
             <Testimonials />
-            <ContactForm />
+            <ContactForm h2={'Contact Us'}/>
         </div>
     )
 }

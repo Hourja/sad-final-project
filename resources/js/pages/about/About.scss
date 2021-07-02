@@ -1,3 +1,109 @@
-.about {
-    background-color: orange;
+@import '../../common/colors.scss';
+@import '../../common/media-queries.scss';
+
+.about-us-page {
+    display: flex;
+    flex-direction: column;
+
+    .__about{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 75%;
+        margin-top: 50px;
+        margin-bottom: 50px;
+
+            h1{
+            font-size: 3rem;
+            }
+
+        .__developer-list{
+        display: flex;
+
+        @include for-phone{
+        flex-direction: column;
+        }
+        
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+        
+            .__developer{
+                display: flex;
+
+                @include for-desktop-and-large{
+                    flex-direction: column;
+                    h3{
+                        text-align: center;
+                    }
+
+                    p{
+                        text-align: justify;
+                    }
+                }
+                flex-direction: row;
+                justify-content: center;
+                max-width: 700px;
+                margin-left: 1rem;
+
+                @include for-phone{
+                &:not(:last-child){
+                    margin-bottom: 1rem;
+                    }
+                  img{
+                        width: 20%;
+                    }  
+                }
+                
+                .__info{
+                    margin-left: 2rem;
+                    margin-top: 2rem;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 1rem;
+                    &:last-child{
+                        margin-right: 1rem;
+                    }
+                        h3{
+                            font-size: 2rem;
+                            margin-bottom: 1rem;
+                        }
+                }
+                    img{
+                        width: 30%;
+
+                        align-self: center;
+                        
+                    }
+                }
+                
+            }
+    }
+
+  
+    .__getInTouch{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+
+        h2{
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            align-self: center;
+        }
+
+        .__text{
+            width: 50%;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            align-self: center;
+            font-size: 1rem;
+            
+            
+            
+            
+        }
+    }
 }
