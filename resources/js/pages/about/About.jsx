@@ -6,7 +6,8 @@ export default function  About(){
         
         <div className="container">
             <h1>About Us </h1>
-            <div className="container_content">
+            <div className="container__content">
+                <div className="container__content__"></div>
 
             </div>
             
