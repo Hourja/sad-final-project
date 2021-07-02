@@ -40,7 +40,7 @@ return (
             <Header />
 
             <div className='app'>
-            <Switch>
+            <Switch>n
                 <Route path='/' exact component={Homepage} />
                 <Route exact path="/sign-in" exact component={Login}/>
                 <Route exact path="/sign-up" exact component={Register}/>
@@ -52,7 +52,7 @@ return (
 
 
             <Footer />
-            
+
         </BrowserRouter>
 </UserContextProvider>
 
