@@ -6,14 +6,6 @@ import Homepage from './pages/home/Home';
 import About from './pages/about/About';
 import Register from './pages/register/Register.jsx';
 import Login from './pages/login/Login.jsx';
-
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fab } from '@fortawesome/free-brands-svg-icons'
-import { far } from '@fortawesome/free-regular-svg-icons'
-import { fas } from '@fortawesome/free-solid-svg-icons'
-
-library.add(fab, far, fas)
-
 import Logout from './pages/logout/Logout.jsx';
 import {
     BrowserRouter,
@@ -24,7 +16,11 @@ import {
 import './common/colors.scss'
 import './common/main.scss'
 
-ReactDOM.render(<BrowserRouter>
+export default function App(){
+
+return (
+    
+<BrowserRouter>
 
         <Header />
 
@@ -40,6 +36,10 @@ ReactDOM.render(<BrowserRouter>
         </div>
 
 
-    <Footer />
-  </BrowserRouter>
-, document.getElementById('app'));
+        <Footer />
+</BrowserRouter>
+)
+
+
+
+}
