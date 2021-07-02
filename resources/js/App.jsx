@@ -16,7 +16,11 @@ import {
 import './common/colors.scss'
 import './common/main.scss'
 
-ReactDOM.render(<BrowserRouter>
+export default function App(){
+
+return (
+    
+<BrowserRouter>
 
         <Header />
 
@@ -32,6 +36,10 @@ ReactDOM.render(<BrowserRouter>
         </div>
 
 
-    <Footer />
-  </BrowserRouter>
-, document.getElementById('app'));
+        <Footer />
+</BrowserRouter>
+)
+
+
+
+}

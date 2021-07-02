@@ -17,7 +17,7 @@ export default function Register(props) {
         event.preventDefault();
 
         let request_data = {email, name, password, password_confirmation};
-        const response = await fetch('/register', {
+        const response = await fetch('/api/new-register', {
             method: 'POST',
             body: JSON.stringify(request_data),
             headers: {
@@ -28,9 +28,14 @@ export default function Register(props) {
         });
         const response_data = await response.json();
 
+
+
+
 // DO SOMETHING AFTER REGISTRATION
 
     }
+
+
 
     const handleChange = (event) => {
         const allowed_names = ['name', 'email', 'password', 'password_confirmation'],

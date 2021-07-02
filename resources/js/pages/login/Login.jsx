@@ -15,7 +15,7 @@ export default function Login(props) {
         event.preventDefault();
 
         let request_data = {email, password};
-        const response = await fetch('/login', {
+        const response = await fetch('/api/token', {
             method: 'POST',
             body: JSON.stringify(request_data),
             headers: {
@@ -25,6 +25,7 @@ export default function Login(props) {
             }
         });
         const response_data = await response.json();
+        localStorage.setItem('my_token',response_data.token);
     }
 
     const handleChange = (event) => {
