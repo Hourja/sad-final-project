@@ -2,6 +2,7 @@ import City from '../../components/City';
 import Testimonials from '../../components/Testimonials';
 import ContactForm from '../../components/ContactForm';
 import './Home.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 let cities = ["warsaw", "amsterdam", "london"];
 
@@ -9,7 +10,8 @@ function Homepage() {
     return(
         <div className="homepage">
             <div className="intro">
-                <h1>Hello</h1>
+                <h1>Hello <FontAwesomeIcon icon="globe-americas" /></h1>
+                <FontAwesomeIcon icon={['fas', 'coffee']} />
                 <h2>Discover the world & Learn a new language</h2>
                 <p className="select-city-title">Select your City</p>
                 <p className="select-city-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui tenetur iste odio, quas assumenda consequuntur nam sed nobis ipsa optio, omnis libero soluta officia sint doloremque in, ab ratione deleniti?</p>

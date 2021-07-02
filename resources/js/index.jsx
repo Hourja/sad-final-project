@@ -6,6 +6,13 @@ import Homepage from './pages/home/Home';
 import About from './pages/about/About';
 import Register from './pages/register/Register.jsx';
 import Login from './pages/login/Login.jsx';
+
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faCheckSquare, faGlobeAmericas } from '@fortawesome/free-solid-svg-icons'
+
+library.add(fab, faCheckSquare, faGlobeAmericas)
+
 import {
     BrowserRouter,
     Switch,
