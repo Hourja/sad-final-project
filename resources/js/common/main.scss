@@ -5,10 +5,22 @@
 }
 
 @import 'colors';
-
-
+@import 'navigation';
+@import 'footer';
+@import 'contact-form';
 @import '../pages/home/Home.scss';
 
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700&display=swap');
+
+
 body {
-    background-color: $blue;
+    background-color: $light-grey;
+    min-height: 100vh;
+    font-family: 'Nunito', sans-serif;
+}
+
+#app {
+    position: relative;
+    padding: 100px 0;
+    min-height: 100vh;
 }

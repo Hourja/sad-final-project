@@ -1,6 +1,138 @@
 @import '../../common/colors.scss';
 
-.header {
+.homepage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     color: $black;
-    background-color: $white;
+
+    .intro {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        // margin-top: 30px;
+        
+        h1 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            font-weight: bold;   
+            line-height: normal;  
+        }
+
+        h1, 
+        h2, 
+        .select-city-title,
+        .select-city-text {
+            margin-bottom: 30px;
+        }
+
+        .select-city-title {
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .select-city-text {
+            padding: 0 10%;
+        }
+        
+    }
+
+    .cities-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .city-container {
+            margin-bottom: 30px;
+            img {
+                width: 100%;
+            }
+            p {
+                text-transform: uppercase;
+                text-align: center;
+                font-size: 1.6rem;
+                margin-top: 15px;
+            }
+        }
+    }
+
+    .explore {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2% 10%;
+        text-align: center;
+        background-color: $white;
+        width: 100%;
+
+        .features {
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+
+            .feature {
+                h3 {
+                    margin-bottom: 15px;
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                }
+                p {
+                    font-style: italic;
+                }
+            }
+        }
+
+        h2,
+        p,
+        .features {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .explore-description {
+            padding: 0 20%;
+        }
+    }
+
+    .testimonials-list {
+        width: 100%;
+        padding: 2% 10%;
+
+        h2,
+        .testimonials-wrapper {
+            margin-bottom: 30px;
+        }
+        h2 {
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+        .testimonials-wrapper {
+            display: flex;
+            justify-content: space-around;
+
+            .testimonial {
+                text-align: center;
+                margin: 0 15px;
+
+                .testimonial-text {
+                    font-style: italic;
+                }
+
+                .testimonial-author {
+                    color: $blue;
+                    font-size: 0.7rem;
+                }
+            }
+        }
+    }
+    
 }
+
+
+

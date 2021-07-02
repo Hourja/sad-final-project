@@ -1,0 +1,27 @@
+@import 'colors';
+
+footer {
+    background-color: $light-grey;
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    p {
+        text-align: center;
+        font-size: 0.8rem;
+    }
+
+    .footer-menu {
+        display: flex;
+        justify-content: center;
+        top: 10px;
+        right: 10px;
+        font-weight: bold;
+            a {
+                text-decoration: none;
+                color: $blue;
+                padding: 10px;
+            }
+    }
+}
+

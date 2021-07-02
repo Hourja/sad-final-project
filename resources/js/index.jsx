@@ -6,7 +6,6 @@ import Homepage from './pages/home/Home';
 import About from './pages/about/About';
 import Register from './pages/register/Register.jsx';
 import Login from './pages/login/Login.jsx';
-
 import {
     BrowserRouter,
     Switch,
@@ -17,7 +16,7 @@ import './common/colors.scss'
 import './common/main.scss'
 
 ReactDOM.render(<BrowserRouter>
-        <h1>Hello this is main page</h1>
+
         <Header />
 
         <div className='app'>
