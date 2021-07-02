@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Footer() {
     return (
@@ -10,7 +11,12 @@ function Footer() {
                 <Link to="/about-us">About</Link>
                 <a href="">Contact</a>
             </nav>
-            <p>Made with ❤️ by S.A.D</p>
+            <div className="social-footer">
+                <FontAwesomeIcon icon={["fab", "facebook"]} size="lg" />
+                <FontAwesomeIcon icon={["fab", "instagram"]} size="lg" />
+                <FontAwesomeIcon icon={["fab", "twitter"]} size="lg" />
+            </div>
+            <p className="credits-footer">Made with ❤️ by S.A.D</p>             
         </footer>
 
     )
