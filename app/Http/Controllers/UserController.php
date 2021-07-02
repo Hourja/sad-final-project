@@ -15,17 +15,17 @@ class UserController extends Controller
 
     public function register(Request $input)
     {
-        Validator::make($input, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => [
-                'required',
-                'string',
-                'email',
-                'max:255',
-                Rule::unique(User::class),
-            ],
-            'password' => ['required', 'string'],
-        ])->validate();
+        // Validator::make($input, [
+        //     'name' => ['required', 'string', 'max:255'],
+        //     'email' => [
+        //         'required',
+        //         'string',
+        //         'email',
+        //         'max:255',
+        //         Rule::unique(User::class),
+        //     ],
+        //     'password' => ['required', 'string'],
+        // ])->validate();
 
         User::create([
             'name' => $input['name'],
@@ -74,9 +74,15 @@ class UserController extends Controller
 
     public function logout()
     {
-        dd("asdf");
+
         $user = Auth::user();
 
         $user->tokens()->delete();
+    }
+
+    public function check()
+    {
+
+        return "YOLO";
     }
 }
