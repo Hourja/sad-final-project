@@ -3,7 +3,7 @@ import ContactForm from '../../components/ContactForm';
 
 
 export default function  About(){
-const names =  ['Amanda', 'David', 'Spiros']
+const names =  ['Spiros', 'Amanda', 'David']
 
     return (
         
@@ -17,11 +17,13 @@ const names =  ['Amanda', 'David', 'Spiros']
         
         
         <div className="__getInTouch">
-            <h2>Get In Touch</h2>
-                <div className="__text">
-                    <p>If you would like to find out more about how we can help you, please contact-us trough the form bellow. We welcome your comments and suggestions about this website and/or any other issues that you wish to raise.</p>
-                </div>
-               <ContactForm h2={''}/> 
+            
+               <ContactForm>
+                   <h2>Get In Touch</h2>
+                    <div className="__text">
+                        If you would like to find out more about how we can help you, please contact-us trough the form bellow. We welcome your comments and suggestions about this website and/or any other issues that you wish to raise.
+                    </div>
+                </ContactForm> 
         </div>
     </div>
 

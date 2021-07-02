@@ -48,7 +48,7 @@ function Homepage() {
             </div>
             
             <Testimonials />
-            <ContactForm h2={'Contact Us'}/>
+            <ContactForm h2={<><FontAwesomeIcon icon={["far", "envelope"]} size="xs"/> Contact us</>}/>
         </div>
     )
 }

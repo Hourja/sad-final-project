@@ -1,8 +1,9 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-function ContacthtmlForm({h2}) {
+function ContacthtmlForm({h2, children}) {
     return (
         <div className="contact-form">
-            <h2><FontAwesomeIcon icon={["far", "envelope"]} size="xs"/>{h2}</h2>
+            {h2 && <h2>{h2}</h2>}
+            {children}
             <form>
                 <label htmlFor="fname">First Name</label>
                 <input type="text" id="fname" name="firstname" placeholder="Your name.." />
