@@ -6,7 +6,9 @@ footer {
     bottom: 0;
     position: absolute;
     width: 100%;
-    p {
+
+    .credits-footer {
+        margin-bottom: 10px;
         text-align: center;
         font-size: 0.8rem;
     }
@@ -22,6 +24,16 @@ footer {
                 color: $blue;
                 padding: 10px;
             }
+    }
+
+    .social-footer {
+        text-align: center;
+        svg {
+            display: inline-block;
+            margin: 0 10px 10px 10px;
+            color: $black;
+        }
+
     }
 }
 

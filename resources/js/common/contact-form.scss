@@ -8,6 +8,31 @@
         background-color: $light-grey;
         padding: 5%;
         border-radius: 4px;
+        input[type=text], textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid $light-grey;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            resize: vertical;
+          }
+          
+        .submit-button {
+            background-color: $blue;
+            color: $white;
+            padding: 12px 20px;
+            border: 1px solid $blue;
+            border-radius: 4px;
+            cursor: pointer;
+    
+            &:hover {
+                background-color: $white;
+                border: 1px solid $black;
+                color: $blue;
+            }
+        }   
     }
 
     h2 {
@@ -17,31 +42,6 @@
         margin: -20px 0px 20px 0;
     }
 
-    input[type=text], select, textarea {
-        width: 100%;
-        padding: 12px;
-        border: 1px solid $light-grey;
-        border-radius: 4px;
-        box-sizing: border-box;
-        margin-top: 6px;
-        margin-bottom: 16px;
-        resize: vertical;
-      }
-      
-    input[type=submit] {
-        background-color: $blue;
-        color: $white;
-        padding: 12px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-    
-    input[type=submit]:hover {
-        background-color: $white;
-        border: 1px solid $black;
-        color: $blue;
-    }
 }
 
 

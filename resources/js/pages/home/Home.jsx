@@ -27,19 +27,19 @@ function Homepage() {
                 <p className="explore-description">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
                 <div className="features">
                     <div className="feature">
-                        <h3>Feature 1</h3>
+                        <h3><FontAwesomeIcon icon="plane" size="lg" /> Feature 1</h3>
                         <p>Lorem ipsum dolor</p>
                         <p>Lorem ipsum dolor</p>
                         <p>Lorem ipsum dolor</p>
                     </div>
                     <div className="feature">
-                        <h3>Feature 2</h3>
+                        <h3><FontAwesomeIcon icon={["far", "laugh-beam"]}  size="lg"/> Feature 2</h3>
                         <p>Lorem ipsum dolor</p>
                         <p>Lorem ipsum dolor</p>
                         <p>Lorem ipsum dolor</p>
                     </div>
                     <div className="feature">
-                        <h3>Feature 3</h3>
+                        <h3><FontAwesomeIcon icon="map-marked-alt"  size="lg"/> Feature 3</h3>
                         <p>Lorem ipsum dolor</p>
                         <p>Lorem ipsum dolor</p>
                         <p>Lorem ipsum dolor</p>
