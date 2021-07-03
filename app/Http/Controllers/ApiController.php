@@ -20,10 +20,10 @@ class ApiController extends Controller
 
         switch ($type) {
             case 'categories':
-                $my_type = Category::get();
+                $my_type = Category::with('topics')->get();
                 break;
             case 'topics':
-                $my_type = Topic::get();
+                $my_type = Topic::with('phrases')->get();
                 break;
             case 'cities':
                 $my_type = City::get();
@@ -44,4 +44,14 @@ class ApiController extends Controller
 
         return $my_type;
     }
+
+    public function getPhrases($topic_id){
+
+        $phrases = Phrase::where('topic_id',$topic_id)->get();
+        
+        return $phrases;
+
+
+    }
+
 }
