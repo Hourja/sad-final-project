@@ -18,7 +18,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/table/{type}', 'ApiController@showType')->middleware('auth:sanctum');
+Route::get('/table/getPhrases/{topic_id}', 'ApiController@getPhrases');
+Route::get('/table/{type}', 'ApiController@showType');
+
+
+
 
 Route::post('/new-register', 'UserController@register');
 Route::post('token', 'UserController@token');
