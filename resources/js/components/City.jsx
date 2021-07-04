@@ -5,7 +5,7 @@ function City({ city }) {
     return (
         <div className="city-container">
             <img src={`/images/${slug}.jpg`} alt={name} className="city-homepage-image"/>
-            <Link to="/learn"><p>{name}</p></Link>
+            <Link to={`/city/${slug}`}><p>{name}</p></Link>
         </div>
     )
 }
