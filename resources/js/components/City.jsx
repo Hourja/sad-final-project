@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 
-function City(props) {
-    const { city } = props;
+function City({ city }) {
+    const {name,slug} = city
     return (
         <div className="city-container">
-            <img src={require(`../../img/${city}.jpg`).default} alt={city} className="city-homepage-image"/>
-            <Link to="/learn"><p>{city}</p></Link>
+            <img src={`/images/${slug}.jpg`} alt={name} className="city-homepage-image"/>
+            <Link to="/learn"><p>{name}</p></Link>
         </div>
     )
 }

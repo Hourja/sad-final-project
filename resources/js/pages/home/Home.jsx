@@ -1,10 +1,9 @@
-import City from '../../components/City';
+import Cities from '../../components/Cities';
 import Testimonials from '../../components/Testimonials';
 import ContactForm from '../../components/ContactForm';
 import './Home.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-let cities = ["warsaw", "amsterdam", "london"];
 
 function Homepage() {
     return(
@@ -16,11 +15,7 @@ function Homepage() {
                 <p className="select-city-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui tenetur iste odio, quas assumenda consequuntur nam sed nobis ipsa optio, omnis libero soluta officia sint doloremque in, ab ratione deleniti?</p>
             </div>
             <div className="cities-wrapper">
-                {
-                    cities.map((city,i) => {
-                        return <City city={city} key={i} />
-                    })
-                }
+                <Cities/>
             </div>
             <div className="explore">
                 <h2>Explore the city and learn a new language</h2>
