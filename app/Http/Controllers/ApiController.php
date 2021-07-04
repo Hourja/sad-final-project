@@ -14,13 +14,18 @@ use App\Models\Translation;
 class ApiController extends Controller
 {
 
-    public function showType($type)
+    public function showType(Request $request, $type)
     {
         $my_type = null;
 
         switch ($type) {
             case 'categories':
-                $my_type = Category::with('topics')->get();
+                $my_type = Category::with('topics')
+                    ->whereHas('cities', function ($query) use ($request) {
+                        $query->where('cities.slug', $request->query('citySlug'));
+                    })
+                    //the whereHas is a way to search on the relationship table
+                    ->get();
                 break;
             case 'topics':
                 $my_type = Topic::with('phrases')->get();
@@ -45,13 +50,11 @@ class ApiController extends Controller
         return $my_type;
     }
 
-    public function getPhrases($topic_id){
+    public function getPhrases($topic_id)
+    {
 
-        $phrases = Phrase::where('topic_id',$topic_id)->get();
-        
+        $phrases = Phrase::where('topic_id', $topic_id)->get();
+
         return $phrases;
-
-
     }
-
 }

@@ -1,22 +1,22 @@
 import { useState, useEffect } from 'react'
+import { useParams } from "react-router-dom"
+import fetchCategories from '../../requests/fetchCategories'
 import Category from './Category'
 
 export default function Learn() {
-  const [categories, setCategories] = useState('')
+  const [categories, setCategories] = useState(null)
+  const { city } = useParams()
 
-  //HERE WE WILL NEED TO ADJUSUT THE FETCH TO BRING US ONLY THE CATEGORIES
-  async function fetchCategories() {
-    const url = `http://localhost:3000/api/table/categories`
-    const resp = await fetch(url)
-    const data = await resp.json()
-    setCategories(data)
+  useEffect(loadCategories, [])
+
+  async function loadCategories(){
+    const loadedCategories = await fetchCategories(city)
+    setCategories(loadedCategories)
   }
 
-  useEffect(() => {
-    fetchCategories()
-  }, [])
+  if(!categories){
+    return 'Loading...'
+  }
 
-  return (
-    <>{categories ? categories.map((category, index) => <Category key={index} category={category} />) : 'Loading'}</>
-  )
+  return categories.map((category, index) => <Category key={index} category={category} />)
 }
