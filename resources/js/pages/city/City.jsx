@@ -1,4 +1,5 @@
-import { Link,useParams,useRouteMatch, Route } from "react-router-dom"
+import './city.scss'
+import { NavLink,useParams,useRouteMatch, Route } from "react-router-dom"
 import Discover from '../learn/Discover'
 import Learn from '../learn/Learn'
 
@@ -13,10 +14,19 @@ export default function City(){
 
         <main className="city">
             <img src={`/images/${city}.jpg`}/>
-            <div>
-                <Link to={`${url}/discover`}>Discover</Link>
-                <Link to={`${url}/learn`}>Learn</Link>
-            </div>
+            <h1>Choose an Option</h1>
+            <div className="__links">
+                <NavLink to={`${url}/learn`} className="__link" activeClassName="--active">
+                    <span className="__title">Learn</span>
+                    <span className="__description"> Get personalized and ready to use phrases</span>
+                </NavLink>
+                
+                <NavLink to={`${url}/discover`} className="__link" activeClassName="--active">
+                    <span className="__title">Discover</span>
+                    <span className="__description">Get a list of bars,museums, and other places of interest</span>
+                </NavLink>
+            </div>   
+            
             <Route path={`${path}/discover`} component={Discover} />
             <Route path={`${path}/learn`} component={Learn} />
             <Route path={`${path}/learn/topics`} component={()=> <div>topics</div>} />

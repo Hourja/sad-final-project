@@ -7,7 +7,6 @@ import About from './pages/about/About'
 import Register from './pages/register/Register'
 import Login from './pages/login/Login'
 import City from './pages/city/City'
-// import Learn from './pages/learn/Learn'
 // import Phrases from './pages/learn/Phrases'
 // import Topics from './pages/learn/Topics'
 import Logout from './pages/logout/Logout'
@@ -24,6 +23,11 @@ library.add(fab, far, fas)
 import './common/colors.scss'
 import './common/main.scss'
 
+require('../img/favicon.png').default
+require('../img/warsaw.jpg').default
+require('../img/rio-de-janeiro.jpg').default
+require('../img/london.jpg').default
+
 export default function App() {
   return (
     <UserContextProvider>
@@ -37,8 +41,7 @@ export default function App() {
             <Route path='/sign-up' exact component={Register} />
             <Route path='/sign-out' exact component={Logout} />
             
-            {/* <Route exact path='/learn' exact component={Learn} />
-            <Route exact path='/phrases' exact component={Phrases} />
+            {/* <Route exact path='/phrases' exact component={Phrases} />
             <Route exact path='/topics' exact component={Topics} /> */}
             <Route path='/about-us' exact component={About} />
             <Route path='/city/:city' component={City} />
