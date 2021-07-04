@@ -1,0 +1,100 @@
+@import '../../common/colors.scss';
+@import '../../common/media-queries.scss';
+
+.city{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    
+
+    img{
+        width: 65%;
+    }
+
+    h1{
+        font-size: 2rem;
+        margin-top: 2rem;
+    }
+
+    .__links{
+        display: flex;
+        flex-direction: column;
+        max-width: 700px;
+        
+
+         @include for-desktop-and-large{
+            flex-direction: row;
+         }
+      
+
+        .__link{
+            display: flex;
+            flex-direction: column;
+            background-color: $blue;
+            width: 250px;
+            text-decoration: none;
+            color: white;
+            padding: 1.6rem;
+            margin-top: 2rem;
+            border-radius: 6px;
+            box-shadow: 0 0 4px opacify($black, 0.2);
+            transition: transform 200ms;
+            position: relative;
+
+            @include for-desktop-and-large{
+                align-items: center;
+                text-align: center;
+                padding: 1.6rem 1.6rem 0rem;
+            }
+
+            &:hover{
+                background-color: darken($blue, 5%);
+                transform: scale(1.05);
+            }
+
+            &.--active{
+                background-color: red;
+                box-shadow: 0 0 4px opacify($white, 0.2);
+
+                &:hover{
+                    transform: scale(1);
+                }
+            }
+
+            &::after{
+                content: "»";
+                font-size: 2rem;
+                @include for-phone{
+                    position: absolute;
+                    right: 0.4rem;
+                    bottom: 0.4rem;
+                }
+
+                @include for-desktop-and-large{
+                    
+                    transform: rotate(90deg);
+                    margin-top: 1rem;
+                }
+            }
+
+            
+
+            &:not(:last-child){
+                margin-right: 1rem;
+            }
+                
+            
+            .__description{
+                margin-top: 6px;
+                font-size: 0.8rem;
+            }        
+            .__title{
+                font-size: 2rem;
+            }
+        }
+    }
+
+
+}
