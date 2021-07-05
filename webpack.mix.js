@@ -31,10 +31,10 @@ mix
   .js('resources/js/index.jsx', 'public/js')
   .react()
   .browserSync({
-        host: 'localhost',
-        port: 3000,
-        proxy: {
-            target: process.env.APP_URL // Yay! Using APP_URL from the .env file!
-        }
-    })
-  
+    host: 'localhost',
+    port: 3000,
+    proxy: {
+      target: process.env.APP_URL // Yay! Using APP_URL from the .env file!
+    }
+  })
+mix.disableNotifications()

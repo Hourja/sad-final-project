@@ -9,6 +9,10 @@ export default UserContext
 
 export function UserContextProvider({ children }) {
   const [userContext, setUserContext] = useState(defaultContext)
+  const token = localStorage.getItem('my_token')
+  if (token) {
+    // get user data
+  }
 
   function login() {}
 

@@ -1,10 +1,16 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Phrases from './Phrases'
 
-export default function Topics() {
-  const location = useLocation()
-  const { topics } = location.state
+export default function Topics({ categories }) {
+  const { categoryId } = useParams()
+
+  const category = categories.find((category) => {
+    return category.id === Number(categoryId)
+  })
+
+  console.log(category)
+
   const [topicIds, setTopicIds] = useState(null)
   const [show, setShow] = useState(false)
 
@@ -20,17 +26,13 @@ export default function Topics() {
 
   return (
     <div>
-      {topics ? (
-        <ul>
-          {topics.map((topic, index) => (
-            <li key={topic.name} onClick={getTopicId} value={topic.id}>
-              {topic.name}
-            </li>
-          ))}
-        </ul>
-      ) : (
-        'Loading'
-      )}
+      <ul>
+        {category.topics.map((topic, index) => (
+          <li key={index} onClick={getTopicId} value={topic.id}>
+            {topic.name}
+          </li>
+        ))}
+      </ul>
 
       {show ? (
         <div>
