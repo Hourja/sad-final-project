@@ -9,7 +9,7 @@ function Footer() {
         <Link to='/sign-up'>Register</Link>
         <Link to='/sign-in'>Login</Link>
         <Link to='/about-us'>About</Link>
-        <a href=''>Contact</a>
+        <Link to='/contact'>Contact</Link>
       </nav>
       <div className='social-footer'>
         <FontAwesomeIcon icon={['fab', 'facebook']} size='lg' />
