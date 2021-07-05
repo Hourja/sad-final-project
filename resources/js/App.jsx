@@ -40,7 +40,7 @@ export default function App() {
             <Route path='/sign-in' exact component={Login} />
             <Route path='/sign-up' exact component={Register} />
             <Route path='/sign-out' exact component={Logout} />
-            
+
             {/* <Route exact path='/phrases' exact component={Phrases} />
             <Route exact path='/topics' exact component={Topics} /> */}
             <Route path='/about-us' exact component={About} />

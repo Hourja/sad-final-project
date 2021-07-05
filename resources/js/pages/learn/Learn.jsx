@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams } from "react-router-dom"
+import { useParams } from 'react-router-dom'
 import fetchCategories from '../../requests/fetchCategories'
 import Category from './Category'
 
@@ -9,12 +9,12 @@ export default function Learn() {
 
   useEffect(loadCategories, [])
 
-  async function loadCategories(){
+  async function loadCategories() {
     const loadedCategories = await fetchCategories(city)
     setCategories(loadedCategories)
   }
 
-  if(!categories){
+  if (!categories) {
     return 'Loading...'
   }
 

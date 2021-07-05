@@ -1,9 +1,7 @@
-import ContactForm from "../../components/ContactForm";
+import ContactForm from '../../components/ContactForm'
 
 function Contact() {
-    return (
-        <ContactForm />
-    )
+  return <ContactForm />
 }
 
-export default Contact;
+export default Contact
