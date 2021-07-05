@@ -5,11 +5,11 @@ function ContacthtmlForm({ h2, children }) {
       {h2 && <h2>{h2}</h2>}
       {children}
       <form>
-        <label htmlFor='fname'>First Name</label>
+        <label htmlFor='fname'>Full name</label>
         <input type='text' id='fname' name='firstname' placeholder='Your name..' />
 
-        <label htmlFor='lname'>Last Name</label>
-        <input type='text' id='lname' name='lastname' placeholder='Your last name..' />
+        <label htmlFor='lname'>Email</label>
+        <input type='text' id='lname' name='lastname' placeholder='Your email...' />
 
         <label htmlFor='subject'>Subject</label>
         <textarea id='subject' name='subject' placeholder='Write something..'></textarea>
