@@ -1,14 +1,28 @@
+import { useEffect, useState } from 'react'
 import './About.scss'
 import ContactForm from '../../components/ContactForm'
-
+import fetchProfiles from '../../requests/fetchProfiles'
+window.fetchProfiles = fetchProfiles
 export default function About() {
-  const names = ['Spiros', 'Amanda', 'David']
+  const [profiles, setProfiles] = useState(null)
+
+  useEffect(loadProfiles, [])
+
+  async function loadProfiles() {
+    const loadedProfiles = await fetchProfiles()
+    setProfiles(loadedProfiles)
+  }
+  console.log(profiles)
+
+  if (!profiles) {
+    return 'Loading...'
+  }
 
   return (
     <div className='about-us-page'>
       <div className='__about'>
         <h1>About Us </h1>
-        <div className='__developer-list'>{names.map(developer)}</div>
+        <div className='__developer-list'>{profiles.map(developer)}</div>
       </div>
 
       <div className='__getInTouch'>
@@ -24,18 +38,21 @@ export default function About() {
   )
 }
 
-function developer(name) {
+function developer(profile) {
   return (
-    <div className='__developer'>
-      <img src={require('../../../img/profile.png').default} alt='' />
+    <div className='__developer' key={profile.id}>
+      <img src={`/images/${profile.photo_url}`} alt='' />
       <div className='__info'>
-        <h3>{name}</h3>
+        <h3>{profile.nickname}</h3>
         <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident accusantium eveniet corporis dolor velit
-          non saepe quibusdam officiis, enim, ullam itaque eaque beatae repellat cupiditate autem illum alias
-          exercitationem similique.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut nostrum quasi, voluptate esse officia quam ullam
+          doloremque similique quibusdam omnis odio hic id magni soluta necessitatibus quas iure! Ipsa, aut!
         </p>
       </div>
     </div>
   )
 }
+
+// {
+//   profile.description
+// }

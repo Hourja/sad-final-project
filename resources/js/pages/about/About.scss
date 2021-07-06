@@ -31,6 +31,10 @@
       .__developer {
         display: flex;
 
+        img {
+          border-radius: 50%;
+        }
+
         @include for-desktop-and-large {
           flex-direction: column;
           h3 {
