@@ -6,7 +6,7 @@ import Phrases from './Phrases'
 export default function Topics({ categories }) {
   const [languageSlug, setLanguageSlug] = useState('')
   const [topicIds, setTopicIds] = useState(null)
-  const [show, setShow] = useState(false)
+  // const [show, setShow] = useState(false)
   const { categoryId, city } = useParams()
 
   useEffect(loadLanguageSlug, [city])
@@ -24,26 +24,25 @@ export default function Topics({ categories }) {
   // everytime you try to change topic.
   const getTopicId = (e) => {
     setTopicIds(e.target.value)
-    setShow(!show)
+    // setShow(!show)
   }
-
+  
   return (
     <div className="topics-list">
       <ul className="topics-list-city">
         {category.topics.map((topic, index) => (
-          <li key={index} onClick={getTopicId} value={topic.id}>
+          <li key={index} onClick={getTopicId} value={topic.id} className={(topicIds == topic.id ? "selected" : "")} >
             {topic.name}
           </li>
         ))}
       </ul>
 
-      {show ? (
+      
         <div className="phrases-list">
           <Phrases topicIds={topicIds} />
+          {topicIds ? "" : <div className="loading-text">Select a topic from the left</div>}
         </div>
-      ) : (
-        <p>Hide phrases</p>
-      )}
+      
     </div>
   )
 }
