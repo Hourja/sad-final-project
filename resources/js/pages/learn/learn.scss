@@ -1,34 +1,119 @@
+@import '../../common/media-queries';
+
 .category-icons-container {
     display: flex;
-    margin: 30px 0;
+    margin: 45px 0;
     .category-icons {
         margin: 0 10px;
+        position: relative;
         .category-link {
             text-decoration: none;
             color: $black;
+            &.hidden{
+                color: $black;
+            }
+            &.show {
+                color: red;
+            }
+            
+        }
+        .category-tooltip {
+            position: absolute;
+            background-color: $light-grey;
+            bottom: -8px;
+            left: 50%;
+            transform: translate(-50%, 100%);
+            visibility: hidden;
+            border-radius: 6px;
+            padding-bottom: 2px;
+            text-align: center;
+        }
+        &:hover .category-tooltip {
+            visibility: visible;
         }
     }
 }
 
+
 .topics-list {
     display: flex;
-    width: 40%;
-    justify-content: space-between;
+    width: 700px;
     cursor: pointer;
+
+    @include for-tablets {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+    // @include for-phone {
+        
+    // }
 
     .topics-list-city,
     .phrases-list {
         li {
             margin: 6px 0;
+
+        }
+    }
+
+    .topics-list-city {
+        width: 45%;
+        margin-right: 10px;
+        .selected {
+            color: $white;
+            background-color: red;
+        }
+        li {
+            padding: 8px 0 8px 8px;
+            margin: 3px 0;
+            background-color: $white;
+            border-radius: 6px;
+            width: 100%;
+            text-align: center;
+        }
+
+        @include for-tablets {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @include for-phone {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
         }
     }
 
     .phrases-list {
+        width: 55%;
         border: 1px solid $black;
         border-radius: 6px;
+        padding: 6px;
 
         .list-phrases-translations {
-            margin: 7px;
+
+            .translation {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+
+        .loading-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        @include for-tablets {
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
         }
 
     }

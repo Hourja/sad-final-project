@@ -41,7 +41,7 @@ export default function City() {
       </div>
 
       <Route path={`${path}/discover`} component={Discover} />
-      <Route path={`${path}/learn`} component={() => <Learn categories={categories} />} />
+      <Route path={`${path}/learn/:categoryId?`} component={() => <Learn categories={categories} />} />
       <Route path={`${path}/learn/:categoryId`} component={() => <Topics categories={categories} />} />
     </main>
   )

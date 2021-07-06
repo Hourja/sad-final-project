@@ -9,8 +9,15 @@
   margin-top: 2rem;
   margin-bottom: 2rem;
 
+  @include for-phone {
+    padding: 0 5%;
+  }
+  @include for-tablets {
+    padding: 0 5%;
+  }
+
   img {
-    width: 65%;
+    width: 30%;
   }
 
   h1 {
@@ -64,11 +71,6 @@
       &::after {
         content: '»';
         font-size: 2rem;
-        @include for-phone {
-          position: absolute;
-          right: 0.4rem;
-          bottom: 0.4rem;
-        }
 
         @include for-desktop-and-large {
           transform: rotate(90deg);

@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function Phrases({ topicIds }) {
   const synth = window.speechSynthesis
@@ -19,7 +20,7 @@ export default function Phrases({ topicIds }) {
 
   useEffect(() => {
     fetchPhrases()
-  }, [])
+  }, [topicIds])
 
   const getVoices = () => {
     let voices = synth.getVoices()
@@ -43,14 +44,16 @@ export default function Phrases({ topicIds }) {
         <div className="list-phrases-topics">        
           <ul className="list-phrases-translations">
             {phrases.map((phrase, index) => (
-              <li key={index} onClick={playPhrase}>
-                {phrase.name}
-              </li>
+              <div className="translation">
+                <li key={index} onClick={playPhrase}>
+                  {phrase.name}
+                </li><FontAwesomeIcon icon="volume-up" />
+              </div> 
             ))}
           </ul>
         </div>
       ) : (
-        'Loading'
+        <div className="loading-text">Loading...</div>
       )}
     </>
   )
