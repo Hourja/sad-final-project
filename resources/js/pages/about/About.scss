@@ -19,14 +19,16 @@
 
     .__developer-list {
       display: flex;
-
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px;
       @include for-phone {
         flex-direction: column;
       }
 
-      justify-content: center;
-      align-items: center;
-      margin-top: 50px;
+      @include for-desktop-and-large {
+        flex-direction: row;
+      }
 
       .__developer {
         display: flex;
