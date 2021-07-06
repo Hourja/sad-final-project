@@ -23,8 +23,7 @@ Route::get('/table/getLanguage', 'ApiController@getLanguage');
 
 Route::get('/table/{type}', 'ApiController@showType');
 
-
-
+Route::post('/sendMessage', 'MessageController@sendMessage');
 
 Route::post('/new-register', 'UserController@register');
 Route::post('token', 'UserController@token');
