@@ -21,14 +21,6 @@ export default function Phrases({ topicIds }) {
     fetchPhrases()
   }, [])
 
-  const getVoices = () => {
-    let voices = synth.getVoices()
-    console.log(voices)
-  }
-  if (synth.onvoiceschanged !== undefined) {
-    synth.onvoiceschanged = getVoices
-  }
-
   // speak on click
   const playPhrase = (e) => {
     const utter = new SpeechSynthesisUtterance()
@@ -41,14 +33,11 @@ export default function Phrases({ topicIds }) {
     <>
       {loaded ? (
         <ul>
-          <div onClick={playPhrase} data-lang='el-GR'>
-            Που μπορώ να βρώ το φαρμακείο
-          </div>
-          {/* {phrases.map((phrase, index) => (
+          {phrases.map((phrase, index) => (
             <li key={index} onClick={playPhrase}>
               {phrase.name}
             </li>
-          ))} */}
+          ))}
         </ul>
       ) : (
         'Loading'
@@ -64,6 +53,14 @@ export default function Phrases({ topicIds }) {
 
 <div onClick={playPhrase} data-lang="pl-PL">Gruba kaczka nie może latac</div> */
 }
+
+// const getVoices = () => {
+//   let voices = synth.getVoices()
+//   console.log(voices)
+// }
+// if (synth.onvoiceschanged !== undefined) {
+//   synth.onvoiceschanged = getVoices
+// }
 
 //We are obtaining all the voices available by the API
 
