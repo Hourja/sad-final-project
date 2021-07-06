@@ -1,11 +1,9 @@
-export default async function fetchTopics(city) {
+export default async function fetchLanguage(city) {
   const url = `/api/table/getLanguage?citySlug=${city}`
 
   const resp = await fetch(url)
 
   const data = await resp.json()
 
-  console.log(data)
-
-  return data
+  return data.language
 }
