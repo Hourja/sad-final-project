@@ -44,8 +44,15 @@ function developer(profile) {
       <img src={`/images/${profile.photo_url}`} alt='' />
       <div className='__info'>
         <h3>{profile.nickname}</h3>
-        <p>{profile.description}</p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut nostrum quasi, voluptate esse officia quam ullam
+          doloremque similique quibusdam omnis odio hic id magni soluta necessitatibus quas iure! Ipsa, aut!
+        </p>
       </div>
     </div>
   )
 }
+
+// {
+//   profile.description
+// }
