@@ -9,6 +9,7 @@ const initialValues = {
 }
 
 function ContacthtmlForm({ h2, children }) {
+  const [errors, setErrors] = useState(['blablaal', 'fulfufkfu'])
   const [messageSent, setMessageSent] = useState(false)
   const [sending, setSending] = useState(false)
   const [values, setValues] = useState(initialValues)
@@ -17,14 +18,18 @@ function ContacthtmlForm({ h2, children }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
+    setErrors(null)
     if (sending) return
 
-    //validação
-
     setSending(true)
-    await sendMessage(values)
-
+    const { success, errors } = await sendMessage(values)
     setSending(false)
+
+    if (!success) {
+      setErrors(errors)
+      return
+    }
+
     setValues(initialValues)
 
     setMessageSent(true)
@@ -67,6 +72,14 @@ function ContacthtmlForm({ h2, children }) {
 
         <input type='submit' value={sending ? 'Sending...' : 'Submit'} disabled={sending} className='submit-button' />
         {messageSent && <span className='__message'>Thanks for you message!</span>}
+
+        {errors && (
+          <ul className='__errors'>
+            {errors.map((error) => (
+              <li>{error}</li>
+            ))}
+          </ul>
+        )}
       </form>
     </div>
   )
