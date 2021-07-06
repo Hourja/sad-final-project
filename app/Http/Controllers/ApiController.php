@@ -9,7 +9,7 @@ use App\Models\Phrase;
 use App\Models\Topic;
 use Illuminate\Http\Request;
 use App\Models\Translation;
-
+use App\Models\Profile;
 
 class ApiController extends Controller
 {
@@ -48,7 +48,9 @@ class ApiController extends Controller
             case 'translations':
                 $my_type = Translation::get();
                 break;
-
+            case 'profiles':
+                $my_type = Profile::get();
+                break;
             default;
                 echo "No such data found";
         }
