@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import translate from '../../requests/translate'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Phrase({ phrase, language }) {
   const [load, setLoad] = useState(true)
@@ -21,9 +22,15 @@ export default function Phrase({ phrase, language }) {
   return (
     <>
       {load ? (
-        <span onClick={playPhrase}>{phrase.name}</span>
+        <div className='translation' onClick={playPhrase}>
+          {phrase.name}
+          <FontAwesomeIcon icon='volume-up' />
+        </div>
       ) : (
-        <span onClick={() => setLoad(true)}>{translation}</span>
+        <div className='translation' onClick={() => setLoad(true)}>
+          {translation}
+          <FontAwesomeIcon icon='volume-up' />
+        </div>
       )}
     </>
   )

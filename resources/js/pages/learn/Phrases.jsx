@@ -27,12 +27,7 @@ export default function Phrases({ topicIds, language }) {
         <div className='list-phrases-topics'>
           <ul className='list-phrases-translations'>
             {phrases.map((phrase, index) => (
-              <div className='translation'>
-                <li key={index}>
-                  <Phrase phrase={phrase} language={language} />
-                </li>
-                <FontAwesomeIcon icon='volume-up' />
-              </div>
+              <Phrase key={index} phrase={phrase} language={language} />
             ))}
           </ul>
         </div>
