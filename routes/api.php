@@ -25,8 +25,7 @@ Route::get('/table/translate', 'ApiController@translate');
 
 Route::get('/table/{type}', 'ApiController@showType');
 
-
-
+Route::post('/sendMessage', 'MessageController@sendMessage');
 
 Route::post('/new-register', 'UserController@register');
 Route::post('token', 'UserController@token');

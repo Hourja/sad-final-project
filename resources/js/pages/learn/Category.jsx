@@ -1,18 +1,23 @@
-import { Link, useRouteMatch, Route } from 'react-router-dom'
+import { NavLink, useRouteMatch, Route, useParams } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Topics from './Topics'
 
 export default function Category({ category }) {
   const { url } = useRouteMatch()
   const { topics } = category
+  const { categoryId } = useParams()
+  console.log(categoryId)
 
   return (
-    <>
-      <Link to={`${url}/${category.id}`}>
-        {/* <FontAwesomeIcon icon={['fas', category.photo_url]} size='lg' /> */}
-        <p>{category.name}</p>
-      </Link>
-    </>
+    <div className='category-icons'>
+      <NavLink
+        to={`${categoryId ? url.substring(0, url.lastIndexOf('/')) : url}/${category.id}`}
+        className={'category-link ' + (categoryId == category.id ? 'show' : 'hidden')}
+      >
+        <FontAwesomeIcon icon={category.photo_url} size='lg' />
+      </NavLink>
+      <div className='category-tooltip'>{category.name}</div>
+    </div>
   )
 }
 
