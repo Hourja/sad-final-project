@@ -21,6 +21,14 @@ export default function Phrases({ topicIds }) {
     fetchPhrases()
   }, [])
 
+  const getVoices = () => {
+    let voices = synth.getVoices()
+    console.log(voices)
+  }
+  if (synth.onvoiceschanged !== undefined) {
+    synth.onvoiceschanged = getVoices
+  }
+
   // speak on click
   const playPhrase = (e) => {
     const utter = new SpeechSynthesisUtterance()
