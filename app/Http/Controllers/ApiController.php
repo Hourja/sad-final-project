@@ -66,9 +66,19 @@ class ApiController extends Controller
     public function getLanguage(Request $request)
     {
 
-        $phrases = City::where('slug', $request->query('citySlug'))->first();
+        $phrases = City::with('language')->where('slug', $request->query('citySlug'))->first();
 
-        return $phrases->language_id;
+        return $phrases;
     }
-    
+
+    public function translate(Request $request)
+    {
+
+        $translation = Translation::where('phrase_id', $request->query('phraseId'))
+            ->where('language_id', $request->query('languageId'))
+            ->first();
+
+
+        return $translation;
+    }
 }
