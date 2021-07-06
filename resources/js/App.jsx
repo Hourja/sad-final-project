@@ -7,8 +7,6 @@ import About from './pages/about/About'
 import Register from './pages/register/Register'
 import Login from './pages/login/Login'
 import City from './pages/city/City'
-// import Phrases from './pages/learn/Phrases'
-// import Topics from './pages/learn/Topics'
 import Logout from './pages/logout/Logout'
 import Contact from './pages/contact/Contact'
 
@@ -42,8 +40,6 @@ export default function App() {
             <Route path='/sign-up' exact component={Register} />
             <Route path='/sign-out' exact component={Logout} />
             <Route path='/contact' component={Contact} />
-            {/* <Route exact path='/phrases' exact component={Phrases} />
-            <Route exact path='/topics' exact component={Topics} /> */}
             <Route path='/about-us' exact component={About} />
             <Route path='/city/:city' component={City} />
           </Switch>

@@ -19,6 +19,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/table/getPhrases/{topic_id}', 'ApiController@getPhrases');
+Route::get('/table/getLanguage', 'ApiController@getLanguage');
+
 Route::get('/table/{type}', 'ApiController@showType');
 
 
