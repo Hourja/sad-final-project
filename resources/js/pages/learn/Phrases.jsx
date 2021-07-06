@@ -21,6 +21,14 @@ export default function Phrases({ topicIds }) {
     fetchPhrases()
   }, [])
 
+  const getVoices = () => {
+    let voices = synth.getVoices()
+    console.log(voices)
+  }
+  if (synth.onvoiceschanged !== undefined) {
+    synth.onvoiceschanged = getVoices
+  }
+
   // speak on click
   const playPhrase = (e) => {
     const utter = new SpeechSynthesisUtterance()
@@ -33,6 +41,15 @@ export default function Phrases({ topicIds }) {
     <>
       {loaded ? (
         <ul>
+          <div onClick={playPhrase} data-lang='pt-BR'>
+            Bom dia, como você está?
+          </div>
+          <div onClick={playPhrase} data-lang='pl-PL'>
+            dzień dobry, jak masz na imię?
+          </div>
+          <div onClick={playPhrase} data-lang='el-GR'>
+            Που μπορώ να βρω το φαρμακείο
+          </div>
           {phrases.map((phrase, index) => (
             <li key={index} onClick={playPhrase}>
               {phrase.name}
