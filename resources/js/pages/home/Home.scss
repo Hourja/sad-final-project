@@ -39,21 +39,23 @@
 
   .cities-wrapper {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
+    // align-items: center;
+    // justify-content: center;
 
-    .city-container {
-      margin-bottom: 30px;
-      img {
-        width: 100%;
-      }
-      p {
-        text-transform: uppercase;
-        text-align: center;
-        font-size: 1.6rem;
-        margin-top: 15px;
-      }
-    }
+    // .city-container {
+    //   margin-bottom: 30px;
+    //   img {
+    //     width: 100%;
+    //   }
+    //   p {
+    //     text-transform: uppercase;
+    //     text-align: center;
+    //     font-size: 1.6rem;
+    //     margin-top: 15px;
+    //   }
+
+    //}
   }
 
   .explore {

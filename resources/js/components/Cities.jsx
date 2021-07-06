@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import fetchCities from '../requests/fetchCities'
-import City from './City'
+import City from './city/City'
 
 export default function Cities() {
   const [cities, setCities] = useState(null)
