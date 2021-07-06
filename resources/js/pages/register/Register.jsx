@@ -1,9 +1,12 @@
 import './Register.scss'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 
-export default function Register(props) {
+import UserContext from '../../UserContext'
+
+export default function Register() {
+  const context = useContext(UserContext)
   const [{ email, name, password, password_confirmation }, setValues] = useState({
     email: '',
     name: '',
@@ -14,18 +17,13 @@ export default function Register(props) {
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    let request_data = { email, name, password, password_confirmation }
-    const response = await fetch('/api/new-register', {
-      method: 'POST',
-      body: JSON.stringify(request_data),
-      headers: {
-        Accept: 'application/json',
-        'Content-type': 'application/json',
-        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-      }
-    })
-    const response_data = await response.json()
+    // client validation
+    // set as loading
 
+    context.register({ email, name, password, password_confirmation })
+    //if the backend fails show the errors
+    // if the backend success show a message and redirect
+    // remove the loading
     // DO SOMETHING AFTER REGISTRATION
   }
 

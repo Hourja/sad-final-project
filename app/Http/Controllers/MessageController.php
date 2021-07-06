@@ -9,9 +9,6 @@ use Illuminate\Support\Facades\Mail;
 class MessageController extends Controller
 {
     public function sendMessage(Request $request){
-
-
-        
        $this->validate($request, [
             'fullName' => 'required',
             'email' => 'required|email:rfc,dns',

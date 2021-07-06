@@ -1,9 +1,18 @@
 import './Login.scss'
 
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useContext } from 'react'
+import { Link, Redirect } from 'react-router-dom'
+import UserContext from '../../UserContext'
 
-export default function Login(props) {
+export default function Login() {
+  const { loggedIn, login } = useContext(UserContext)
+
+  if (loggedIn) {
+    return <Redirect to='/' />
+  }
+
+  const [loginFailed, setLoginFailed] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [{ email, password }, setValues] = useState({
     email: '',
     password: ''
@@ -12,18 +21,13 @@ export default function Login(props) {
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    let request_data = { email, password }
-    const response = await fetch('/api/token', {
-      method: 'POST',
-      body: JSON.stringify(request_data),
-      headers: {
-        Accept: 'application/json',
-        'Content-type': 'application/json',
-        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-      }
-    })
-    const response_data = await response.json()
-    localStorage.setItem('my_token', response_data.token)
+    setLoading(true)
+    const worked = await login({ email, password })
+    setLoading(false)
+    if (!worked) {
+      setLoginFailed(true)
+      return
+    }
   }
 
   const handleChange = (event) => {
@@ -53,7 +57,9 @@ export default function Login(props) {
           <input className='login-input' type='password' name='password' value={password} onChange={handleChange} />
         </label>
 
-        <button className='login-button'>Login</button>
+        <button className='login-button'>{loading ? 'In progress...' : 'Login'}</button>
+
+        {loginFailed && <div className='__error'>Your credentials are invalid</div>}
 
         <div className='logged'>
           Don't have an account? <Link to='/sign-up'>Register</Link>

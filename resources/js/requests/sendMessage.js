@@ -9,6 +9,14 @@ export default async function sendMessage({ fullName, email, subject }) {
         'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
       }
     })
+    // in case of 500 or other kinds of errors
+    if (!response.ok && response.status !== 422) {
+      return {
+        success: false,
+        errors: ['Sorry, something bad happened!']
+      }
+    }
+    //data has errors when the validation fails
     const data = await response.json()
 
     if (data.errors) {
@@ -22,6 +30,7 @@ export default async function sendMessage({ fullName, email, subject }) {
       success: true
     }
   } catch (error) {
+    //when something goes wrong for instance : internet conection failed
     return {
       success: false,
       errors: ['Sorry, something bad happened!']

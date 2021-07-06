@@ -1,16 +1,11 @@
-import React from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import React, { useContext, useEffect, useState } from 'react'
+import { BrowserRouter } from 'react-router-dom'
+
+import Routes from './Routes'
+
 import Footer from './components/Footer'
 import Header from './components/Header'
-import Homepage from './pages/home/Home'
-import About from './pages/about/About'
-import Register from './pages/register/Register'
-import Login from './pages/login/Login'
-import City from './pages/city/City'
-import Logout from './pages/logout/Logout'
-import Contact from './pages/contact/Contact'
-
-import { UserContextProvider } from './UserContext'
+import UserContext, { UserContextProvider } from './UserContext'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
@@ -35,22 +30,33 @@ export default function App() {
   return (
     <UserContextProvider>
       <BrowserRouter>
-        <Header />
-
-        <div className='app'>
-          <Switch>
-            <Route path='/' exact component={Homepage} />
-            <Route path='/sign-in' exact component={Login} />
-            <Route path='/sign-up' exact component={Register} />
-            <Route path='/sign-out' exact component={Logout} />
-            <Route path='/contact' component={Contact} />
-            <Route path='/about-us' exact component={About} />
-            <Route path='/city/:city' component={City} />
-          </Switch>
-        </div>
-
-        <Footer />
+        <RetrieveUser />
       </BrowserRouter>
     </UserContextProvider>
+  )
+}
+
+//check if the token from user still valid
+function RetrieveUser() {
+  const [loading, setLoading] = useState(true)
+  const { retrieveUser } = useContext(UserContext)
+
+  useEffect(async () => {
+    await retrieveUser()
+    setLoading(false)
+  }, [true])
+  if (loading) {
+    return <span>Loading</span>
+  }
+  return (
+    <>
+      <Header />
+
+      <div className='app'>
+        <Routes />
+      </div>
+
+      <Footer />
+    </>
   )
 }

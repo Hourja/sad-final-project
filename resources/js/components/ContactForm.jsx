@@ -9,7 +9,7 @@ const initialValues = {
 }
 
 function ContacthtmlForm({ h2, children }) {
-  const [errors, setErrors] = useState(['blablaal', 'fulfufkfu'])
+  const [errors, setErrors] = useState(null)
   const [messageSent, setMessageSent] = useState(false)
   const [sending, setSending] = useState(false)
   const [values, setValues] = useState(initialValues)
