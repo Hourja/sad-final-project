@@ -32,13 +32,15 @@ export default function Phrases({ topicIds }) {
   return (
     <>
       {loaded ? (
-        <ul>
-          {phrases.map((phrase, index) => (
-            <li key={index} onClick={playPhrase}>
-              {phrase.name}
-            </li>
-          ))}
-        </ul>
+        <div className="list-phrases-topics">        
+          <ul className="list-phrases-translations">
+            {phrases.map((phrase, index) => (
+              <li key={index} onClick={playPhrase}>
+                {phrase.name}
+              </li>
+            ))}
+          </ul>
+        </div>
       ) : (
         'Loading'
       )}
