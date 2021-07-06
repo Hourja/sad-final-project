@@ -28,8 +28,8 @@ export default function Topics({ categories }) {
   }
 
   return (
-    <div>
-      <ul>
+    <div className="topics-list">
+      <ul className="topics-list-city">
         {category.topics.map((topic, index) => (
           <li key={index} onClick={getTopicId} value={topic.id}>
             {topic.name}
@@ -38,7 +38,7 @@ export default function Topics({ categories }) {
       </ul>
 
       {show ? (
-        <div>
+        <div className="phrases-list">
           <Phrases topicIds={topicIds} />
         </div>
       ) : (

@@ -1,0 +1,35 @@
+.category-icons-container {
+    display: flex;
+    margin: 30px 0;
+    .category-icons {
+        margin: 0 10px;
+        .category-link {
+            text-decoration: none;
+            color: $black;
+        }
+    }
+}
+
+.topics-list {
+    display: flex;
+    width: 40%;
+    justify-content: space-between;
+    cursor: pointer;
+
+    .topics-list-city,
+    .phrases-list {
+        li {
+            margin: 6px 0;
+        }
+    }
+
+    .phrases-list {
+        border: 1px solid $black;
+        border-radius: 6px;
+
+        .list-phrases-translations {
+            margin: 7px;
+        }
+
+    }
+}

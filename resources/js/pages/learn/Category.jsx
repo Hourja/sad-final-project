@@ -7,12 +7,14 @@ export default function Category({ category }) {
   const { topics } = category
 
   return (
-    <>
-      <Link to={`${url}/${category.id}`}>
-        {/* <FontAwesomeIcon icon={['fas', category.photo_url]} size='lg' /> */}
-        <p>{category.name}</p>
-      </Link>
-    </>
+
+      <div className="category-icons">
+        <Link to={`${url}/${category.id}`} className="category-link">
+          <FontAwesomeIcon icon={category.photo_url} size='lg' />
+          {/* <p>{category.name}</p> */}
+        </Link>
+      </div>
+
   )
 }
 
