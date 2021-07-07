@@ -8,6 +8,7 @@
 @import 'navigation';
 @import 'footer';
 @import 'contact-form';
+@import 'media-queries.scss';
 @import '../pages/home/Home.scss';
 @import '../pages/learn/learn';
 @import '../pages/learn/category-icons';
@@ -32,4 +33,17 @@ body {
     padding: 100px 0 90px 0;
   }
 
+}
+
+.container {
+  width: 100%;
+
+  @include for-desktop {
+    min-width: 640px;
+    width: 90%;
+  }
+
+  @include for-large {
+    width: 1200px;
+  }
 }

@@ -1,27 +1,69 @@
 @import '../../common/colors.scss';
+@import '../../common/media-queries.scss';
 
 .main-city {
   text-decoration: none;
   color: $black;
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  width: 33%;
-  font-size: 2rem;
+  display: inline-block;
   transition: transform 200ms;
-  background-color: $light-grey;
+  background-color: $white;
+  position: relative;
+  box-shadow: 0 0 24px -16px opacify($black, 0.1);
 
+  @include for-desktop {
+    width: calc(31vw - 2.4rem);
+    height: calc(23vw - 2.4rem);
+
+    &:not(:last-child) {
+      margin-right: calc(2.4rem - 8px);
+    }
+  }
+
+  @include for-large {
+    width: 340px;
+    height: 240px;
+
+    &:not(:last-child) {
+      margin-right: 80px;
+    }
+  }
+  &:nth-child(3n - 3) {
+    transform: rotate(-6deg);
+  }
+
+  &:nth-child(3n - 1) {
+    transform: rotate(6deg);
+  }
   &:hover {
-    transform: scale(1.005);
-    box-shadow: 0 0 24px -16px opacify($black, 0.1);
+    transform: scale(1.1);
   }
 
   .__picture {
-    width: 100%;
+    width: calc(100% - 1.6rem);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 24px -16px opacify($black, 0.1);
   }
 
   .__name {
+    display: inline-block;
+    position: absolute;
+    bottom: -24px;
+    left: 50%;
+    transform: translateX(-50%);
     text-align: center;
-    margin: 0.8rem 0;
+    background-color: opacify(wheat, 0.05);
+    width: 80%;
+    padding: 8px 0;
+
+    @include for-desktop {
+      font-size: 3vw;
+    }
+
+    @include for-large {
+      font-size: 2rem;
+    }
   }
 }

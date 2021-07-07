@@ -9,7 +9,6 @@ import './Home.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import BackTopButton from '../../components/BackTopButton'
 
-
 function Homepage() {
   const { user } = useContext(UserContext)
   const [name] = user ? user.name.split(' ') : ['Traveller']
@@ -17,20 +16,18 @@ function Homepage() {
   return (
     <div className='homepage'>
       <BackTopButton />
-      <div className='intro' >
+      <div className='__welcome container'>
         <h1>
           Welcome {name} <FontAwesomeIcon icon='globe-americas' />
         </h1>
-        <h2>Discover the world & Learn a new language</h2>
-        <p className='select-city-title'>Select your City</p>
-        <p className='select-city-text'>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui tenetur iste odio, quas assumenda consequuntur
-          nam sed nobis ipsa optio, omnis libero soluta officia sint doloremque in, ab ratione deleniti?
-        </p>
+        <h2>
+          Discover the world & Learn a new language by selecting a <strong>city</strong>.
+        </h2>
       </div>
-      <div className='cities-wrapper'>
-        <Cities />
-      </div>
+      {/* <div className='cities-wrapper'> */}
+      <Cities />
+      {/* </div> */}
+
       <div className='explore'>
         <h2>Explore the city and learn a new language</h2>
         <p className='explore-description'>
@@ -74,7 +71,6 @@ function Homepage() {
           </>
         }
       />
-      
     </div>
   )
 }

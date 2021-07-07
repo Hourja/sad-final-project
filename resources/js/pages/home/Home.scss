@@ -6,34 +6,23 @@
   align-items: center;
   color: $black;
 
-  .intro {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .__welcome {
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
     // margin-top: 30px;
+    padding: 2.4rem 0 4.8rem;
+    text-align: center;
 
     h1 {
       font-size: 3rem;
       text-transform: uppercase;
       font-weight: bold;
       line-height: normal;
-    }
-
-    h1,
-    h2,
-    .select-city-title,
-    .select-city-text {
       margin-bottom: 30px;
     }
-
-    .select-city-title {
-      text-transform: uppercase;
-      font-size: 1.2rem;
-      font-weight: bold;
-    }
-
-    .select-city-text {
-      padding: 0 10%;
+    h2 {
+      margin-bottom: 50px;
     }
   }
 
@@ -49,26 +38,6 @@
       background-position: center;
       background-repeat: no-repeat;
     }
-  }
-  .cities-wrapper {
-    display: flex;
-    width: 100%;
-    // align-items: center;
-    // justify-content: center;
-
-    // .city-container {
-    //   margin-bottom: 30px;
-    //   img {
-    //     width: 100%;
-    //   }
-    //   p {
-    //     text-transform: uppercase;
-    //     text-align: center;
-    //     font-size: 1.6rem;
-    //     margin-top: 15px;
-    //   }
-
-    //}
   }
 
   .explore {
