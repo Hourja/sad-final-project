@@ -18,7 +18,7 @@ class UserController extends Controller
             'name' => 'required|string',
             'email' => ['required','email:rfc,dns',Rule::unique(User::class, 'email')],
             'password' => ['required', 'confirmed', 'string', Password::min(6)],
-            //->numbers()->mixedCase()->symbols()
+            //->numbers()->mixedCase()->symbols()s
         ]);
 
         User::create([
