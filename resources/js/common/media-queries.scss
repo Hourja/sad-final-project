@@ -19,7 +19,7 @@
 
 
 @mixin for-phone {
-  @media (min-width: 400px) {
+  @media (max-width: 768px) {
     @content;
   }
 }
