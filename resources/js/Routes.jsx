@@ -19,7 +19,7 @@ export default function Routes() {
       <Route path='/' exact component={Homepage} />
       <Route path='/sign-in' exact component={() => (loggedIn ? <Redirect to='/' /> : <Login />)} />
       <Route path='/sign-up' exact component={() => (loggedIn ? <Redirect to='/' /> : <Register />)} />
-      <Route path='/sign-out' exact component={() => (loggedIn ? <Logout /> : <Redirect to='/' />)} />
+      <Route path='/sign-out' exact component={Logout} />
       <Route path='/contact' component={Contact} />
       <Route path='/about-us' exact component={About} />
       <Route path='/city/:city' component={City} />

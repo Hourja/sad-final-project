@@ -1,22 +1,22 @@
+import { useEffect, useState, useContext } from 'react'
+import { Redirect } from 'react-router-dom'
+
+import UserContext from '../../UserContext'
+
 export default function Logout() {
-  const handleClick = async (event) => {
-    event.preventDefault()
+  const [logoutWorked, setLogoutWorked] = useState(false)
+  const { logout } = useContext(UserContext)
 
-    const token = localStorage.getItem('my_token')
+  useEffect(async () => {
+    await logout()
+    setTimeout(() => {
+      setLogoutWorked(true)
+    }, 2000)
+  }, [])
 
-    const response = await fetch('/api/logout', {
-      method: 'post',
-      headers: {
-        Accept: 'application/json',
-        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-        Authorization: `Bearer ${token}`
-      }
-    })
-
-    const response_data = await response.json()
-
-    // do something with the fact that the user is logged out
+  if (logoutWorked) {
+    return <Redirect to='/' />
   }
 
-  return <button onClick={handleClick}>Logout</button>
+  return <div className='__message'> Thank you for your visit !</div>
 }

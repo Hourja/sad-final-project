@@ -1,6 +1,6 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useState } from 'react'
 import sendMessage from '../requests/sendMessage'
+import Errors from './Errors'
 
 const initialValues = {
   fullName: '',
@@ -73,13 +73,7 @@ function ContacthtmlForm({ h2, children }) {
         <input type='submit' value={sending ? 'Sending...' : 'Submit'} disabled={sending} className='submit-button' />
         {messageSent && <span className='__message'>Thanks for you message!</span>}
 
-        {errors && (
-          <ul className='__errors'>
-            {errors.map((error) => (
-              <li>{error}</li>
-            ))}
-          </ul>
-        )}
+        <Errors errors={errors} />
       </form>
     </div>
   )

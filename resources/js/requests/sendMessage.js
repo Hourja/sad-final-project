@@ -22,6 +22,8 @@ export default async function sendMessage({ fullName, email, subject }) {
     if (data.errors) {
       return {
         success: false,
+        //object.values take  the values from an object as an array
+        // the flat transform an array of arrays into an array.
         errors: Object.values(data.errors).flat()
       }
     }

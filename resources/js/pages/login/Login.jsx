@@ -23,8 +23,9 @@ export default function Login() {
 
     setLoading(true)
     const worked = await login({ email, password })
-    setLoading(false)
+
     if (!worked) {
+      setLoading(false)
       setLoginFailed(true)
       return
     }

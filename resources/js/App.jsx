@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
 import Routes from './Routes'
 
 import Footer from './components/Footer'
 import Header from './components/Header'
-import UserContext, { UserContextProvider } from './UserContext'
+import { UserContextProvider } from './UserContext'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
@@ -30,33 +30,14 @@ export default function App() {
   return (
     <UserContextProvider>
       <BrowserRouter>
-        <RetrieveUser />
+        <Header />
+
+        <div className='app'>
+          <Routes />
+        </div>
+
+        <Footer />
       </BrowserRouter>
     </UserContextProvider>
-  )
-}
-
-//check if the token from user still valid
-function RetrieveUser() {
-  const [loading, setLoading] = useState(true)
-  const { retrieveUser } = useContext(UserContext)
-
-  useEffect(async () => {
-    await retrieveUser()
-    setLoading(false)
-  }, [true])
-  if (loading) {
-    return <span>Loading</span>
-  }
-  return (
-    <>
-      <Header />
-
-      <div className='app'>
-        <Routes />
-      </div>
-
-      <Footer />
-    </>
   )
 }

@@ -4,9 +4,12 @@ import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 
 import UserContext from '../../UserContext'
+import Errors from '../../components/Errors'
 
 export default function Register() {
   const context = useContext(UserContext)
+
+  const [errors, setErrors] = useState(null)
   const [{ email, name, password, password_confirmation }, setValues] = useState({
     email: '',
     name: '',
@@ -20,9 +23,12 @@ export default function Register() {
     // client validation
     // set as loading
 
-    context.register({ email, name, password, password_confirmation })
-    //if the backend fails show the errors
-    // if the backend success show a message and redirect
+    const { success, errors } = await context.register({ email, name, password, password_confirmation })
+
+    if (!success) {
+      return setErrors(errors)
+    }
+
     // remove the loading
     // DO SOMETHING AFTER REGISTRATION
   }
@@ -71,6 +77,7 @@ export default function Register() {
         </label>
 
         <button className='register-button'>Register</button>
+        <Errors errors={errors} />
 
         <div className='registered'>
           Already have an account?<Link to='/sign-in'>Login</Link>

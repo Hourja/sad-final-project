@@ -6,15 +6,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import UserContext from '../UserContext'
 
 function Header() {
-  const { loggedIn, user } = useContext(UserContext)
-  const [name] = user ? user.name.split(' ') : []
+  const { loggedIn } = useContext(UserContext)
+
   return (
     <header>
       <Link to='/'>
         <img src={LOGO} alt='logo' />
       </Link>
       <nav className='top-menu'>
-        {loggedIn && <>Welcome {name}!</>}
         <Link to='/'>
           <FontAwesomeIcon icon='home' /> Home
         </Link>
