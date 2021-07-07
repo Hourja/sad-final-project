@@ -29,6 +29,7 @@ require('../img/santorini.jpg').default
 export default function App() {
   return (
     <UserContextProvider>
+      {console.log(process.env.REACT_APP_SECRET_KEY)}
       <BrowserRouter>
         <Header />
 
