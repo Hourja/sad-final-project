@@ -12,5 +12,3 @@ function City({ city }) {
 }
 
 export default City
-
-//TEMPORARILY ADDED LINKS TO <P> TO REDIRECT TO /LEARN - spiros
