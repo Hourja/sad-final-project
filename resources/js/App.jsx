@@ -1,15 +1,10 @@
 import React from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
+
+import Routes from './Routes'
+
 import Footer from './components/Footer'
 import Header from './components/Header'
-import Homepage from './pages/home/Home'
-import About from './pages/about/About'
-import Register from './pages/register/Register'
-import Login from './pages/login/Login'
-import City from './pages/city/City'
-import Logout from './pages/logout/Logout'
-import Contact from './pages/contact/Contact'
-
 import { UserContextProvider } from './UserContext'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -38,15 +33,7 @@ export default function App() {
         <Header />
 
         <div className='app'>
-          <Switch>
-            <Route path='/' exact component={Homepage} />
-            <Route path='/sign-in' exact component={Login} />
-            <Route path='/sign-up' exact component={Register} />
-            <Route path='/sign-out' exact component={Logout} />
-            <Route path='/contact' component={Contact} />
-            <Route path='/about-us' exact component={About} />
-            <Route path='/city/:city' component={City} />
-          </Switch>
+          <Routes />
         </div>
 
         <Footer />

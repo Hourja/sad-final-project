@@ -1,13 +1,17 @@
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import UserContext from '../UserContext'
+
 function Footer() {
+  const { loggedIn } = useContext(UserContext)
   return (
     <footer>
       <nav className='footer-menu'>
         <Link to='/'>Home</Link>
-        <Link to='/sign-up'>Register</Link>
-        <Link to='/sign-in'>Login</Link>
+        {!loggedIn && <Link to='/sign-up'>Register</Link>}
+        {!loggedIn && <Link to='/sign-in'>Login</Link>}
         <Link to='/about-us'>About</Link>
         <Link to='/contact'>Contact</Link>
       </nav>

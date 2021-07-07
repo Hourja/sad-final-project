@@ -1,3 +1,7 @@
+import { useContext } from 'react'
+
+import UserContext from '../../UserContext'
+
 import Cities from '../../components/Cities'
 import Testimonials from '../../components/Testimonials'
 import ContactForm from '../../components/ContactForm'
@@ -5,11 +9,13 @@ import './Home.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function Homepage() {
+  const { user } = useContext(UserContext)
+  const [name] = user ? user.name.split(' ') : ['Traveller']
   return (
     <div className='homepage'>
       <div className='intro'>
         <h1>
-          Welcome Traveller <FontAwesomeIcon icon='globe-americas' />
+          Welcome {name} <FontAwesomeIcon icon='globe-americas' />
         </h1>
         <h2>Discover the world & Learn a new language</h2>
         <p className='select-city-title'>Select your City</p>

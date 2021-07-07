@@ -6,26 +6,20 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rules\Password;
 use Illuminate\Validation\Rule;
-use Laravel\Fortify\Contracts\CreatesNewUsers;
 
 class UserController extends Controller
 {
 
     public function register(Request $input)
     {
-        // Validator::make($input, [
-        //     'name' => ['required', 'string', 'max:255'],
-        //     'email' => [
-        //         'required',
-        //         'string',
-        //         'email',
-        //         'max:255',
-        //         Rule::unique(User::class),
-        //     ],
-        //     'password' => ['required', 'string'],
-        // ])->validate();
+        $this->validate($input, [
+            'name' => 'required|string',
+            'email' => ['required','email:rfc,dns',Rule::unique(User::class, 'email')],
+            'password' => ['required', 'confirmed', 'string', Password::min(6)],
+            //->numbers()->mixedCase()->symbols()s
+        ]);
 
         User::create([
             'name' => $input['name'],
