@@ -9,6 +9,18 @@
   background-color: $white;
   position: relative;
   box-shadow: 0 0 24px -16px opacify($black, 0.1);
+  width: calc(42vw - 2.4rem);
+  height: calc(31vw - 2.4rem);
+
+  @include for-phone {
+    &:nth-child(3n - 2) {
+      margin-left: 8vw;
+    }
+
+    &:nth-child(3n - 1) {
+      margin-top: 8vw;
+    }
+  }
 
   @include for-desktop {
     width: calc(31vw - 2.4rem);
@@ -57,10 +69,7 @@
     background-color: opacify(wheat, 0.05);
     width: 80%;
     padding: 8px 0;
-
-    @include for-desktop {
-      font-size: 3vw;
-    }
+    font-size: 3vw;
 
     @include for-large {
       font-size: 2rem;
