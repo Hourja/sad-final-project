@@ -49,7 +49,7 @@ export default function Register() {
     <>
       <h1 className='register-title'>Registration</h1>
 
-      <form className='register' action='/register' method='post' onSubmit={handleSubmit}>
+      <form className='register' action='' method='post' onSubmit={handleSubmit}>
         <label htmlFor='name'>
           Name:
           <input className='register-input' type='text' name='name' value={name} onChange={handleChange} />

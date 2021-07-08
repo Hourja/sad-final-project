@@ -7,6 +7,7 @@ use App\Models\Phrase;
 use App\Models\Category;
 use App\Models\City;
 use app\Models\Language;
+use App\Models\Topic;
 use App\Models\Translation;
 
 
@@ -18,14 +19,16 @@ class adminAPI extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $input)
     {
-        // Chaining from City->Categories->Topics and showing Topics
-        $categories = Category::with('topics')->get();
-        // $categories->topics->pluck('phrases')->collapse()->unique();
 
+        // Topic::findOrFail($input['topic']);
 
-        return;
+        $this->validate($input, [
+            'phrase' => 'required|string',
+            'topic' => 'required'
+        ]);
+     return ['message' => 'success'];
     }
 
     /**

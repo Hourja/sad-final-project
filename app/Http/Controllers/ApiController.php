@@ -28,9 +28,7 @@ class ApiController extends Controller
                     ->get();
                 break;
             case 'topics':
-                $my_type = Topic::get()
-                    //the whereHas is a way to search on the relationship table
-                    ->get();
+                $my_type = Topic::orderBy('name', 'asc')->get();
                 break;
             case 'cities':
                 $my_type = City::get();
@@ -54,10 +52,10 @@ class ApiController extends Controller
         return $my_type;
     }
 
-    public function getPhrases($topic_id)
+    public function getPhrases(Request $request)
     {
 
-        $phrases = Phrase::where('topic_id', $topic_id)->get();
+        $phrases = Phrase::where('topic_id', $request->query('topicId'))->get();
 
         return $phrases;
     }
