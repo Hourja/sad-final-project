@@ -8,87 +8,169 @@
   align-items: center;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  width: 100%;
 
-  @include for-phone {
-    padding: 0 5%;
-  }
-  @include for-tablets {
-    padding: 0 5%;
+  .text-city {
+    text-align: center;
+
+    .city-name {
+      text-transform: uppercase;
+      font-size: 4rem;
+      margin: 2rem 0;
+      
+    }
   }
 
-  img {
-    width: 30%;
+  .cities-grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: -31px;
+    flex-grow: 1;
+    flex-basis: 0;
   }
 
-  h1 {
-    font-size: 2rem;
-    margin-top: 2rem;
+  .image-grid {
+
+    width: 33.3333%;
+    height: auto;
+
+    @include for-new-desktop {
+      width: 16.6667%;
+      height: auto;
+    }
+
+
   }
 
   .__links {
-    display: flex;
-    flex-direction: column;
-    max-width: 700px;
 
-    @include for-desktop-and-large {
-      flex-direction: row;
-    }
+    @include for-new-tablets {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      top: 50%;
+      cursor: pointer;
+    }    
 
     .__link {
-      display: flex;
-      flex-direction: column;
-      background-color: $blue;
-      width: 250px;
-      text-decoration: none;
-      color: white;
-      padding: 1.6rem;
-      margin-top: 2rem;
-      border-radius: 6px;
-      box-shadow: 0 0 4px opacify($black, 0.2);
-      transition: transform 200ms;
       position: relative;
-
-      @include for-desktop-and-large {
-        align-items: center;
+      display: block;
+      color: #66A4C0;
+      font-size: 14px;
+      margin: 30px 25px;
+      border: 1px solid #66A4C0;
+      padding: 14px 60px;
+      overflow: hidden;
+      transition: 0.4s all ease;
+      text-decoration: none;
         text-align: center;
-        padding: 1.6rem 1.6rem 0rem;
+
+      &.--active {
+        background-color:#8DC6DB;
+        color: $light-grey;
+        border: 1px solid #8DC6DB;
+        box-shadow: 0 0 4px opacify($white, 0.2);
+      }
+
+      &:before{
+        background: #66A4C0;
+        color: $white;
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        z-index: -1;
+        transition: all 0.4s ease;
+        width: 0%;
+        height: 100%;
       }
 
       &:hover {
-        background-color: darken($blue, 5%);
-        transform: scale(1.05);
+        color: $white;
       }
 
-      &.--active {
-        background-color: red;
-        box-shadow: 0 0 4px opacify($white, 0.2);
-
-        &:hover {
-          transform: scale(1);
-        }
+      &:hover::before{
+        width: 100%;
       }
 
-      &::after {
-        content: '»';
-        font-size: 2rem;
-
-        @include for-desktop-and-large {
-          transform: rotate(90deg);
-          margin-top: 1rem;
-        }
-      }
-
-      &:not(:last-child) {
-        margin-right: 1rem;
-      }
-
-      .__description {
-        margin-top: 6px;
-        font-size: 0.8rem;
-      }
       .__title {
-        font-size: 2rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 1.1rem;
+        padding-bottom: 10px;
       }
+
+      
+
     }
+
+    // .__links {
+    //   display: flex;
+    //   flex-direction: column;
+    //   max-width: 700px;
+  
+    //   @include for-desktop-and-large {
+    //     flex-direction: row;
+    //   }
+  
+    //   .__link {
+    //     display: flex;
+    //     flex-direction: column;
+    //     background-color: $blue;
+    //     width: 250px;
+    //     text-decoration: none;
+    //     color: white;
+    //     padding: 1.6rem;
+    //     margin-top: 2rem;
+    //     border-radius: 6px;
+    //     box-shadow: 0 0 4px opacify($black, 0.2);
+    //     transition: transform 200ms;
+    //     position: relative;
+  
+    //     @include for-desktop-and-large {
+    //       align-items: center;
+    //       text-align: center;
+    //       padding: 1.6rem 1.6rem 0rem;
+    //     }
+  
+    //     &:hover {
+    //       background-color: darken($blue, 5%);
+    //       transform: scale(1.05);
+    //     }
+  
+    //     &.--active {
+    //       background-color: red;
+    //       box-shadow: 0 0 4px opacify($white, 0.2);
+  
+    //       &:hover {
+    //         transform: scale(1);
+    //       }
+    //     }
+  
+    //     &::after {
+    //       content: '»';
+    //       font-size: 2rem;
+  
+    //       @include for-desktop-and-large {
+    //         transform: rotate(90deg);
+    //         margin-top: 1rem;
+    //       }
+    //     }
+  
+    //     &:not(:last-child) {
+    //       margin-right: 1rem;
+    //     }
+  
+    //     .__description {
+    //       margin-top: 6px;
+    //       font-size: 0.8rem;
+    //     }
+    //     .__title {
+    //       font-size: 2rem;
+    //     }
+    //   }
+    // }
   }
 }

@@ -1,3 +1,23 @@
+@mixin for-new-phone {
+  @media (min-width: 400px) {
+    @content;
+  }
+}
+
+
+@mixin for-new-tablets {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin for-new-desktop {
+  @media (min-width: 1140px) {
+    @content;
+  }
+}
+
+
 @mixin for-phone {
   @media (min-width: 400px) {
     @content;

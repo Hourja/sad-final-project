@@ -1,0 +1,79 @@
+@import '../../common/media-queries';
+
+.category-icons-container {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    
+
+    @include for-new-desktop {
+        display: flex;
+        margin: 45px 0;
+        width: 80%;
+    }
+
+    .category-link {
+      text-decoration: none;
+      color: $black;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #66A4C0;
+      width: 30%;
+      margin: 5px;
+      padding: 20px;
+      height: 80px;
+      transition: .3s;
+      &:hover  {
+        background-color: #66A4C0;
+        svg {
+          color: $white;
+        }
+        .category-tooltip {
+          background-color: none;
+          color: $white;
+        }
+      }
+
+     
+      .category-tooltip {
+        margin-top: 10px;
+      }
+      @include for-new-desktop {
+        margin: 0 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid #66A4C0;
+        width: 12%;
+        height: 120px;
+        padding: 50px;
+      }
+
+      &.hidden {
+        color: $black;
+      }
+      &.show {
+        color: #66A4C0;
+      }
+    }
+    .category-tooltip {
+    //   position: absolute;
+      // background-color: $light-grey;
+      bottom: -8px;
+      left: 50%;
+    //   transform: translate(-50%, 100%);
+    //   visibility: hidden;
+      border-radius: 6px;
+      padding-bottom: 2px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    // &:hover .category-tooltip {
+    //   visibility: visible;
+    // }
+//   }
+}

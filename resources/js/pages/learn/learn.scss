@@ -1,51 +1,20 @@
 @import '../../common/media-queries';
-
-.category-icons-container {
-  display: flex;
-  margin: 45px 0;
-  .category-icons {
-    margin: 0 10px;
-    position: relative;
-    .category-link {
-      text-decoration: none;
-      color: $black;
-      &.hidden {
-        color: $black;
-      }
-      &.show {
-        color: red;
-      }
-    }
-    .category-tooltip {
-      position: absolute;
-      background-color: $light-grey;
-      bottom: -8px;
-      left: 50%;
-      transform: translate(-50%, 100%);
-      visibility: hidden;
-      border-radius: 6px;
-      padding-bottom: 2px;
-      text-align: center;
-    }
-    &:hover .category-tooltip {
-      visibility: visible;
-    }
-  }
-}
-
 .topics-list {
   display: flex;
-  width: 700px;
-  cursor: pointer;
+  
 
-  @include for-tablets {
+  @include for-new-phone {
     width: 100%;
     flex-direction: column;
     align-items: center;
   }
-  // @include for-phone {
 
-  // }
+  @include for-new-desktop {
+    flex-direction: row;
+    width: 800px;
+    cursor: pointer;
+  }
+
 
   .topics-list-city,
   .phrases-list {
@@ -57,9 +26,18 @@
   .topics-list-city {
     width: 45%;
     margin-right: 10px;
+
+    @include for-new-phone {
+      margin-bottom: 25px;
+    }
+
+    @include for-new-desktop {
+      margin-bottom: 0;
+    }
+    
     .selected {
       color: $white;
-      background-color: red;
+      background-color: #66A4C0;
     }
     li {
       padding: 8px 0 8px 8px;
@@ -68,17 +46,15 @@
       border-radius: 6px;
       width: 100%;
       text-align: center;
+
+      &:hover {
+        color: $white;
+        background-color: #66A4C0;
+      }
     }
 
-    @include for-tablets {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    @include for-phone {
-      width: 100%;
+    @include for-new-phone {
+      width: 80%;
       display: flex;
       flex-direction: column;
       flex-wrap: wrap;
@@ -86,30 +62,61 @@
   }
 
   .phrases-list {
-    width: 55%;
-    border: 1px solid $black;
-    border-radius: 6px;
-    padding: 6px;
+
+    @include for-new-desktop  {
+      width: 55%;
+      border: 1px solid #D7E2E8;
+      background-color: #D7E2E8;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      height: auto;
+    }
+    
+
+    @include for-new-phone {
+      width: 80%;
+      border: 1px solid #D7E2E8;
+      background-color: #D7E2E8;
+      border-radius: 6px;
+      
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
+
+    .list-phrases-topics {
+      width: 100%;
+      padding: 6px;
+    }
+
 
     .list-phrases-translations {
+      width: 100%;
+
       .translation {
         display: flex;
+        width: 100%;
         align-items: center;
         justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px dashed $white;
+        &:last-child {
+          border-bottom: none;
+        }
       }
     }
 
     .loading-text {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
+      width: 100%;
+      text-align: center;
+      padding: 6px;
+
+      @include for-new-phone {
+        margin: 0;
+      }
     }
 
-    @include for-tablets {
-      width: 100%;
-      flex-direction: column;
-      align-items: center;
-    }
+    
   }
 }

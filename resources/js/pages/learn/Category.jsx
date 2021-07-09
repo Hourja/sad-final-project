@@ -6,18 +6,18 @@ export default function Category({ category }) {
   const { url } = useRouteMatch()
   const { topics } = category
   const { categoryId } = useParams()
-  console.log(categoryId)
 
   return (
-    <div className='category-icons'>
+    
       <NavLink
         to={`${categoryId ? url.substring(0, url.lastIndexOf('/')) : url}/${category.id}`}
-        className={'category-link ' + (categoryId == category.id ? 'show' : 'hidden')}
-      >
-        <FontAwesomeIcon icon={category.photo_url} size='lg' />
+        className={'category-link ' + (categoryId == category.id ? 'show' : 'hidden')}>
+          <div className='category-icons'>
+            <FontAwesomeIcon icon={category.photo_url} size='2x' />
+          </div>
+          <div className='category-tooltip'>{category.name}</div>
       </NavLink>
-      <div className='category-tooltip'>{category.name}</div>
-    </div>
+
   )
 }
 

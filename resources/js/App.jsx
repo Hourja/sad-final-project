@@ -27,6 +27,7 @@ require('../img/david.jpg').default
 require('../img/santorini.jpg').default
 
 export default function App() {
+  
   return (
     <UserContextProvider>
       <BrowserRouter>
