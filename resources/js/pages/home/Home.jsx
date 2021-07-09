@@ -7,13 +7,17 @@ import Testimonials from '../../components/Testimonials'
 import ContactForm from '../../components/ContactForm'
 import './Home.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import BackTopButton from '../../components/BackTopButton'
+
 
 function Homepage() {
   const { user } = useContext(UserContext)
   const [name] = user ? user.name.split(' ') : ['Traveller']
+
   return (
     <div className='homepage'>
-      <div className='intro'>
+      <BackTopButton />
+      <div className='intro' >
         <h1>
           Welcome {name} <FontAwesomeIcon icon='globe-americas' />
         </h1>
@@ -62,6 +66,7 @@ function Homepage() {
       </div>
 
       <Testimonials />
+
       <ContactForm
         h2={
           <>
@@ -69,6 +74,7 @@ function Homepage() {
           </>
         }
       />
+      
     </div>
   )
 }

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import LOGO from '../../img/logo.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Cities from './Cities'
 
 import UserContext from '../UserContext'
 
@@ -9,21 +10,34 @@ function Header() {
   const { loggedIn } = useContext(UserContext)
 
   return (
-    <header>
+    <>
+    <header className="Header">
       <Link to='/'>
-        <img src={LOGO} alt='logo' />
+        <img src={LOGO} alt='logo' className="App-logo"/>
       </Link>
-      <nav className='top-menu'>
-        <Link to='/'>
-          <FontAwesomeIcon icon='home' /> Home
-        </Link>
-        {!loggedIn && <Link to='/sign-up'>Register</Link>}
-        {!loggedIn && <Link to='/sign-in'>Login</Link>}
-        <Link to='/about-us'>About</Link>
-        <Link to='/contact'>Contact</Link>
-        {loggedIn && <Link to='/sign-out'>Logout</Link>}
+      <nav className='top-menu' role="navigation">
+        <ul className="nav-bar">
+          <li className="home-link"><Link to='/'>
+            <FontAwesomeIcon icon='home' /> Home
+          </Link></li>
+          <li className="cities-link">Cities <FontAwesomeIcon icon='angle-down' size="xs" />
+            <ul className="dropdown">
+              <li className="city-dropdown"><Cities /></li>
+            </ul>
+          </li>
+          <li className="about-link"><Link to='/about-us'>About</Link></li>
+          <li className="contact-link"><Link to='/contact'>Contact</Link></li>
+          {!loggedIn && <li className="register-link"><Link to='/sign-up'>Register</Link></li>}
+          {!loggedIn && <li className="login-link"><Link to='/sign-in'>Login</Link></li>}
+          {loggedIn && <li className="logout-link"><Link to='/sign-out'>Logout</Link></li>}
+        </ul>
       </nav>
+
+      
     </header>
+
+    </>
+    
   )
 }
 

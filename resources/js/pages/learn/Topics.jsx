@@ -36,9 +36,11 @@ export default function Topics({ categories }) {
           </li>
         ))}
       </ul>
+      
       <div className='phrases-list'>
-        <Phrases topicIds={topicIds} language={language} />
-        {topicIds ? '' : <div className='loading-text'>Select a topic from the left</div>}
+        {
+          topicIds ? <Phrases topicIds={topicIds} language={language} /> : <div className='loading-text'>Select a topic from the left</div>
+        }
       </div>
     </div>
   )
