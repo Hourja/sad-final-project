@@ -1,56 +1,47 @@
-@import 'colors';
-@import 'media-queries';
+@import '../common/colors.scss';
+@import '../common/media-queries.scss';
 
-header {
-  
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 140px;
-  font-weight: bold;
-  background-color: $white;
-  padding: 0;
+.header {
   position: fixed;
   top: 0;
   z-index: 1000;
-  text-align: center;
+  width: 100%;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  background-color: $white;
 
-  @include for-new-desktop {
+  @include for-desktop {
+    height: 100px;
+  }
 
+  .__container {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    height: 100px;
     font-weight: bold;
-    background-color: $white;
-    padding: 0 5%;
-    position: fixed;
-    top: 0;
-    z-index: 1000;
 
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-      animation: App-logo-spin 10s linear;
+    @include for-desktop {
+      flex-direction: row;
     }
   }
-  
-  .App-logo{
+  .App-logo {
     width: 60%;
     max-height: 80px;
   }
-  
+
   @keyframes App-logo-spin {
     from {
       transform: rotate(360deg);
     }
     to {
       transform: rotate(0deg);
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin 10s linear;
     }
   }
 
@@ -99,7 +90,6 @@ header {
             @include for-new-desktop {
               display: inline;
             }
-
           }
         }
 
@@ -115,7 +105,6 @@ header {
           &:hover {
             visibility: visible;
             opacity: 1;
-
           }
 
           .city-dropdown {
@@ -133,7 +122,7 @@ header {
         }
 
         &:hover > ul,
-        &:focus-within > ul{
+        &:focus-within > ul {
           visibility: visible;
           opacity: 1;
           display: flex;
@@ -141,14 +130,11 @@ header {
           justify-content: flex-start;
           width: 0;
         }
-       }
-       
-       li:hover {
-         cursor: pointer;
-       }
-      
+      }
+
+      li:hover {
+        cursor: pointer;
+      }
     }
   }
-
-  
 }

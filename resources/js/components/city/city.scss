@@ -2,56 +2,43 @@
 @import '../../common/media-queries.scss';
 
 .main-city {
-  text-decoration: none;
-  color: $black;
-  display: inline-block;
-  transition: transform 200ms;
-  background-color: $white;
-  position: relative;
-  box-shadow: 0 0 24px -16px opacify($black, 0.1);
-  width: calc(42vw - 2.4rem);
-  height: calc(31vw - 2.4rem);
+  display: none;
 
-  @include for-phone {
-    &:nth-child(3n - 2) {
-      margin-left: 8vw;
-    }
-
-    &:nth-child(3n - 1) {
-      margin-top: 8vw;
-    }
+  @include for-desktop-and-large {
+    text-decoration: none;
+    color: $black;
+    display: inline-block;
+    transition: transform 200ms;
+    background-color: $white;
+    position: relative;
+    box-shadow: 0 0 24px -16px opacify($black, 0.1);
   }
 
   @include for-desktop {
-    width: calc(31vw - 2.4rem);
-    height: calc(23vw - 2.4rem);
+    width: 24vw;
+    height: 16.5vw;
 
     &:not(:last-child) {
-      margin-right: calc(2.4rem - 8px);
+      margin-right: 2vw;
     }
   }
 
   @include for-large {
     width: 340px;
-    height: 240px;
+    height: 232px;
 
     &:not(:last-child) {
-      margin-right: 80px;
+      margin-right: 24px;
     }
   }
-  &:nth-child(3n - 3) {
-    transform: rotate(-6deg);
-  }
 
-  &:nth-child(3n - 1) {
-    transform: rotate(6deg);
-  }
   &:hover {
-    transform: scale(1.1);
+    transform: rotate(6deg);
+    transform: scale(1.05);
   }
 
   .__picture {
-    width: calc(100% - 1.6rem);
+    width: calc(100% - 1.2rem);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -60,19 +47,23 @@
   }
 
   .__name {
-    display: inline-block;
-    position: absolute;
-    bottom: -24px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    background-color: opacify(wheat, 0.05);
-    width: 80%;
-    padding: 8px 0;
-    font-size: 3vw;
+    display: none;
 
-    @include for-large {
-      font-size: 2rem;
+    @include for-desktop-and-large {
+      display: inline-block;
+      position: absolute;
+      bottom: -24px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      background-color: opacify($white, 0.05);
+      width: 80%;
+      padding: 8px 0;
+      font-size: 3vw;
+
+      @include for-large {
+        font-size: 2rem;
+      }
     }
   }
 }
