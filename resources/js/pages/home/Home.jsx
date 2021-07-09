@@ -32,7 +32,6 @@ function Homepage() {
           <Cities />
         </div>
       </Container>
-      <Container></Container>
     </div>
   )
 }
