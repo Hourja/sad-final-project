@@ -4,11 +4,11 @@ import UserContext from '../../UserContext'
 
 import Cities from '../../components/Cities'
 import Container from '../../components/container/Container'
-import Testimonials from '../../components/Testimonials'
-import ContactForm from '../../components/ContactForm'
-import './Home.scss'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import BackTopButton from '../../components/BackTopButton'
+
+import './Home.scss'
 
 function Homepage() {
   const { user } = useContext(UserContext)

@@ -1,0 +1,17 @@
+@import '../common/colors.scss';
+
+.top-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  bottom: 15px;
+  right: 25px;
+  z-index: 1;
+  cursor: pointer;
+  transition: transform 250ms;
+
+  &:hover {
+    transform: translateY(-10px);
+  }
+}

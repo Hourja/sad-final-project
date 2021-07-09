@@ -2,6 +2,8 @@ import { useState } from 'react'
 import sendMessage from '../requests/sendMessage'
 import Errors from './Errors'
 
+import './contactForm.scss'
+
 const initialValues = {
   fullName: '',
   email: '',

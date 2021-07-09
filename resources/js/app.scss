@@ -3,14 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-@import 'reset';
-@import 'colors';
-@import 'contact-form';
-@import 'media-queries.scss';
-@import '../pages/learn/learn';
-@import '../pages/learn/category-icons';
-@import '../common/back-to-top.scss';
-@import '../common/dark-mode.scss';
+@import './common/reset.scss';
+@import './common/colors.scss';
+@import './common/media-queries.scss';
 
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&family=Nunito:wght@200;400;700&display=swap');
 

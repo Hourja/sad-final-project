@@ -1,0 +1,23 @@
+@import '../common/colors.scss';
+
+:root {
+  --bg-color: #fff;
+  --text-color: #000;
+}
+
+[data-theme='dark'] {
+  --bg-color: #3f3f3f;
+  --text-color: #fff;
+}
+
+// [data-theme="light"] {
+//     --bg-color: #fff;
+//     --text-color: #000;
+// }
+
+body {
+  font-family: sans-serif;
+  text-align: center;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}

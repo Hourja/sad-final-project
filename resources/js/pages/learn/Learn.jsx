@@ -1,5 +1,7 @@
 import Category from './Category'
 
+import './learn.scss'
+
 export default function Learn({ categories }) {
   return (
     <div className='category-icons-container'>
