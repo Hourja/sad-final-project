@@ -25,7 +25,8 @@ export default function Dashboard() {
           )}
         />
 
-        <Route path={`${path}/phrases/create`} component={NewPhraseForm} />
+        <Route exact path={`${path}/phrases/create`} component={NewPhraseForm} />
+        <Route path={`${path}/phrases/:id`} component={NewPhraseForm} />
 
         <Route path={`${path}/tables`} component={BasicTable} />
       </Switch>

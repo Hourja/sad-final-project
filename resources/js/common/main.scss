@@ -19,4 +19,8 @@ body {
   min-height: 100vh;
   font-family: 'Nunito', sans-serif;
   min-width: min-content;
+  padding-top: 140px;
+  @include for-desktop-and-large {
+    padding-top: 100px;
+  }
 }
