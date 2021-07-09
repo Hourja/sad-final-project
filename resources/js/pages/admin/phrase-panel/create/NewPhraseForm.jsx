@@ -1,26 +1,21 @@
 import { useState, useContext, useEffect } from 'react'
-import Errors from '../../components/Errors'
-import UserContext from '../../UserContext'
-import NewPhrase from './phrases/newPhrase'
-import Topics from './topics/Topics'
-import createPhrase from '../../requests/admin/createPhrase'
-import TranslationInput from './translation/TranslationInput'
-import fetchLanguages from '../../requests/admin/fetchLanguages'
+import Errors from '../../../../components/Errors'
+import NewPhrase from './PhraseInput'
+import Topics from './TopicsList'
+import createPhrase from '../../../../requests/admin/createPhrase'
+import TranslationInput from './TranslationInput'
+import fetchLanguages from '../../../../requests/admin/fetchTranslations'
 
-export default function Admin() {
-  const { user } = useContext(UserContext)
+export default function NewPhraseForm() {
   const [topics, setTopics] = useState(null)
   const [errors, setErrors] = useState(null)
-  const [loaded, setLoaded] = useState(false)
   const [languages, setLanguages] = useState(null)
 
   useEffect(loadLanguages, [])
   async function loadLanguages() {
-    setLoaded(false)
     const loadedLanguages = await fetchLanguages()
+    // The reduce() method executes a reducer function (groupById) (that you provide) on each element of the array, resulting in a single output value.
     setLanguages(loadedLanguages.reduce(groupById, new Map()))
-
-    setLoaded(true)
   }
 
   const [{ phrase, topic }, setValues] = useState({
@@ -29,7 +24,7 @@ export default function Admin() {
   })
 
   const handleChange = (event) => {
-    const allowed_names = ['phrase', 'topic'],
+    const allowed_names = ['phrase'],
       name = event.target.name,
       value = event.target.value
 
@@ -65,12 +60,7 @@ export default function Admin() {
 
         {languages
           ? Array.from(languages.values()).map((language, index) => (
-              <TranslationInput
-                key={index}
-                language={language}
-                onChange={onLanguageChange}
-                value={language.translation}
-              />
+              <TranslationInput key={index} language={language} onChange={onLanguageChange} />
             ))
           : 'Loading'}
 
@@ -82,6 +72,7 @@ export default function Admin() {
   )
 }
 
+// from reduce function  the second arg is the new Map that we are going to use
 const groupById = (languagesMap, language) => {
   return languagesMap.set(language.id, language)
 }

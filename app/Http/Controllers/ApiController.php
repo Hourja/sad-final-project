@@ -34,7 +34,7 @@ class ApiController extends Controller
                 $my_type = City::get();
                 break;
             case 'languages':
-                $my_type = Language::get();
+                $my_type = Language::with('translations')->get();
                 break;
             case 'phrases':
                 $my_type = Phrase::get();
@@ -79,4 +79,24 @@ class ApiController extends Controller
 
         return $translation;
     }
+
+
+    public function getTranlations(Request $request)
+    {
+
+
+        $phrases = Translation::whereHas('phrase', function ($query) use ($request) {
+                $query->where('phrase_id', $request->query('phraseId'));
+            })
+            //the whereHas is a way to search on the relationship table
+            ->get();
+
+        // $languages = Language::get();
+        return $phrases;
+
+
+
+    }
+
+
 }

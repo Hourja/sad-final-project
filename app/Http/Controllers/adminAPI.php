@@ -21,24 +21,14 @@ class adminAPI extends Controller
      */
     public function index(Request $input)
     {
-
+        dd($input);
         // Topic::findOrFail($input['topic']);
 
         $this->validate($input, [
             'phrase' => 'required|string',
             'topic' => 'required'
         ]);
-     return ['message' => 'success'];
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return ['message' => 'success'];
     }
 
     /**
@@ -52,27 +42,6 @@ class adminAPI extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.

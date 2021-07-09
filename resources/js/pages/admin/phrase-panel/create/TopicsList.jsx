@@ -1,4 +1,4 @@
-import fetchTopics from '../../../requests/admin/fetchTopics'
+import fetchTopics from '../../../../requests/admin/fetchTopics'
 import { useState, useEffect } from 'react'
 
 export default function Topics({ handleChange, setTopics, topics }) {

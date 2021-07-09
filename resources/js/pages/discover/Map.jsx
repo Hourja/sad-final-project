@@ -8,6 +8,7 @@ export default function Map({ categories }) {
   })
 
   return (
+    <div>geia</div>
     // <iframe
     //   width='600'
     //   height='450'
@@ -17,11 +18,11 @@ export default function Map({ categories }) {
     // &q=${category.name}+in+${city}&zoom=12`}
     // ></iframe>
 
-    <iframe
-      src='https://www.google.com/maps/d/u/0/embed?mid=1HxlZkQPS7UNKW7fVds2CsBx4HPjYeoCb'
-      width='640'
-      height='480'
-    ></iframe>
+    // <iframe
+    //   src='https://www.google.com/maps/d/u/0/embed?mid=1HxlZkQPS7UNKW7fVds2CsBx4HPjYeoCb'
+    //   width='640'
+    //   height='480'
+    // ></iframe>
     // <iframe src="https://www.google.com/maps/d/embed?mid=1z05obk7Met3hFcnQq4RPLqNYqD6r0ZSh&hl=en_US" width="640" height="480"></iframe>
   )
 }
