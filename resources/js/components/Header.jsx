@@ -12,7 +12,7 @@ function Header() {
   const { loggedIn } = useContext(UserContext)
 
   return (
-    <header className='Header'>
+    <header className='header'>
       <Container className='__container' fluid>
         <Link to='/'>
           <img src={LOGO} alt='logo' className='App-logo' />
