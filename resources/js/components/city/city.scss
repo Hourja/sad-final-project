@@ -1,27 +1,69 @@
 @import '../../common/colors.scss';
+@import '../../common/media-queries.scss';
 
 .main-city {
-  text-decoration: none;
-  color: $black;
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  width: 33%;
-  font-size: 2rem;
-  transition: transform 200ms;
-  background-color: $light-grey;
+  display: none;
 
-  &:hover {
-    transform: scale(1.005);
+  @include for-desktop-and-large {
+    text-decoration: none;
+    color: $black;
+    display: inline-block;
+    transition: transform 200ms;
+    background-color: $white;
+    position: relative;
     box-shadow: 0 0 24px -16px opacify($black, 0.1);
   }
 
+  @include for-desktop {
+    width: 24vw;
+    height: 16.5vw;
+
+    &:not(:last-child) {
+      margin-right: 2vw;
+    }
+  }
+
+  @include for-large {
+    width: 340px;
+    height: 232px;
+
+    &:not(:last-child) {
+      margin-right: 24px;
+    }
+  }
+
+  &:hover {
+    transform: rotate(6deg);
+    transform: scale(1.05);
+  }
+
   .__picture {
-    width: 100%;
+    width: calc(100% - 1.2rem);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 24px -16px opacify($black, 0.1);
   }
 
   .__name {
-    text-align: center;
-    margin: 0.8rem 0;
+    display: none;
+
+    @include for-desktop-and-large {
+      display: inline-block;
+      position: absolute;
+      bottom: -24px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      background-color: opacify($white, 0.05);
+      width: 80%;
+      padding: 8px 0;
+      font-size: 3vw;
+
+      @include for-large {
+        font-size: 2rem;
+      }
+    }
   }
 }
