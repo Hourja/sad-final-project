@@ -7,6 +7,7 @@ use App\Models\Phrase;
 use App\Models\Category;
 use App\Models\City;
 use app\Models\Language;
+use App\Models\Topic;
 use App\Models\Translation;
 
 
@@ -18,24 +19,16 @@ class adminAPI extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $input)
     {
-        // Chaining from City->Categories->Topics and showing Topics
-        $categories = Category::with('topics')->get();
-        // $categories->topics->pluck('phrases')->collapse()->unique();
+        dd($input);
+        // Topic::findOrFail($input['topic']);
 
-
-        return;
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $this->validate($input, [
+            'phrase' => 'required|string',
+            'topic' => 'required'
+        ]);
+        return ['message' => 'success'];
     }
 
     /**
@@ -49,27 +42,6 @@ class adminAPI extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.

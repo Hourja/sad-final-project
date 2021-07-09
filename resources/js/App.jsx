@@ -28,13 +28,13 @@ require('../img/santorini.jpg').default
 require('../img/home-photo1.jpg').default
 
 export default function App() {
-  
   return (
     <UserContextProvider>
-      {console.log(process.env.REACT_APP_SECRET_KEY)}
       <BrowserRouter>
         <Header />
-        <Routes />
+        <div className='app'>
+          <Routes />
+        </div>
         <Footer />
       </BrowserRouter>
     </UserContextProvider>

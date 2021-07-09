@@ -8,8 +8,10 @@ import Login from './pages/login/Login'
 import City from './pages/city/City'
 import Logout from './pages/logout/Logout'
 import Contact from './pages/contact/Contact'
+import Dashboard from './pages/admin/Dashboard'
 
 import UserContext from './UserContext'
+//admin imports
 
 export default function Routes() {
   const { loggedIn } = useContext(UserContext)
@@ -23,6 +25,8 @@ export default function Routes() {
       <Route path='/contact' component={Contact} />
       <Route path='/about-us' exact component={About} />
       <Route path='/city/:city' component={City} />
+      {/* ADMIN DASHBOARD */}
+      <Route path='/admin' component={() => (!loggedIn ? <Redirect to='/' /> : <Dashboard />)} />
     </Switch>
   )
 }

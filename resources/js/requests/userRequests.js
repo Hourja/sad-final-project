@@ -103,7 +103,6 @@ export async function register({ email, name, password, password_confirmation })
     const data = await response.json()
 
     if (data.message !== 'success') {
-      console.log(data)
       return {
         success: false,
         errors: Object.values(data.errors).flat()

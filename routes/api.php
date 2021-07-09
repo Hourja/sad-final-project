@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\adminAPI;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,18 +21,31 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/table/getPhrases/{topic_id}', 'ApiController@getPhrases');
+// Paths to obtain Phrases/Language/Translation
+Route::get('/table/getPhrases', 'ApiController@getPhrases');
 Route::get('/table/getLanguage', 'ApiController@getLanguage');
 Route::get('/table/translate', 'ApiController@translate');
+Route::get('/table/phraseWithTranslation', 'ApiController@getTranlations');
 
-
+// All-use API
 Route::get('/table/{type}', 'ApiController@showType');
 
+
+// Send a message through contact form
 Route::post('/sendMessage', 'MessageController@sendMessage');
 
-Route::post('/new-register', 'UserController@register');
+
+
+// Login / Logout / Register
+
 Route::post('token', 'UserController@token');
+Route::post('logout', 'UserController@logout')->middleware('auth:sanctum');
+Route::post('/new-register', 'UserController@register');
+
+// Check if user Exists
 Route::get('user', 'UserController@user')->middleware('auth:sanctum');
 Route::get('checkLogged', 'UserController@check')->middleware('auth:sanctum');
 
-Route::post('logout', 'UserController@logout')->middleware('auth:sanctum');
+
+// Create new phrase
+Route::post('/new/phrase', 'adminAPI@index');
