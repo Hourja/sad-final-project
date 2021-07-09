@@ -1,12 +1,7 @@
-@import 'colors';
+@import '../common/colors.scss';
 
-footer {
+.footer {
   background-color: $white;
-  left: 0;
-  bottom: 0;
-  position: absolute;
-  width: 100%;
-  // height: 10%;
 
   .credits-footer {
     margin-bottom: 10px;

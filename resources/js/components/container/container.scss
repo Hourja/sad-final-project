@@ -1,0 +1,19 @@
+@import '../../common/media-queries.scss';
+
+.container {
+  width: 100%;
+
+  position: relative;
+
+  @include for-large {
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+
+  &.--fluid {
+    @include for-large {
+      width: calc(100% - 120px);
+      max-width: unset;
+    }
+  }
+}

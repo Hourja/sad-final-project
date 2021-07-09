@@ -25,6 +25,7 @@ require('../img/amanda.jpg').default
 require('../img/spiros.jpg').default
 require('../img/david.jpg').default
 require('../img/santorini.jpg').default
+require('../img/home-photo1.jpg').default
 
 export default function App() {
   return (
@@ -32,11 +33,7 @@ export default function App() {
       {console.log(process.env.REACT_APP_SECRET_KEY)}
       <BrowserRouter>
         <Header />
-
-        <div className='app'>
-          <Routes />
-        </div>
-
+        <Routes />
         <Footer />
       </BrowserRouter>
     </UserContextProvider>
