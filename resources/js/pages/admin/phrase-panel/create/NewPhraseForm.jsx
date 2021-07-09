@@ -4,7 +4,7 @@ import NewPhrase from './PhraseInput'
 import Topics from './TopicsList'
 import createPhrase from '../../../../requests/admin/createPhrase'
 import TranslationInput from './TranslationInput'
-import fetchLanguages from '../../../../requests/admin/fetchTranslations'
+import fetchLanguages from '../../../../requests/admin/fetchLanguages'
 
 export default function NewPhraseForm() {
   const [topics, setTopics] = useState(null)
