@@ -1,10 +1,8 @@
-import { NavLink, useRouteMatch, Route, useParams } from 'react-router-dom'
+import { NavLink, useRouteMatch, useParams } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Topics from './Topics'
 
 export default function Category({ category }) {
   const { url } = useRouteMatch()
-  const { topics } = category
   const { categoryId } = useParams()
 
   return (
@@ -20,7 +18,3 @@ export default function Category({ category }) {
 
   )
 }
-
-//  {topics.map((topic, index) => (
-//         <Link to={`${url}/topic/${topic.id}`} component={() => <div>{topic.name}</div>} />
-//       ))}
