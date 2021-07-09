@@ -1,13 +1,13 @@
-export default function TranslationInput({ language, onChange }) {
+export default function TranslationInput({ language, onChange, index }) {
   const handleChange = (e) => {
-    onChange(language.id, e.target.value)
+    onChange(index, e.target.value)
   }
 
   return (
     <div>
       <label htmlFor='name'>
         {language.name}
-        <input className='register-input' type='text' name={language.id} onChange={handleChange} />
+        <input className='register-input' type='text' onChange={handleChange} />
       </label>
     </div>
   )

@@ -10,28 +10,24 @@ export default function Dashboard() {
       <h1>Dashboard</h1>
 
       <Switch>
-        <Route
-          exact
-          path={path}
-          component={() => (
-            <div className='__links'>
-              <NavLink to={`${url}/phrases/create`} className='__link' activeClassName='--active'>
-                <span className='__title'>Create a Phrase</span>
-              </NavLink>
-              <NavLink to={`${url}/tables`} className='__link' activeClassName='--active'>
-                <span className='__title'>Show All</span>
-              </NavLink>
-            </div>
-          )}
-        />
-
+        <Route exact path={path} component={DashboardNavigation} />
         <Route exact path={`${path}/phrases/create`} component={NewPhraseForm} />
-        <Route path={`${path}/phrases/:id`} component={NewPhraseForm} />
-
+        <Route path={`${path}/tables/phrase/:id`} component={() => <div>check</div>} />
         <Route path={`${path}/tables`} component={BasicTable} />
       </Switch>
-
-      {/* <Route exact path={`${path}/tables/phrase/:phraseId`} exact component={EditPhrase} /> */}
     </main>
+  )
+}
+
+function DashboardNavigation() {
+  return (
+    <div className='__links'>
+      <NavLink to={`${url}/phrases/create`} className='__link' activeClassName='--active'>
+        <span className='__title'>Create a Phrase</span>
+      </NavLink>
+      <NavLink to={`${url}/tables`} className='__link' activeClassName='--active'>
+        <span className='__title'>Show All</span>
+      </NavLink>
+    </div>
   )
 }

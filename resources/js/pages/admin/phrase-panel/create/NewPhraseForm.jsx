@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from 'react'
 import Errors from '../../../../components/Errors'
 import NewPhrase from './PhraseInput'
-import Topics from './TopicsList'
+import TopicsList from './TopicsList'
 import createPhrase from '../../../../requests/admin/createPhrase'
 import TranslationInput from './TranslationInput'
 import fetchLanguages from '../../../../requests/admin/fetchLanguages'
@@ -15,16 +15,17 @@ export default function NewPhraseForm() {
   async function loadLanguages() {
     const loadedLanguages = await fetchLanguages()
     // The reduce() method executes a reducer function (groupById) (that you provide) on each element of the array, resulting in a single output value.
-    setLanguages(loadedLanguages.reduce(groupById, new Map()))
+    setLanguages(loadedLanguages)
   }
 
-  const [{ phrase, topic }, setValues] = useState({
+  const [{ phrase, topic, translations }, setValues] = useState({
     phrase: '',
-    topic: ''
+    topic: '',
+    translations: languages ? new Array(languages.length).fill('') : []
   })
 
   const handleChange = (event) => {
-    const allowed_names = ['phrase'],
+    const allowed_names = ['phrase', 'topic'],
       name = event.target.name,
       value = event.target.value
 
@@ -38,15 +39,22 @@ export default function NewPhraseForm() {
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    const { success, errors } = await createPhrase({ phrase, topic, languages })
+    const { success, errors } = await createPhrase({
+      topic_id: topic,
+      phrase,
+      translations: languages.map((language, index) => {
+        return { language_id: language.id, translation: translations[index] }
+      })
+    })
 
     if (!success) {
       return setErrors(errors)
     }
   }
 
-  const onLanguageChange = (languageId, translation) => {
-    languages.get(languageId).translation = translation
+  const onLanguageChange = (index, translation) => {
+    translations[index] = translation
+    setValues({ phrase, topic, translations })
   }
 
   return (
@@ -54,13 +62,13 @@ export default function NewPhraseForm() {
       <h1 className='register-title'>Add a phrase</h1>
 
       <form className='register' action='' method='post' onSubmit={handleSubmit}>
-        <Topics setTopics={setTopics} topics={topics} handleChange={handleChange} />
+        <TopicsList setTopics={setTopics} topics={topics} handleChange={handleChange} />
 
         <NewPhrase setValues={setValues} phrase={phrase} handleChange={handleChange} />
 
         {languages
-          ? Array.from(languages.values()).map((language, index) => (
-              <TranslationInput key={index} language={language} onChange={onLanguageChange} />
+          ? languages.map((language, index) => (
+              <TranslationInput key={index} language={language} index={index} onChange={onLanguageChange} />
             ))
           : 'Loading'}
 
@@ -70,9 +78,4 @@ export default function NewPhraseForm() {
       </form>
     </>
   )
-}
-
-// from reduce function  the second arg is the new Map that we are going to use
-const groupById = (languagesMap, language) => {
-  return languagesMap.set(language.id, language)
 }
