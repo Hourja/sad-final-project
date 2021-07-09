@@ -1,7 +1,7 @@
 import fetchTopics from '../../../../requests/admin/fetchTopics'
 import { useState, useEffect } from 'react'
 
-export default function Topics({ handleChange, setTopics, topics }) {
+export default function TopicsList({ handleChange, setTopics, topics }) {
   const [loaded, setLoaded] = useState(false)
 
   useEffect(loadTopics, [])

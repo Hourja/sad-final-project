@@ -54,17 +54,9 @@ export default function Row({ phrase }) {
 
       <ChangeLanguage languageRotation={languageRotation} buttonText={buttonText} />
 
-      <Switch>
-        <Route
-          exact
-          path={path}
-          component={() => (
-            <NavLink to={`${url}/phrase/${id}`} className='__link' activeClassName='--active'>
-              <span className='__title'>Edit Phrase</span>
-            </NavLink>
-          )}
-        />
-      </Switch>
+      <NavLink to={`${url}/phrase/${id}`} className='__link' activeClassName='--active'>
+        <span className='__title'>Edit Phrase</span>
+      </NavLink>
     </div>
   )
 }

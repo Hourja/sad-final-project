@@ -1,8 +1,11 @@
-export default async function createPhrase({ phrase, topic, languages }) {
+export default async function createPhrase({ topic_id, phrase, translations }) {
+  console.log({ topic_id, phrase, translations })
+  return
+
   try {
-    const response = await fetch('api/new/phrase', {
+    const response = await fetch('/api/new/phrase', {
       method: 'POST',
-      body: JSON.stringify({ phrase, topic, languages: Array.from(languages.values()) }),
+      body: JSON.stringify({ phrase, topic }),
       headers: {
         Accept: 'application/json',
         'Content-type': 'application/json',
