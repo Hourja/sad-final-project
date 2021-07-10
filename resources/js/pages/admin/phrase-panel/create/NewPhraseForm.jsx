@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from 'react'
 import Errors from '../../../../components/Errors'
-import NewPhrase from './PhraseInput'
+import NewPhrase from './NewPhrase'
 import TopicsList from './TopicsList'
 import createPhrase from '../../../../requests/admin/createPhrase'
 import TranslationInput from './TranslationInput'
@@ -14,7 +14,6 @@ export default function NewPhraseForm() {
   useEffect(loadLanguages, [])
   async function loadLanguages() {
     const loadedLanguages = await fetchLanguages()
-    // The reduce() method executes a reducer function (groupById) (that you provide) on each element of the array, resulting in a single output value.
     setLanguages(loadedLanguages)
   }
 

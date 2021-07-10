@@ -1,6 +1,6 @@
 import './table.scss'
 import Row from './Row'
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect } from 'react'
 import fetchPhrases from '../../../../requests/admin/fetchPhrases'
 
 export default function BasicTable() {

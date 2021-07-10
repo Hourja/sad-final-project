@@ -1,6 +1,6 @@
-export default async function createPhrase({ translations, phrase, topic }) {
+export default async function editPhrase({ translations, phrase, topic }) {
   try {
-    const response = await fetch('/api/new/phrase', {
+    const response = await fetch('/api/edit/phrase', {
       method: 'POST',
       body: JSON.stringify({ translations, phrase, topic }),
       headers: {

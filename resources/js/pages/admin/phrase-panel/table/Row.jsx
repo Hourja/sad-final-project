@@ -49,14 +49,18 @@ export default function Row({ phrase }) {
   }
 
   return (
-    <div>
-      <RowText rowText={rowText} />
+    <>
+      {languageData ? (
+        <div>
+          <RowText rowText={rowText} />
 
-      <ChangeLanguage languageRotation={languageRotation} buttonText={buttonText} />
+          <ChangeLanguage languageRotation={languageRotation} buttonText={buttonText} />
 
-      <NavLink to={`${url}/phrase/${id}`} className='__link' activeClassName='--active'>
-        <span className='__title'>Edit Phrase</span>
-      </NavLink>
-    </div>
+          <NavLink to={`${url}/phrase/${id}`} className='__link' activeClassName='--active'>
+            <span className='__title'>Edit Phrase</span>
+          </NavLink>
+        </div>
+      ) : null}
+    </>
   )
 }

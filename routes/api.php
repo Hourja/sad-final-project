@@ -22,12 +22,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 // Paths to obtain Phrases/Language/Translation
+Route::get('/table/getPrevious', 'ApiController@getPrevious');
 Route::get('/table/getPhrases', 'ApiController@getPhrases');
 Route::get('/table/getLanguage', 'ApiController@getLanguage');
 Route::get('/table/translate', 'ApiController@translate');
 Route::get('/table/phraseWithTranslation', 'ApiController@getTranlations');
 
 // All-use API
+
 Route::get('/table/{type}', 'ApiController@showType');
 
 
@@ -49,3 +51,4 @@ Route::get('checkLogged', 'UserController@check')->middleware('auth:sanctum');
 
 // Create new phrase
 Route::post('/new/phrase', 'adminAPI@index');
+Route::post('/edit/phrase', 'adminAPI@edit');

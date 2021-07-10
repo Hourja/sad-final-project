@@ -34,7 +34,7 @@ class ApiController extends Controller
                 $my_type = City::get();
                 break;
             case 'languages':
-                $my_type = Language::with('translations')->get();
+                $my_type = Language::orderBy('id','asc')->with('translations')->get();
                 break;
             case 'phrases':
                 $my_type = Phrase::get();
@@ -97,6 +97,29 @@ class ApiController extends Controller
 
 
     }
+
+
+    public function getPrevious(Request $request)
+
+    {
+       $phrase =  Phrase::findOrFail($request->query('phraseId'));
+       $topic = Topic::findOrFail($phrase->topic_id);
+       $translations = Translation::orderBy('language_id', 'asc')->whereHas('phrase', function ($query) use ($phrase) {
+            $query->where('phrase_id', $phrase->id );
+        })
+            //the whereHas is a way to search on the relationship table
+            ->get();
+
+    // made my data look as useful as possible!
+
+        $data=['id'=>$phrase->id,'name'=>$phrase->name,'topic_id'=>$topic->id,'topic_name'=>$topic->name,'translations'=>$translations];
+
+
+
+    return $data ;
+
+    }
+
 
 
 }

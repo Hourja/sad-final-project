@@ -28,25 +28,22 @@ export default function City() {
 
   return (
     <main className='city'>
-      <Gallery city={ city }/>
+      <Gallery city={city} />
       {/* <img src={`/images/${city}.jpg`} /> */}
-      <div className="text-city">
-        <h1 className="city-name">{ city }</h1>
+      <div className='text-city'>
+        <h1 className='city-name'>{city}</h1>
         <h2>Choose an option below</h2>
       </div>
       <div className='__links'>
-        
         <NavLink to={`${url}/learn`} className='__link' activeClassName='--active'>
           <p className='__title'>Learn</p>
           <p className='__description'> Get ready to use phrases in the local language</p>
-
         </NavLink>
-        
+
         <NavLink to={`${url}/discover`} className='__link' activeClassName='--active'>
           <p className='__title'>Discover</p>
           <p className='__description'>Get a list of places of interest from locals</p>
         </NavLink>
-        
       </div>
 
       <Route path={`${path}/discover/:categoryId?`} component={() => <Discover categories={categories} />} />

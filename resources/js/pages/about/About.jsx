@@ -12,7 +12,6 @@ export default function About() {
     const loadedProfiles = await fetchProfiles()
     setProfiles(loadedProfiles)
   }
-  console.log(profiles)
 
   if (!profiles) {
     return 'Loading...'
