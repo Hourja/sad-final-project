@@ -1,0 +1,65 @@
+@import '../common/media-queries.scss';
+@import '../common/colors.scss';
+
+.cities-block {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  padding: 10px;
+
+  @include for-desktop-and-large {
+    &:nth-child(even) {
+      flex-direction: row;
+    }
+
+    &:nth-child(odd) {
+      flex-direction: row-reverse;
+    }
+  }
+
+  .__picture {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .__description {
+    span {
+      font-size: 24px;
+      text-decoration: solid;
+      font-weight: bold;
+      color: $blue;
+    }
+    p {
+      margin-top: 20px;
+      text-align: justify;
+      font-size: 18px;
+    }
+    .__links {
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+      justify-content: space-around;
+      width: 50%;
+      height: 125px;
+
+      .__link {
+        background-color: $light-blue;
+        text-decoration: none;
+        color: $white;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        width: 220px;
+        height: 50px;
+        padding-top: 15px;
+        box-shadow: 0 0 4px opacify($white, 0.2);
+        border: 1px solid $white;
+
+        &:hover {
+          color: $light-blue;
+          background-color: $white;
+        }
+      }
+    }
+  }
+}

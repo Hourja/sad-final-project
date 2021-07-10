@@ -120,6 +120,10 @@
     left: 50%;
     transform: translateX(-50%);
   }
+
+  .__block-cities {
+    display: flex;
+  }
 }
 
 //padding: 2.4rem 0 4.8rem;
