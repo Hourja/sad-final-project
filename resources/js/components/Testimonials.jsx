@@ -1,3 +1,5 @@
+import './testimonials.scss'
+
 function Testimonials() {
   let data = [
     {

@@ -3,6 +3,7 @@ import { useContext } from 'react'
 import UserContext from '../../UserContext'
 
 import Cities from '../../components/Cities'
+import Testimonials from '../../components/Testimonials'
 import Container from '../../components/container/Container'
 import CitiesBlock from '../../components/CitiesBlock'
 
@@ -45,6 +46,10 @@ function Homepage() {
       </div>
       <Container>
         <CitiesBlock />
+      </Container>
+
+      <Container>
+        <Testimonials />
       </Container>
     </>
   )

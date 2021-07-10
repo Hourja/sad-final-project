@@ -1,0 +1,34 @@
+@import '../common/colors.scss';
+
+.testimonials-list {
+  width: 100%;
+  padding: 2% 10%;
+
+  h2,
+  .testimonials-wrapper {
+    margin-bottom: 30px;
+  }
+  h2 {
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  .testimonials-wrapper {
+    display: flex;
+    justify-content: space-around;
+
+    .testimonial {
+      text-align: center;
+      margin: 0 15px;
+
+      .testimonial-text {
+        font-style: italic;
+      }
+
+      .testimonial-author {
+        color: $blue;
+        font-size: 0.7rem;
+      }
+    }
+  }
+}
