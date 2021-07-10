@@ -1,4 +1,4 @@
-import TopicsList from './TopicsList'
+import TopicsList from '../create/TopicsList'
 import { useState, useContext, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import EditPhraseInput from './EditPhraseInput'
@@ -35,10 +35,10 @@ export default function EditPhrase() {
     const loadedOldValues = await fetchOldValues(phraseId)
     setLoadedData(loadedOldValues)
 
-    const { name, topic_name, translations } = loadedOldValues
+    const { name, topic_id, translations } = loadedOldValues
     setValues({
       phrase: name,
-      topic: topic_name,
+      topic: topic_id,
       translations: loadedOldValues ? translations : []
     })
   }
@@ -62,9 +62,9 @@ export default function EditPhrase() {
     event.preventDefault()
 
     const { success, errors } = await editPhrase({
-      topic_id: topic,
+      topic,
       phrase,
-      translations: languages.map((language, index) => {
+      translations: languages.map((language, index, topic) => {
         return { language_id: language.id, translation: translations[index] }
       })
     })

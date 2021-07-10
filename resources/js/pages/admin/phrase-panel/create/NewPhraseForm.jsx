@@ -39,7 +39,7 @@ export default function NewPhraseForm() {
     event.preventDefault()
 
     const { success, errors } = await createPhrase({
-      topic_id: topic,
+      topic,
       phrase,
       translations: languages.map((language, index) => {
         return { language_id: language.id, translation: translations[index] }
