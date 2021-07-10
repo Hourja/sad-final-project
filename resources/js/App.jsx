@@ -19,7 +19,6 @@ import './app.scss'
 require('../img/favicon.png').default
 require('../img/warsaw.jpg').default
 require('../img/rio-de-janeiro.jpg').default
-require('../img/london.jpg').default
 require('../img/amanda.jpg').default
 require('../img/spiros.jpg').default
 require('../img/david.jpg').default

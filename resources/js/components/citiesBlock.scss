@@ -8,18 +8,38 @@
   padding: 10px;
 
   @include for-desktop-and-large {
+    margin-top: 100px;
     &:nth-child(even) {
       flex-direction: row;
+      .__description {
+        margin-left: 30px;
+      }
     }
 
     &:nth-child(odd) {
       flex-direction: row-reverse;
+      .__description {
+        margin-right: 30px;
+      }
     }
+  }
+
+  @include for-desktop {
+    padding: 0 128px;
+  }
+
+  @include for-large {
+    padding: 0 60px;
   }
 
   .__picture {
     width: 100%;
     margin-bottom: 10px;
+    box-shadow: 0 0 4px opacify($black, 0.2);
+
+    @include for-desktop-and-large {
+      width: 400px;
+    }
   }
 
   .__description {
@@ -36,14 +56,20 @@
     }
     .__links {
       display: flex;
-      flex-direction: column;
-      margin-top: 20px;
-      justify-content: space-around;
-      width: 50%;
-      height: 125px;
+      flex-direction: row;
+      margin-top: 80px;
+
+      @include for-large {
+        margin-top: 100px;
+      }
+
+      @include for-desktop {
+        margin-top: 64px;
+      }
 
       .__link {
         background-color: $light-blue;
+        margin-left: 10px;
         text-decoration: none;
         color: $white;
         font-size: 20px;
@@ -52,7 +78,7 @@
         width: 220px;
         height: 50px;
         padding-top: 15px;
-        box-shadow: 0 0 4px opacify($white, 0.2);
+        box-shadow: 0 0 4px opacify($black, 0.2);
         border: 1px solid $white;
 
         &:hover {

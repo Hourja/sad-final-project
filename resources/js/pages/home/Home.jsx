@@ -36,8 +36,14 @@ function Homepage() {
         </Container>
       </div>
 
+      <div className='try'>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo ab cupiditate consectetur consequatur
+          similique optio fuga ducimus aut quibusdam obcaecati! Expedita quidem totam neque, sint optio ullam eveniet
+          excepturi vero.
+        </p>
+      </div>
       <Container>
-        <span>Choose a place</span>
         <CitiesBlock />
       </Container>
     </>
