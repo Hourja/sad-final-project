@@ -36,4 +36,4 @@ function BackTopButton() {
     </div>
   )
 }
-export default BackTopButton
+export default BackTopButton;
