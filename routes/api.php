@@ -50,5 +50,5 @@ Route::get('checkLogged', 'UserController@check')->middleware('auth:sanctum');
 
 
 // Create new phrase
-Route::post('/new/phrase', 'adminAPI@index');
-Route::post('/edit/phrase', 'adminAPI@edit');
+Route::post('/phrase/new', 'PhraseController@store')->middleware('auth:sanctum');;
+Route::post('/edit/phrase', 'adminAPI@edit')->middleware('auth:sanctum');
