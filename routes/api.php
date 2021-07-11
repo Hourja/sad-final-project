@@ -52,3 +52,8 @@ Route::get('checkLogged', 'UserController@check')->middleware('auth:sanctum');
 // Create new phrase
 Route::post('/new/phrase', 'adminAPI@index');
 Route::post('/edit/phrase', 'adminAPI@edit');
+
+//Add Favorite
+Route::post('/phrase/addFavorite', 'AddFavoritePhraseController@addFavorite')->middleware('auth:sanctum');
+Route::post('/phrase/removeFavorite', 'AddFavoritePhraseController@removeFavorite')->middleware('auth:sanctum');
+Route::post('/phrase/checkFavorite', 'AddFavoritePhraseController@checkFavorite');
