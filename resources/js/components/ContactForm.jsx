@@ -42,7 +42,7 @@ function ContacthtmlForm({ h2, children }) {
     <div className='contact-form'>
       {h2 && <h2>{h2}</h2>}
       {children}
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='contact-form-details'>
         <label htmlFor='fullName'>Full name</label>
         <input
           type='text'

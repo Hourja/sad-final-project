@@ -11,10 +11,17 @@
 
 body {
   background-color: $white;
-  min-height: 100vh;
+  
   font-family: 'Nunito', sans-serif;
   min-width: min-content;
+  
+}
+
+#app {
+  position: relative;
+  min-height: 100vh;
   padding-top: 140px;
+  padding-bottom: 120px;
   @include for-desktop-and-large {
     padding-top: 100px;
   }
