@@ -9,6 +9,13 @@ class Phrase extends Model
 {
     use HasFactory;
 
+
+    protected $fillable = [
+        'topic',
+        'language_id',
+        'translations'
+    ];
+
     public function topic()
     {
         return $this->belongsTo(Topic::class);
