@@ -1,15 +1,18 @@
 import './table.scss'
 import Row from './Row'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import fetchPhrases from '../../../../requests/admin/fetchPhrases'
+
+import UserContext from '../../../../UserContext'
 
 export default function BasicTable() {
   const [phrases, setPhrases] = useState(null)
+  const { token } = useContext(UserContext)
 
   useEffect(loadedData, [])
 
   async function loadedData() {
-    const loadedPhrases = await fetchPhrases()
+    const loadedPhrases = await fetchPhrases(token)
     setPhrases(loadedPhrases)
   }
 

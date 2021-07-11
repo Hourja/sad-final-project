@@ -36,9 +36,6 @@ class ApiController extends Controller
             case 'languages':
                 $my_type = Language::orderBy('id','asc')->with('translations')->get();
                 break;
-            case 'phrases':
-                $my_type = Phrase::get();
-                break;
             case 'translations':
                 $my_type = Translation::get();
                 break;

@@ -15,21 +15,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('/secret/admin', 'adminAPI');
+
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Paths to obtain Phrases/Language/Translation
+
+// All-use API
 Route::get('/table/getPrevious', 'ApiController@getPrevious');
 Route::get('/table/getPhrases', 'ApiController@getPhrases');
 Route::get('/table/getLanguage', 'ApiController@getLanguage');
 Route::get('/table/translate', 'ApiController@translate');
 Route::get('/table/phraseWithTranslation', 'ApiController@getTranlations');
-
-// All-use API
-
 Route::get('/table/{type}', 'ApiController@showType');
 
 
@@ -48,7 +46,12 @@ Route::post('/new-register', 'UserController@register');
 Route::get('user', 'UserController@user')->middleware('auth:sanctum');
 Route::get('checkLogged', 'UserController@check')->middleware('auth:sanctum');
 
+//admin
 
-// Create new phrase
-Route::post('/phrase/new', 'PhraseController@store')->middleware('auth:sanctum');;
-Route::post('/edit/phrase', 'adminAPI@edit')->middleware('auth:sanctum');
+// phrases admin
+Route::post('/phrase/new', 'PhraseController@store')->middleware('auth:sanctum');
+Route::post('/edit/phrase', 'AdminController@edit')->middleware('auth:sanctum');
+Route::get ('/phrases', 'PhraseController@listPhrases')->middleware('auth:sanctum');
+//Route::resource('/secret/admin', 'adminAPI');
+// Paths to obtain Phrases/Language/Translation
+
