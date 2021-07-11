@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import Phrase from './Phrase'
-import fetchPhrases from '../../requests/fetchPhrase'
+import fetchPhrase from '../../requests/fetchPhrase'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Phrases({ topicIds, language }) {
@@ -15,7 +15,7 @@ export default function Phrases({ topicIds, language }) {
   async function loadPhrases() {
     setLoaded(false)
 
-    const loadedPhrases = await fetchPhrases(topicIds)
+    const loadedPhrases = await fetchPhrase(topicIds)
     setPhrases(loadedPhrases)
 
     setLoaded(true)

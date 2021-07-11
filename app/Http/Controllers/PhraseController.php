@@ -40,4 +40,9 @@ class PhraseController extends Controller
 
         return ['message' => 'success'];
     }
+
+    public function listPhrases()
+    {
+        return Phrase::with('translations')->get();
+    }
 }

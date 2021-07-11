@@ -1,5 +1,5 @@
 export default async function fetchPhrases(token) {
-  const url = `/api/table/phrases`
+  const url = `/api/phrases`
   const resp = await fetch(url, {
     credentials: 'omit',
     headers: {

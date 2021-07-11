@@ -1,24 +1,15 @@
-import { useEffect, useState } from 'react'
-import { NavLink, useRouteMatch, Route, Switch } from 'react-router-dom'
-
-import fetchTranslations from '../../../../requests/admin/fetchTranslations'
+import { useState } from 'react'
+import { NavLink, useRouteMatch } from 'react-router-dom'
 import ChangeLanguage from './ChangeLanguageButton'
 import RowText from './RowText'
 
 export default function Row({ phrase }) {
-  const { url, path } = useRouteMatch()
-  const { id, name, topic_id } = phrase
+  const { url } = useRouteMatch()
+  const { id, name } = phrase
   const [language, setLanguage] = useState('eng')
-  const [languageData, setLanguageData] = useState(null)
   const [rowText, setRowText] = useState(name)
   const [buttonText, setButtonText] = useState('English')
-
-  useEffect(loadTranslations, [])
-
-  async function loadTranslations() {
-    const loadedTranslations = await fetchTranslations(id)
-    setLanguageData(loadedTranslations)
-  }
+  const languageData = phrase.translations
 
   const languageRotation = () => {
     switch (language) {

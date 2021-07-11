@@ -23,7 +23,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 // All-use API
-
+Route::get('/table/getPrevious', 'ApiController@getPrevious');
+Route::get('/table/getPhrases', 'ApiController@getPhrases');
+Route::get('/table/getLanguage', 'ApiController@getLanguage');
+Route::get('/table/translate', 'ApiController@translate');
+Route::get('/table/phraseWithTranslation', 'ApiController@getTranlations');
 Route::get('/table/{type}', 'ApiController@showType');
 
 
@@ -44,13 +48,10 @@ Route::get('checkLogged', 'UserController@check')->middleware('auth:sanctum');
 
 //admin
 
-// Create new phrase
-Route::post('/phrase/new', 'PhraseController@store')->middleware('auth:sanctum');;
+// phrases admin
+Route::post('/phrase/new', 'PhraseController@store')->middleware('auth:sanctum');
 Route::post('/edit/phrase', 'AdminController@edit')->middleware('auth:sanctum');
+Route::get ('/phrases', 'PhraseController@listPhrases')->middleware('auth:sanctum');
 //Route::resource('/secret/admin', 'adminAPI');
 // Paths to obtain Phrases/Language/Translation
-// Route::get('/table/getPrevious', 'ApiController@getPrevious');
-// Route::get('/table/getPhrases', 'ApiController@getPhrases');
-// Route::get('/table/getLanguage', 'ApiController@getLanguage');
-// Route::get('/table/translate', 'ApiController@translate');
-// Route::get('/table/phraseWithTranslation', 'ApiController@getTranlations');
+
