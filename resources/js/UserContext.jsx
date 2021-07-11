@@ -3,6 +3,7 @@ import * as userRequests from './requests/userRequests'
 
 const defaultContext = {
   loggedIn: false,
+  isAdmin: false,
   token: null,
   user: null
 }
@@ -21,7 +22,7 @@ export function UserContextProvider({ children }) {
       return false
     }
 
-    setUserContext({ loggedIn: true, token, user })
+    setUserContext({ loggedIn: true, isAdmin: user.type === 'admin', token, user })
     return true
   }
 
@@ -45,7 +46,7 @@ export function UserContextProvider({ children }) {
       }
     }
 
-    setUserContext({ loggedIn: true, token, user })
+    setUserContext({ loggedIn: true, isAdmin: false, token, user })
     return {
       success: true
     }
@@ -60,7 +61,7 @@ export function UserContextProvider({ children }) {
       return
     }
 
-    setUserContext({ loggedIn: true, token, user })
+    setUserContext({ loggedIn: true, isAdmin: user.type === 'admin', token, user })
     setIsReady(true)
   }, [])
 

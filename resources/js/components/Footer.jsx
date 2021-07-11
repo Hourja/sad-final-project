@@ -7,7 +7,7 @@ import Container from '../components/container/Container'
 import './footer.scss'
 
 function Footer() {
-  const { loggedIn } = useContext(UserContext)
+  const { loggedIn, isAdmin } = useContext(UserContext)
   return (
     <footer className='footer'>
       <Container className='__container'>
@@ -15,6 +15,7 @@ function Footer() {
           <Link to='/'>Home</Link>
           {!loggedIn && <Link to='/sign-up'>Register</Link>}
           {!loggedIn && <Link to='/sign-in'>Login</Link>}
+          {loggedIn && isAdmin && <Link to='/admin'>Admin</Link>}
           <Link to='/about-us'>About</Link>
           <Link to='/contact'>Contact</Link>
         </nav>

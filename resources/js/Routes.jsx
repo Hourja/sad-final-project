@@ -14,7 +14,7 @@ import UserContext from './UserContext'
 //admin imports
 
 export default function Routes() {
-  const { loggedIn } = useContext(UserContext)
+  const { loggedIn, isAdmin } = useContext(UserContext)
 
   return (
     <Switch>
@@ -26,7 +26,7 @@ export default function Routes() {
       <Route path='/about-us' exact component={About} />
       <Route path='/city/:city' component={City} />
       {/* ADMIN DASHBOARD */}
-      <Route path='/admin' component={() => (!loggedIn ? <Redirect to='/' /> : <Dashboard />)} />
+      <Route path='/admin' component={() => (!loggedIn && !isAdmin ? <Redirect to='/' /> : <Dashboard />)} />
     </Switch>
   )
 }
