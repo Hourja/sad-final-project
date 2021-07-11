@@ -20,32 +20,36 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid #66a4c0;
+    border: 1px solid $blue;
     width: 30%;
     margin: 5px;
     padding: 20px;
     height: 80px;
     transition: 0.3s;
+    
     &:hover {
-      background-color: #66a4c0;
-      svg {
+      background-color: $blue;
+      
+      #category-icon {
         color: $white;
+        background: transparent;
       }
       .category-tooltip {
-        background-color: none;
+        background: transparent;
         color: $white;
       }
     }
 
     .category-tooltip {
       margin-top: 10px;
+      background: transparent;
     }
     @include for-large {
       margin: 0 10px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      border: 1px solid #66a4c0;
+      border: 1px solid $blue;
       width: 12%;
       height: 120px;
       padding: 50px;
@@ -55,7 +59,7 @@
       color: $black;
     }
     &.show {
-      color: #66a4c0;
+      color: $blue;
     }
   }
   .category-tooltip {

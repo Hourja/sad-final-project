@@ -1,7 +1,12 @@
 @import '../common/colors.scss';
 
 .footer {
-  background-color: $white;
+  background-color: $light-grey;
+  position: absolute;
+  bottom: 0;
+  height: 120px;
+  width: 100%;
+  overflow: hidden;
 
   .credits-footer {
     margin-bottom: 10px;
@@ -12,6 +17,7 @@
   .footer-menu {
     display: flex;
     justify-content: center;
+    margin-top: 10px;
     right: 10px;
     font-weight: bold;
     a {
@@ -23,7 +29,7 @@
 
   .social-footer {
     text-align: center;
-    margin: 15px 0;
+    margin: 10px 0;
     svg {
       display: inline-block;
       margin: 0 10px 10px 10px;

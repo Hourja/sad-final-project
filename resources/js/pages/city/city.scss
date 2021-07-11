@@ -6,8 +6,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
   width: 100%;
 
   .text-city {
@@ -24,7 +22,6 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    margin-top: -31px;
     flex-grow: 1;
     flex-basis: 0;
   }
@@ -51,10 +48,10 @@
     .__link {
       position: relative;
       display: block;
-      color: #66a4c0;
+      color: $blue;
       font-size: 14px;
       margin: 30px 25px;
-      border: 1px solid #66a4c0;
+      border: 1px solid $blue;
       padding: 14px 60px;
       overflow: hidden;
       transition: 0.4s all ease;
@@ -62,14 +59,14 @@
       text-align: center;
 
       &.--active {
-        background-color: #8dc6db;
-        color: $light-grey;
-        border: 1px solid #8dc6db;
+        background-color: $blue;
+        color: $white;
+        border: 1px solid $blue;
         box-shadow: 0 0 4px opacify($white, 0.2);
       }
 
       &:before {
-        background: #66a4c0;
+        background: $blue;
         color: $white;
         content: '';
         position: absolute;
