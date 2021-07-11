@@ -39,8 +39,9 @@ Route::post('/sendMessage', 'MessageController@sendMessage');
 // Login / Logout / Register
 
 Route::post('token', 'UserController@token');
-Route::post('logout', 'UserController@logout')->middleware('auth:sanctum');
 Route::post('/new-register', 'UserController@register');
+Route::post('logout', 'UserController@logout')->middleware('auth:sanctum');
+
 
 // Check if user Exists
 Route::get('user', 'UserController@user')->middleware('auth:sanctum');
@@ -49,9 +50,9 @@ Route::get('checkLogged', 'UserController@check')->middleware('auth:sanctum');
 //admin
 
 // phrases admin
-Route::post('/phrase/new', 'PhraseController@store')->middleware('auth:sanctum');
-Route::post('/edit/phrase', 'AdminController@edit')->middleware('auth:sanctum');
-Route::get ('/phrases', 'PhraseController@listPhrases')->middleware('auth:sanctum');
+Route::post('/phrase/new', 'PhraseController@store')->middleware(['auth:sanctum','isAdmin']);
+Route::put('/phrases/:phraseId', 'AdminController@edit')->middleware(['auth:sanctum','isAdmin']);
+Route::get('/phrases', 'PhraseController@listPhrases')->middleware(['auth:sanctum','isAdmin']);
 //Route::resource('/secret/admin', 'adminAPI');
 // Paths to obtain Phrases/Language/Translation
 
