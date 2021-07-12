@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\adminAPI;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,21 +22,26 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 // All-use API
-Route::get('/table/getPrevious', 'ApiController@getPrevious');
-Route::get('/table/getPhrases', 'ApiController@getPhrases');
-Route::get('/table/getLanguage', 'ApiController@getLanguage');
-Route::get('/table/translate', 'ApiController@translate');
-Route::get('/table/phraseWithTranslation', 'ApiController@getTranlations');
-Route::get('/table/{type}', 'ApiController@showType');
+Route::prefix('table')->group(
+
+    function () {
+        Route::get('/getPrevious', 'ApiController@getPrevious');
+        Route::get('/getPhrases', 'ApiController@getPhrases');
+        Route::get('/getLanguage', 'ApiController@getLanguage');
+        Route::get('/translate', 'ApiController@translate');
+        Route::get('/phraseWithTranslation', 'ApiController@getTranlations');
+        Route::get('/{type}', 'ApiController@showType');
+    }
+);
+
+//Categories + City
 Route::get('/cities/{citySlug}', 'CityController@getCity');
 Route::get('/my-categories', 'ApiController@getUserCategories')->middleware('auth:sanctum');
 Route::get('/categories/{categoryId}/my-phrases', 'ApiController@getUserPhrasesByCategory')->middleware('auth:sanctum');
 
 
-
 // Send a message through contact form
 Route::post('/sendMessage', 'MessageController@sendMessage');
-
 
 
 // Login / Logout / Register
@@ -54,14 +58,28 @@ Route::get('checkLogged', 'UserController@check')->middleware('auth:sanctum');
 //admin
 
 // phrases admin
-Route::post('/phrase/new', 'PhraseController@store')->middleware(['auth:sanctum', 'isAdmin']);
-Route::put('/phrases/{phraseId}', 'PhraseController@update')->middleware(['auth:sanctum', 'isAdmin']);
-Route::get('/phrases', 'PhraseController@listPhrases')->middleware(['auth:sanctum', 'isAdmin']);
-//Route::resource('/secret/admin', 'adminAPI');
-// Paths to obtain Phrases/Language/Translation
+Route::middleware(['auth:sanctum', 'isAdmin'])->group(function () {
+
+    Route::post('/phrase/new', 'PhraseController@store');
+
+    Route::prefix('phrases')->group(function () {
+        //Phrases Controller
+
+        Route::get('/', 'PhraseController@listPhrases');
+        Route::put('/{phraseId}', 'PhraseController@update');
+        Route::delete('/delete/{phraseId}', 'PhraseController@destroy');
+    });
+});
+
 
 //Add Favorite
-Route::post('/phrase/addFavorite', 'FavoritePhraseController@addFavorite')->middleware('auth:sanctum');
-Route::post('/phrase/removeFavorite', 'FavoritePhraseController@removeFavorite')->middleware('auth:sanctum');
-Route::post('/phrase/checkFavorite', 'FavoritePhraseController@checkFavorite');
-Route::get('/phrase/getFavorite', 'FavoritePhraseController@show');
+Route::middleware(['auth:sanctum'])->group(function () {
+
+    Route::prefix('phrase')->group(function () {
+
+        Route::post('/addFavorite', 'FavoritePhraseController@addFavorite');
+        Route::post('/removeFavorite', 'FavoritePhraseController@removeFavorite');
+        Route::post('/checkFavorite', 'FavoritePhraseController@checkFavorite');
+        Route::get('/getFavorite', 'FavoritePhraseController@show');
+    });
+});
