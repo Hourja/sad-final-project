@@ -34,8 +34,6 @@ class PhraseController extends Controller
 
     public function store(Request $request)
     {
-
-
         $this->validate($request, $this->newPhraseValidations);
 
         $phrase = new Phrase;
@@ -62,6 +60,23 @@ class PhraseController extends Controller
         $this->validate($request, array_merge($this->newPhraseValidations, [
             'phraseId' => ['required', 'numeric', Rule::exists(Phrase::class, 'id')],
         ]));
+
+        $phrase = Phrase::with('translations')->find($phraseId);
+
+
+        $phrase->topic_id = $request->input('topic');
+        $phrase->name = $request->input('phrase');
+        foreach($request->input('translations') as $translation){
+            $translation_in_db = Translation::where('phrase_id',$phraseId)
+            ->where('language_id',$translation['language_id'])
+            ->first();
+
+            $translation_in_db->name = $translation['translation'];
+            $translation_in_db->save();
+        }
+
+        $phrase->save();
+        return ['message' => 'success'];
     }
 
     public function destroy(Request $request)

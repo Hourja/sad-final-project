@@ -72,6 +72,8 @@ export default function EditPhrase() {
     if (!success) {
       return setErrors(errors)
     }
+
+    setErrors(['Saved successfully !'])
   }
   //CONTROLLING THE 3 TRANSLATION INPUT FIELDS FOR ANY CHANGES
   const onLanguageChange = (index, translation) => {

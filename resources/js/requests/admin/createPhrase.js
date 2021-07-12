@@ -1,5 +1,4 @@
 export default async function createPhrase({ translations, phrase, topic }) {
-  console.log(translations, phrase, topic)
   try {
     const response = await fetch('/api/phrase/new', {
       method: 'POST',
