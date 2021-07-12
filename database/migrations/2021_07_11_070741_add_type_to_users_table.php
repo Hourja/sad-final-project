@@ -14,8 +14,8 @@ class AddTypeToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('type')
-            ->after('name');
+            $table->string('type')->nullable()
+                ->after('name');
         });
     }
 
@@ -27,7 +27,7 @@ class AddTypeToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-             $table->dropColumn('type');
+            $table->dropColumn('type');
         });
     }
 }

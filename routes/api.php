@@ -50,13 +50,13 @@ Route::get('checkLogged', 'UserController@check')->middleware('auth:sanctum');
 //admin
 
 // phrases admin
-Route::post('/phrase/new', 'PhraseController@store')->middleware(['auth:sanctum','isAdmin']);
-Route::put('/phrases/{phraseId}', 'PhraseController@update')->middleware(['auth:sanctum','isAdmin']);
-Route::get('/phrases', 'PhraseController@listPhrases')->middleware(['auth:sanctum','isAdmin']);
+Route::post('/phrase/new', 'PhraseController@store')->middleware(['auth:sanctum', 'isAdmin']);
+Route::put('/phrases/{phraseId}', 'PhraseController@update')->middleware(['auth:sanctum', 'isAdmin']);
+Route::get('/phrases', 'PhraseController@listPhrases')->middleware(['auth:sanctum', 'isAdmin']);
 //Route::resource('/secret/admin', 'adminAPI');
 // Paths to obtain Phrases/Language/Translation
 
 //Add Favorite
-Route::post('/phrase/addFavorite', 'AddFavoritePhraseController@addFavorite')->middleware('auth:sanctum');
-Route::post('/phrase/removeFavorite', 'AddFavoritePhraseController@removeFavorite')->middleware('auth:sanctum');
-Route::post('/phrase/checkFavorite', 'AddFavoritePhraseController@checkFavorite');
+Route::post('/phrase/addFavorite', 'FavoritePhraseController@addFavorite')->middleware('auth:sanctum');
+Route::post('/phrase/removeFavorite', 'FavoritePhraseController@removeFavorite')->middleware('auth:sanctum');
+Route::post('/phrase/checkFavorite', 'FavoritePhraseController@checkFavorite');
