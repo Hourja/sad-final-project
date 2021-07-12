@@ -25,49 +25,53 @@
         padding: 10px;
         transform: translate(-50%, -50%);
         z-index: 1002;
+
+        .popup-container {
+          padding: 0 10%;
+        }
         .icon-heart {
           display: flex;
           justify-content: center;
           color: $red;
           margin: 10px 0;
         }
-        h1 {
-          text-align: center;
-          font-size: 1.1rem;
-          font-weight: bold;
-        }
+        // h1 {
+        //   text-align: center;
+        //   font-size: 1.1rem;
+        //   font-weight: bold;
+        // }
         h2 {
           text-align: center;
           font-size: 1rem;
           margin: 15px 0;
         }
 
-        form {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          label {
-            display: flex;
-            justify-content: flex-start;
-            flex-direction: column;
-            font-size: 0.8rem;
-            font-weight: bold;
+        // form {
+        //   display: flex;
+        //   flex-direction: column;
+        //   align-items: center;
+        //   justify-content: center;
+        //   label {
+        //     display: flex;
+        //     justify-content: flex-start;
+        //     flex-direction: column;
+        //     font-size: 0.8rem;
+        //     font-weight: bold;
 
-            input {
-              margin: 10px 0;
-            }
-          }
-          .logged {
-            text-align: center;
-            font-size: 0.7rem;
+        //     input {
+        //       margin: 10px 0;
+        //     }
+        //   }
+        //   .logged {
+        //     text-align: center;
+        //     font-size: 0.7rem;
             
-            a {
-              text-decoration: none;
-              font-weight: bold;
-            }
-          }
-        }
+        //     a {
+        //       text-decoration: none;
+        //       font-weight: bold;
+        //     }
+        //   }
+        // }
 
         .close-btn {
           text-align: right;
@@ -75,35 +79,35 @@
           width: 2rem;
           margin-left: auto;
         }
-        h1, .input-field, .login-button-popup, p {
-          margin-bottom: 0.5em;
-        }
+        // h1, .input-field, .login-button-popup, p {
+        //   margin-bottom: 0.5em;
+        // }
   
-        .login-button-popup {
-          padding: 8px 15px;
-          margin-top: 10px;
-          border: 1px solid $blue;
-          border-radius: 4px;
-          cursor: pointer;
-          font-size: 19px;
-          font-weight: 500;
+        // .login-button-popup {
+        //   padding: 8px 15px;
+        //   margin-top: 10px;
+        //   border: 1px solid $blue;
+        //   border-radius: 4px;
+        //   cursor: pointer;
+        //   font-size: 19px;
+        //   font-weight: 500;
       
-          &:hover {
-            background-color: $white;
-            border: 1px solid $black;
-            color: $blue;
-          }
-        }
-        .input-field {
-          width: 100%;
-          height: 38px;
-          margin-top: 2px;
-          margin-bottom: 5px;
-          font-weight: 500;
-          border: none;
-          border-bottom: 1px solid $light-blue;
-          background: transparent;
-        }
+        //   &:hover {
+        //     background-color: $white;
+        //     border: 1px solid $black;
+        //     color: $blue;
+        //   }
+        // }
+        // .input-field {
+        //   width: 100%;
+        //   height: 38px;
+        //   margin-top: 2px;
+        //   margin-bottom: 5px;
+        //   font-weight: 500;
+        //   border: none;
+        //   border-bottom: 1px solid $light-blue;
+        //   background: transparent;
+        // }
       }
     }
   }
