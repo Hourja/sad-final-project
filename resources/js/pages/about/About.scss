@@ -50,7 +50,7 @@
         flex-direction: row;
         justify-content: center;
         max-width: 700px;
-        margin-left: 1rem;
+        margin: 0 1rem;
 
         @include for-phone {
           &:not(:last-child) {
@@ -73,6 +73,9 @@
           h3 {
             font-size: 2rem;
             margin-bottom: 1rem;
+          }
+          p {
+            line-height: 1.6;
           }
         }
         img {
@@ -99,9 +102,11 @@
     .__text {
       margin-top: 1rem;
       margin-bottom: 2rem;
-      text-align: center;
       align-self: center;
       font-size: 1rem;
+      p {
+        line-height: 1.6;
+      }
     }
   }
 }

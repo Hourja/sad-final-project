@@ -46,7 +46,7 @@ export default function Register() {
   }
 
   return (
-    <>
+    <div className="register-page">
       <h1 className='register-title'>Registration</h1>
 
       <form className='register' action='' method='post' onSubmit={handleSubmit}>
@@ -66,7 +66,7 @@ export default function Register() {
         </label>
 
         <label htmlFor='password_confirmation'>
-          Confirm Passowrd
+          Confirm Password:
           <input
             className='register-input'
             type='password'
@@ -83,6 +83,6 @@ export default function Register() {
           Already have an account?<Link to='/sign-in'>Login</Link>
         </div>
       </form>
-    </>
+    </div>
   )
 }

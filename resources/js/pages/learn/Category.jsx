@@ -13,7 +13,7 @@ export default function Category({ category }) {
       className={'category-link ' + (categoryId == category.id ? 'show' : 'hidden')}
     >
       <div className='category-icons'>
-        <FontAwesomeIcon icon={category.photo_url} size='2x' />
+        <FontAwesomeIcon icon={category.photo_url} size='2x' id='category-icon'/>
       </div>
       <div className='category-tooltip'>{category.name}</div>
     </NavLink>

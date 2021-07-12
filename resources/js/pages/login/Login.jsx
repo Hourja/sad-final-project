@@ -44,8 +44,8 @@ export default function Login() {
   }
 
   return (
-    <>
-      <h1 className='register-title'>Log in</h1>
+    <div className="login-page">
+      <h1 className='login-title'>Log in</h1>
 
       <form className='login' action='/login' method='post' onSubmit={handleSubmit}>
         <label htmlFor='email'>
@@ -66,6 +66,6 @@ export default function Login() {
           Don't have an account? <Link to='/sign-up'>Register</Link>
         </div>
       </form>
-    </>
+    </div>
   )
 }

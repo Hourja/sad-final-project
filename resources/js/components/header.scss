@@ -9,19 +9,21 @@
   height: 140px;
   display: flex;
   align-items: center;
+  text-align: center;
   background-color: $white;
 
-  @include for-desktop {
+  @include for-large {
     height: 100px;
   }
 
   .__container {
     display: flex;
+    // flex-direction: column;
     justify-content: space-between;
     align-items: center;
     font-weight: bold;
 
-    @include for-desktop {
+    @include for-large {
       flex-direction: row;
     }
   }
@@ -45,12 +47,84 @@
     }
   }
 
+  .hamburger,
+  .mobile-menu {
+    @include for-large {
+      display: none;
+    }
+  }
+  .mobile-menu {
+    display: none;
+  }
+  .mobile-menu.visible-hamburger {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    @include for-large {
+      display: none;
+    }
+
+    .nav-bar {
+      // background-color: $white;
+      background: transparent;
+      margin-right: 75px;
+      margin-top: 22px;
+      text-align: center;
+      li {
+        background-color: $white;
+        border: 1px solid $black;
+        border-radius: 6px;
+        padding: 15px;
+        margin: 1px 0;
+        color: $black;
+      }
+      a {
+        text-decoration: none;
+        color: $black;
+      }
+
+      .cities-link-mobile {
+        padding: 10px 0;
+        .dropdown-mobile {
+          .city-dropdown-mobile {
+            display: flex;
+            flex-direction: column;
+            border: none;
+  
+            a {
+              padding: 8px 0;
+            }
+          }
+          
+        }
+      }
+      
+    }
+  }
+
+  .hamburger {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+  }
+
+  .mobile-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+  }
+
   .top-menu {
     font-family: 'Inconsolata', monospace;
     width: 50%;
+    display: none;
 
     @include for-large {
       width: 60%;
+      display: block;
     }
 
     .nav-bar {
@@ -72,8 +146,13 @@
         transition-duration: 0.5s;
         text-decoration: none;
         color: $blue;
-        padding: 0 10px;
+        padding: 0 7px;
         font-size: 1.2rem;
+
+        @include for-large {
+          display: inline;
+          padding: 0 10px;
+        }
 
         a {
           text-decoration: none;
@@ -98,7 +177,9 @@
           display: block;
           width: auto !important;
           padding-left: 0;
-
+          margin-top: 10px;
+          box-shadow: $black 0px 20px 30px -10px;
+          border-radius: 6px;
           &:hover {
             visibility: visible;
             opacity: 1;
@@ -107,13 +188,20 @@
           .city-dropdown {
             display: flex;
             flex-direction: column;
-            top: 0px;
-            padding-top: 15px;
-            padding-left: 0 !important;
-            width: auto !important;
+            padding: 0;
+            width: 100%;
+            background-color: $white;
+            border-radius: 6px;
 
-            a {
-              padding-left: 0;
+            .city-list-dropdown {
+              padding: 10px;
+              text-align: left;
+              border-radius: 6px;
+
+              &:hover {
+                color: $white;
+                background-color: $blue;
+              }
             }
           }
         }
