@@ -59,23 +59,15 @@
       color: $black;
     }
     &.show {
-      color: $blue;
+      background-color: $blue;
     }
   }
   .category-tooltip {
-    //   position: absolute;
-    // background-color: $light-grey;
     bottom: -8px;
     left: 50%;
-    //   transform: translate(-50%, 100%);
-    //   visibility: hidden;
     border-radius: 6px;
     padding-bottom: 2px;
     text-align: center;
     font-size: 0.9rem;
   }
-  // &:hover .category-tooltip {
-  //   visibility: visible;
-  // }
-  //   }
 }

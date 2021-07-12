@@ -34,7 +34,7 @@
 
     .selected {
       color: $white;
-      background-color: #66a4c0;
+      background-color: $light-blue;
     }
     li {
       padding: 8px 0 8px 8px;
@@ -61,8 +61,8 @@
   .phrases-list {
     @include for-large {
       width: 55%;
-      border: 1px solid #d7e2e8;
-      background-color: #d7e2e8;
+      border: 1px solid $light-grey;
+      background-color: $light-grey;
       border-radius: 6px;
       display: flex;
       align-items: center;
@@ -71,8 +71,8 @@
 
     @include for-phone {
       width: 80%;
-      border: 1px solid #d7e2e8;
-      background-color: #d7e2e8;
+      border: 1px solid $light-grey;
+      background-color: $light-grey;
       border-radius: 6px;
 
       display: flex;
@@ -87,7 +87,13 @@
 
     .list-phrases-translations {
       width: 100%;
-
+      .translation-wrapper {
+        display: flex;
+        align-items: center;
+        .full-heart {
+          color: $red;
+        }
+      }
       .translation {
         display: flex;
         width: 100%;
