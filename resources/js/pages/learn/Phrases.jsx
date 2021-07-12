@@ -2,13 +2,24 @@ import { useState, useEffect } from 'react'
 import Phrase from './Phrase'
 import fetchPhrase from '../../requests/fetchPhrase'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useContext } from 'react'
+import UserContext from '../../UserContext'
 
 export default function Phrases({ topicIds, language }) {
-  const synth = window.speechSynthesis
+  // const synth = window.speechSynthesis
   const [loaded, setLoaded] = useState(false)
   const [phrases, setPhrases] = useState([])
+  const [favorites, setFavorites] = useState([])
+  const { user } = useContext(UserContext)
 
   //FETCHING ALL THE BASIC ENGLISH PHRASES THAT WILL BE TRANSLATED ON CLICK
+
+  // if (user) {
+  //   async function loadFavorites() {
+  //   const loadFavorites = await fetchFavorites(topicIds)
+  //   setFavorites(loadedPhrases)
+  //   }
+  // }
 
   useEffect(loadPhrases, [topicIds])
 

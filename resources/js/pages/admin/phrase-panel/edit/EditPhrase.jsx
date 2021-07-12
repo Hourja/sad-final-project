@@ -7,13 +7,14 @@ import TranslationInput from '../create/TranslationInput'
 import fetchLanguages from '../../../../requests/admin/fetchLanguages'
 import Errors from '../../../../components/Errors'
 import editPhrase from '../../../../requests/admin/editPhrase'
+import UserContext from '../../../../UserContext'
 
 export default function EditPhrase() {
+  const { token } = useContext(UserContext)
   const { phraseId } = useParams()
   const [errors, setErrors] = useState(null)
 
   const [topics, setTopics] = useState(null)
-  const [loadedData, setLoadedData] = useState(null)
   const [languages, setLanguages] = useState(null)
   const [{ phrase, topic, translations }, setValues] = useState({
     phrase: '',
@@ -33,13 +34,12 @@ export default function EditPhrase() {
   useEffect(loadOldValues, [])
   async function loadOldValues() {
     const loadedOldValues = await fetchOldValues(phraseId)
-    setLoadedData(loadedOldValues)
 
     const { name, topic_id, translations } = loadedOldValues
     setValues({
       phrase: name,
       topic: topic_id,
-      translations: loadedOldValues ? translations : []
+      translations: loadedOldValues ? translations.map((translation) => translation.name) : []
     })
   }
 
@@ -49,7 +49,7 @@ export default function EditPhrase() {
       name = event.target.name,
       value = event.target.value
 
-    if (-1 !== allowed_names.indexOf(name)) {
+    if (allowed_names.includes(name)) {
       setValues((prev_values) => {
         return { ...prev_values, [name]: value }
       })
@@ -60,14 +60,15 @@ export default function EditPhrase() {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-
-    const { success, errors } = await editPhrase({
+    const phraseToSave = {
       topic,
       phrase,
-      translations: languages.map((language, index, topic) => {
+      translations: languages.map((language, index) => {
         return { language_id: language.id, translation: translations[index] }
       })
-    })
+    }
+    console.log(phraseToSave)
+    const { success, errors } = await editPhrase(phraseId, phraseToSave, token)
 
     if (!success) {
       return setErrors(errors)
@@ -87,7 +88,7 @@ export default function EditPhrase() {
           <form className='register' action='' method='post' onSubmit={handleSubmit}>
             <TopicsList setTopics={setTopics} topics={topics} handleChange={handleChange} />
 
-            <EditPhraseInput setValues={setValues} phrase={phrase} handleChange={handleChange} />
+            <EditPhraseInput phrase={phrase} handleChange={handleChange} />
 
             {languages.map((language, index) => (
               <TranslationInput
@@ -95,10 +96,10 @@ export default function EditPhrase() {
                 language={language}
                 index={index}
                 onChange={onLanguageChange}
-                value={translations[index].name}
+                value={translations[index]}
               />
             ))}
-            <button className='register-button'>Edit</button>
+            <button className='register-button'>Save</button>
             <Errors errors={errors} />
           </form>
         </>
