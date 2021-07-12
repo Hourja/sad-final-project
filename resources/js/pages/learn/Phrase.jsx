@@ -4,6 +4,7 @@ import { useContext } from 'react'
 import UserContext from '../../UserContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { addFavorite, removeFavorite, checkFavorite } from '../../requests/favorites'
+import Popup from './pop-up/Popup'
 
 export default function Phrase({ phrase, language }) {
   const [load, setLoad] = useState(true)
@@ -11,8 +12,9 @@ export default function Phrase({ phrase, language }) {
   const { user, token } = useContext(UserContext)
   const [favorite, setFavorite] = useState(true)
   const [status, setStatus] = useState(true)
+  const [popupVisible, setPopupVisible] = useState(false)
 
-  const playPhrase = async (e) => {
+  const playPhrase = async () => {
     const translatedPhrase = await translate(language.id, phrase.id)
 
     setTranslation(translatedPhrase)
@@ -39,6 +41,11 @@ export default function Phrase({ phrase, language }) {
   }
 
   const addFav = async () => {
+    if (!token) {
+      showPopup();
+      return;
+    }
+
     const { success, errors } = await addFavorite(phrase.id, user.id, token)
 
     if (!success) {
@@ -58,28 +65,36 @@ export default function Phrase({ phrase, language }) {
     check()
   }
 
+
+  const showPopup = () => {
+    setPopupVisible(true)
+  }
+
+  const closePopup = () => {
+    setPopupVisible(false)
+  }
+
   return (
-    <>
-      {load ? (
-        <div className='translation' onClick={playPhrase}>
-          {phrase.name}
-          <FontAwesomeIcon icon='volume-up' />
-        </div>
-      ) : (
-        <div className='translation' onClick={() => setLoad(true)}>
-          {translation}
-          <FontAwesomeIcon icon='volume-up' />
-        </div>
-      )}
+    <div className="translation-wrapper">
       {favorite ? (
-        <div className='favorite'>
-          <FontAwesomeIcon icon='heart' onClick={addFav} />
-        </div>
-      ) : (
-        <div className='favorite'>
-          <FontAwesomeIcon icon='globe' onClick={removeFav} />
-        </div>
-      )}
-    </>
+          <div className='favorite'>
+            <FontAwesomeIcon icon={['far', 'heart']} className="empty-heart" onClick={addFav} />
+            {
+              popupVisible ? <Popup parentClosePopup={closePopup}  /> : ''
+            }
+          </div>
+        ) : (
+          <div className='favorite'>
+            <FontAwesomeIcon icon='heart' onClick={removeFav} className="full-heart"/>
+          </div>
+        )}
+      <div className='translation' onClick={(e) => {
+        load ? playPhrase() : setLoad(true)
+      }}>
+        { load ? phrase.name : translation }
+        <FontAwesomeIcon icon='volume-up' />
+      </div>
+      
+    </div>
   )
 }

@@ -5,11 +5,14 @@ export const GlobalStyles = createGlobalStyle`
     .footer,
     body,
     contact-form,
+    .content-popup,
     .category-tooltip,
-    #social-icon,
-    #category-icon {
+    #social-icon {
 		background: ${({ theme }) => theme.background};
 		color: ${({ theme }) => theme.text};
         transition: background 0.2s ease-in, color 0.2s ease-in;
 	}
+  #category-icon {
+    color: ${({ theme }) => theme.text};
+  }
 `;
