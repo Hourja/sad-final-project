@@ -29,6 +29,7 @@ Route::get('/table/getLanguage', 'ApiController@getLanguage');
 Route::get('/table/translate', 'ApiController@translate');
 Route::get('/table/phraseWithTranslation', 'ApiController@getTranlations');
 Route::get('/table/{type}', 'ApiController@showType');
+Route::get('/cities/{citySlug}', 'CityController@getCity' );
 
 
 // Send a message through contact form
