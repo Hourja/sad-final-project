@@ -4,28 +4,44 @@
   position: relative;
   margin-top: 100px;
   width: 100%;
-  padding: 2% 10%;
+  padding: 24px 0;
   background-image: url('../../img/beach-back.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
 
-  h2,
-  .testimonials-wrapper {
-    margin-bottom: 30px;
-  }
   h2 {
     text-transform: uppercase;
     font-size: 1.2rem;
     text-align: center;
   }
   .testimonials-wrapper {
-    display: flex;
-    flex-direction: row;
+    position: relative;
+    height: 34px;
+    margin-top: 24px;
 
     .testimonial {
       flex: 1 1 auto;
       text-align: center;
+      position: absolute;
+      width: 100%;
+      overflow-x: hidden;
+
+      &.--animation {
+        transition: left 200ms ease-in-out;
+      }
+
+      &.--hidden {
+        left: -100%;
+      }
+
+      &.--showing {
+        left: 0;
+      }
+
+      &.--waiting {
+        left: 100%;
+      }
 
       .testimonial-text {
         font-style: italic;

@@ -36,6 +36,7 @@ Route::prefix('table')->group(
 
 //Categories + City
 Route::get('/cities/{citySlug}', 'CityController@getCity');
+Route::get('/testimonials', 'TestimonialsController@getTestimonials');
 Route::get('/my-categories', 'ApiController@getUserCategories')->middleware('auth:sanctum');
 Route::get('/categories/{categoryId}/my-phrases', 'ApiController@getUserPhrasesByCategory')->middleware('auth:sanctum');
 
