@@ -35,7 +35,7 @@ export default async function editPhrase(phraseId, { translations, phrase, topic
     }
   } catch (error) {
     //when something goes wrong for instance : internet conection failed
-    console.log(error)
+
     return {
       success: false,
       errors: ['Your credentials are invalid']

@@ -5,7 +5,7 @@ import RowText from './RowText'
 import deletePhrase from '../../../../requests/admin/deletePhrase'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-export default function Row({ phrase }) {
+export default function Row({ phrase, setUpdate }) {
   const { url } = useRouteMatch()
   const { id, name } = phrase
   const [language, setLanguage] = useState('eng')
@@ -47,6 +47,7 @@ export default function Row({ phrase }) {
     !confirm(`You are about to delete [${name}] - Are you sure?`) && e.preventDefault()
 
     deletePhrase(id)
+    setUpdate(!true)
   }
 
   return (

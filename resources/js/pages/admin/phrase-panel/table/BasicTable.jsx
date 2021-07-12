@@ -8,8 +8,9 @@ import UserContext from '../../../../UserContext'
 export default function BasicTable() {
   const [phrases, setPhrases] = useState(null)
   const { token } = useContext(UserContext)
+  const [update, setUpdate] = useState(true)
 
-  useEffect(loadedData, [])
+  useEffect(loadedData, [update])
 
   async function loadedData() {
     const loadedPhrases = await fetchPhrases(token)
@@ -22,7 +23,9 @@ export default function BasicTable() {
       <div>Name</div>
       <div>Topic</div>
       <div>Action</div>
-      {phrases ? phrases.map((phrase, index) => <Row key={index} phrase={phrase} />) : 'Loading'}
+      {phrases
+        ? phrases.map((phrase, index) => <Row key={index} phrase={phrase} setUpdate={setUpdate} update={update} />)
+        : 'Loading'}
     </>
   )
 }

@@ -67,6 +67,10 @@ class PhraseController extends Controller
     public function destroy(Request $request)
     {
 
-        Phrase::destroy($request->phraseId);
+        if (Phrase::destroy($request->phraseId)) {
+            return ['message' => 'success'];
+        };
+
+        return ['message' => 'Failed to delete'];
     }
 }

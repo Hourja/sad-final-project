@@ -67,7 +67,6 @@ export default function EditPhrase() {
         return { language_id: language.id, translation: translations[index] }
       })
     }
-    console.log(phraseToSave)
     const { success, errors } = await editPhrase(phraseId, phraseToSave, token)
 
     if (!success) {
