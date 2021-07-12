@@ -27,6 +27,11 @@ class PhraseController extends Controller
         ];
     }
 
+    public function listPhrases()
+    {
+        return Phrase::with('translations')->get();
+    }
+
     public function store(Request $request)
     {
 
@@ -54,13 +59,14 @@ class PhraseController extends Controller
     public function update(Request $request, String $phraseId)
     {
         $request->merge(['phraseId' => $phraseId]);
-        $this->validate($request, array_merge($this->newPhraseValidations,[
+        $this->validate($request, array_merge($this->newPhraseValidations, [
             'phraseId' => ['required', 'numeric', Rule::exists(Phrase::class, 'id')],
         ]));
     }
 
-    public function listPhrases()
+    public function destroy(Request $request)
     {
-        return Phrase::with('translations')->get();
+
+        Phrase::destroy($request->phraseId);
     }
 }
