@@ -126,21 +126,51 @@
   display: none;
 
   @include for-desktop-and-large {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     background-image: url('../../../img/beach.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    height: 350px;
+    height: 400px;
     margin-top: 34px;
+    padding: 30px 10px 30px 10px;
 
-    p {
+    h2 {
       display: inline-block;
       color: white;
       text-shadow: 1px 1px 1px $black;
-      font-size: 24px;
+      font-size: 4rem;
       text-align: center;
-      margin-top: 125px;
+      margin-top: 50px;
+    }
+
+    span {
+      color: $white;
+      text-align: center;
+      font-size: 24px;
+      margin-top: -10px;
+    }
+
+    .__sign-up {
+      display: inline-block;
+      width: 250px;
+      height: 40px;
+      background-color: $white;
+      align-self: center;
+      color: $blue;
+      font-size: 2rem;
+      text-decoration: none;
+      text-align: center;
+      border-radius: 5px;
+      padding-top: 5px;
+      border: 1px solid $white;
+
+      &:hover {
+        background-color: $blue;
+        color: $white;
+      }
     }
   }
 }

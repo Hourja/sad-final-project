@@ -1,11 +1,11 @@
-import React, { useReducer } from "react";
+import React, { useReducer } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { ThemeProvider } from "styled-components";
-import { light, dark } from "../js/components/dark mode/Themes";
-import Context from './components/dark mode/Context';
-import reducer from './components/dark mode/Reducer';
-import { GlobalStyles } from "./components/dark mode/GlobalStyles";
+import { ThemeProvider } from 'styled-components'
+import { light, dark } from '../js/components/dark mode/Themes'
+import Context from './components/dark mode/Context'
+import reducer from './components/dark mode/Reducer'
+import { GlobalStyles } from './components/dark mode/GlobalStyles'
 
 import Routes from './Routes'
 
@@ -31,23 +31,22 @@ require('../img/david.jpg').default
 require('../img/santorini.jpg').default
 
 export default function App() {
-
   const [state, dispatch] = useReducer(reducer, {
-		isDark: false
-	});
+    isDark: false
+  })
 
   return (
     <Context.Provider value={{ state, dispatch }}>
       <ThemeProvider theme={state.isDark ? dark : light}>
         <GlobalStyles />
-            <UserContextProvider>
-              <BrowserRouter>
-                <Header />
-                <Routes />
-                <Footer />
-              </BrowserRouter>
-            </UserContextProvider>
+        <UserContextProvider>
+          <BrowserRouter>
+            <Header />
+            <Routes />
+            <Footer />
+          </BrowserRouter>
+        </UserContextProvider>
       </ThemeProvider>
     </Context.Provider>
-    )
+  )
 }

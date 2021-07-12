@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+import { Link } from 'react-router-dom'
 
 import UserContext from '../../UserContext'
 
@@ -38,11 +39,14 @@ function Homepage() {
       </div>
 
       <div className='try'>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo ab cupiditate consectetur consequatur
-          similique optio fuga ducimus aut quibusdam obcaecati! Expedita quidem totam neque, sint optio ullam eveniet
-          excepturi vero.
-        </p>
+        <h2>Sign up for free</h2>
+        <span>
+          Want to save your favorites phrases to save time? Sign up for free and be in touch with our features
+        </span>
+
+        <Link to='/sign-up' className='__sign-up'>
+          Register
+        </Link>
       </div>
       <Container>
         <CitiesBlock />

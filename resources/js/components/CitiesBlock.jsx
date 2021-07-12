@@ -24,9 +24,13 @@ function City({ city }) {
   const { name, slug, description } = city
   return (
     <div className='cities-block' data-city={slug}>
-      <img className='__picture' src={`/images/${slug}.jpg`} alt={name} />
+      <Link to={`/city/${slug}/city`} className='__city-link' data-name={name}>
+        <img className='__picture' src={`/images/${slug}.jpg`} alt={name} />
+      </Link>
       <div className='__description'>
-        <span>{name}</span>
+        <Link to={`/city/${slug}/city`} className='__name'>
+          {name}
+        </Link>
         <p>{description}</p>
         <div className='__links'>
           <Link to={`/city/${slug}/learn`} className='__link'>
