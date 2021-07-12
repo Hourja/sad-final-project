@@ -47,50 +47,78 @@
     }
   }
 
-  .hamburger,
-  .mobile-menu {
+  @include for-phone-and-desktop {
+    & .container > #dark-button {
+      display: none;
+    }
+  }
+
+  .hamburger-container {
+    width: 100vw;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+
     @include for-large {
       display: none;
     }
   }
+  
+  .hamburger {
+    position: absolute;
+    top: 50px;
+    right: 40px;
+    z-index: 1002;
+    svg[data-icon="times"] {
+      color: $white;
+    }
+  }
+
   .mobile-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     display: none;
+    background-color: $black;
+    height: 100vh;
+    z-index: 1001;
   }
   .mobile-menu.visible-hamburger {
     display: flex;
-    width: 100%;
-    justify-content: flex-end;
-    @include for-large {
-      display: none;
-    }
-
     .nav-bar {
-      // background-color: $white;
-      background: transparent;
-      margin-right: 75px;
-      margin-top: 22px;
-      text-align: center;
+      width: 100%;
+      margin-top: 100px;
+      padding: 0 20px;
+      overflow-y: auto;
       li {
-        background-color: $white;
-        border: 1px solid $black;
-        border-radius: 6px;
-        padding: 15px;
-        margin: 1px 0;
-        color: $black;
+        width: 100%;
+        border-bottom: 1px solid $white;
+        padding: 25px 15px;
+        color: $white;
       }
       a {
         text-decoration: none;
-        color: $black;
+        color: $white;
+      }
+      #dark-button {
+        color: $yellow;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding: 20px 0 0 0;
       }
 
       .cities-link-mobile {
-        padding: 10px 0;
+        padding: 20px 0;
         .dropdown-mobile {
+          margin-top: 10px;
           .city-dropdown-mobile {
             display: flex;
             flex-direction: column;
             border: none;
-  
+            padding: 0;
             a {
               padding: 8px 0;
             }
@@ -102,20 +130,6 @@
     }
   }
 
-  .hamburger {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 100;
-  }
-
-  .mobile-menu {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 99;
-  }
 
   .top-menu {
     width: 50%;
