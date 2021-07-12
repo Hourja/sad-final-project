@@ -23,8 +23,7 @@ export default function City() {
   const [categories, setCategories] = useState(null)
 
   useEffect(() => {
-    loadCategories()
-    loadCity()
+    loadCategories(), loadCity()
   }, [city])
 
   async function loadCategories() {
