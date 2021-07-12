@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { NavLink, useParams, useRouteMatch, Route } from 'react-router-dom'
 import Discover from '../discover/Discover'
 import fetchCategories from '../../requests/fetchCategories'
+import fetchCity from '../../requests/fetchCity'
 import Learn from '../learn/Learn'
 import Topics from '../learn/Topics'
 import Gallery from '../../components/Gallery'
@@ -13,16 +14,25 @@ export default function City() {
   const { city } = useParams()
   const { url, path } = useRouteMatch()
 
+  const [cityData, setCityData] = useState(null)
+
+  async function loadCity() {
+    const loadedCity = await fetchCity(city)
+    setCityData(loadedCity)
+  }
   const [categories, setCategories] = useState(null)
 
-  useEffect(loadCategories, [city])
+  useEffect(() => {
+    loadCategories()
+    loadCity()
+  }, [city])
 
   async function loadCategories() {
     const loadedCategories = await fetchCategories(city)
     setCategories(loadedCategories)
   }
 
-  if (!categories) {
+  if (!categories || !cityData) {
     return 'Loading...'
   }
 
@@ -31,7 +41,7 @@ export default function City() {
       <Gallery city={city} />
       {/* <img src={`/images/${city}.jpg`} /> */}
       <div className='text-city'>
-        <h1 className='city-name'>{city}</h1>
+        <h1 className='city-name'>{cityData.name}</h1>
         <h2>Choose an option below</h2>
       </div>
       <div className='__links'>
