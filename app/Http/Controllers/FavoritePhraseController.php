@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Phrase;
 
-class AddFavoritePhraseController extends Controller
+class FavoritePhraseController extends Controller
 {
     public function addFavorite(Request $request)
     {
