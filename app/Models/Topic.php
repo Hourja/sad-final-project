@@ -19,4 +19,10 @@ class Topic extends Model
     {
         return $this->hasMany(Phrase::class);
     }
+
+    public function users()
+    {
+
+        return $this->hasManyThrough(User::class, Phrase::class);
+    }
 }

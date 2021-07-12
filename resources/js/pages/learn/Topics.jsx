@@ -1,11 +1,11 @@
-import { Link, useLocation, useParams } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+import { useState, useEffect, useContext } from 'react'
 import fetchLanguage from '../../requests/fetchLanguage'
 import Phrases from './Phrases'
 
 export default function Topics({ categories }) {
   const [language, setLanguage] = useState('')
-  const [topicIds, setTopicIds] = useState(null)
+  const [topicId, setTopicId] = useState(null)
   const { categoryId, city } = useParams()
 
   useEffect(loadLanguage, [city])
@@ -24,23 +24,30 @@ export default function Topics({ categories }) {
   // everytime you try to change topic.
 
   const getTopicId = (e) => {
-    setTopicIds(e.target.value)
+    setTopicId(e.target.dataset.topicid)
   }
 
   return (
     <div className='topics-list'>
       <ul className='topics-list-city'>
         {category.topics.map((topic, index) => (
-          <li key={index} onClick={getTopicId} value={topic.id} className={topicIds == topic.id ? 'selected' : ''}>
+          <li
+            key={index}
+            onClick={getTopicId}
+            data-topicid={topic.id}
+            className={topicId == topic.id ? 'selected' : ''}
+          >
             {topic.name}
           </li>
         ))}
       </ul>
-      
+
       <div className='phrases-list'>
-        {
-          topicIds ? <Phrases topicIds={topicIds} language={language} /> : <div className='loading-text'>Select a topic from the left</div>
-        }
+        {topicId ? (
+          <Phrases topicId={topicId} language={language} />
+        ) : (
+          <div className='loading-text'>Select a topic from the left</div>
+        )}
       </div>
     </div>
   )

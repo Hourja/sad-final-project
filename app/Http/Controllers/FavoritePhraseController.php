@@ -5,9 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Phrase;
+use App\Models\Category;
+use App\Models\Topic;
 
 class FavoritePhraseController extends Controller
 {
+
+    public function show(Request $request)
+    {
+
+
+        return "test";
+    }
+
     public function addFavorite(Request $request)
     {
 

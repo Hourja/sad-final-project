@@ -29,7 +29,10 @@ Route::get('/table/getLanguage', 'ApiController@getLanguage');
 Route::get('/table/translate', 'ApiController@translate');
 Route::get('/table/phraseWithTranslation', 'ApiController@getTranlations');
 Route::get('/table/{type}', 'ApiController@showType');
-Route::get('/cities/{citySlug}', 'CityController@getCity' );
+Route::get('/cities/{citySlug}', 'CityController@getCity');
+Route::get('/my-categories', 'ApiController@getUserCategories')->middleware('auth:sanctum');
+Route::get('/categories/{categoryId}/my-phrases', 'ApiController@getUserPhrasesByCategory')->middleware('auth:sanctum');
+
 
 
 // Send a message through contact form
@@ -61,3 +64,4 @@ Route::get('/phrases', 'PhraseController@listPhrases')->middleware(['auth:sanctu
 Route::post('/phrase/addFavorite', 'FavoritePhraseController@addFavorite')->middleware('auth:sanctum');
 Route::post('/phrase/removeFavorite', 'FavoritePhraseController@removeFavorite')->middleware('auth:sanctum');
 Route::post('/phrase/checkFavorite', 'FavoritePhraseController@checkFavorite');
+Route::get('/phrase/getFavorite', 'FavoritePhraseController@show');

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { NavLink, useParams, useRouteMatch, Route } from 'react-router-dom'
 import Discover from '../discover/Discover'
 import fetchCategories from '../../requests/fetchCategories'
@@ -9,10 +9,12 @@ import Gallery from '../../components/Gallery'
 import Map from '../discover/Map'
 
 import './city.scss'
+import UserContext from '../../UserContext'
 
 export default function City() {
   const { city } = useParams()
   const { url, path } = useRouteMatch()
+  const { token } = useContext(UserContext)
 
   const [cityData, setCityData] = useState(null)
 
@@ -27,7 +29,7 @@ export default function City() {
   }, [city])
 
   async function loadCategories() {
-    const loadedCategories = await fetchCategories(city)
+    const loadedCategories = await fetchCategories(city, token)
     setCategories(loadedCategories)
   }
 

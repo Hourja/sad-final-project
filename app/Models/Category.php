@@ -19,4 +19,10 @@ class Category extends Model
     {
         return $this->belongsToMany(Topic::class);
     }
+
+    public function phrases()
+    {
+
+        return $this->hasManyThrough(Phrase::class, Topic::class);
+    }
 }

@@ -42,8 +42,8 @@ export default function Phrase({ phrase, language }) {
 
   const addFav = async () => {
     if (!token) {
-      showPopup();
-      return;
+      showPopup()
+      return
     }
 
     const { success, errors } = await addFavorite(phrase.id, user.id, token)
@@ -65,7 +65,6 @@ export default function Phrase({ phrase, language }) {
     check()
   }
 
-
   const showPopup = () => {
     setPopupVisible(true)
   }
@@ -75,26 +74,26 @@ export default function Phrase({ phrase, language }) {
   }
 
   return (
-    <div className="translation-wrapper">
+    <div className='translation-wrapper'>
       {favorite ? (
-          <div className='favorite'>
-            <FontAwesomeIcon icon={['far', 'heart']} className="empty-heart" onClick={addFav} />
-            {
-              popupVisible ? <Popup parentClosePopup={closePopup}  /> : ''
-            }
-          </div>
-        ) : (
-          <div className='favorite'>
-            <FontAwesomeIcon icon='heart' onClick={removeFav} className="full-heart"/>
-          </div>
-        )}
-      <div className='translation' onClick={(e) => {
-        load ? playPhrase() : setLoad(true)
-      }}>
-        { load ? phrase.name : translation }
+        <div className='favorite'>
+          <FontAwesomeIcon icon={['far', 'heart']} className='empty-heart' onClick={addFav} />
+          {popupVisible ? <Popup parentClosePopup={closePopup} /> : ''}
+        </div>
+      ) : (
+        <div className='favorite'>
+          <FontAwesomeIcon icon='heart' onClick={removeFav} className='full-heart' />
+        </div>
+      )}
+      <div
+        className='translation'
+        onClick={(e) => {
+          load ? playPhrase() : setLoad(true)
+        }}
+      >
+        {load ? phrase.name : translation}
         <FontAwesomeIcon icon='volume-up' />
       </div>
-      
     </div>
   )
 }
