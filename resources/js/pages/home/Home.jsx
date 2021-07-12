@@ -52,9 +52,7 @@ function Homepage() {
         <CitiesBlock />
       </Container>
 
-      <Container>
-        <Testimonials />
-      </Container>
+      <Testimonials />
     </>
   )
 }

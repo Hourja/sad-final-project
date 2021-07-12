@@ -1,4 +1,5 @@
 import './testimonials.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function Testimonials() {
   let data = [
@@ -21,10 +22,14 @@ function Testimonials() {
       <div className='testimonials-wrapper'>
         {data.map((testimonial, i) => {
           return (
-            <div className='testimonial' key={i}>
-              <p className='testimonial-text'>{testimonial.text}</p>
-              <p className='testimonial-author'>{testimonial.person}</p>
-            </div>
+            <>
+              <FontAwesomeIcon icon='quote-left' />
+              <div className='testimonial' key={i}>
+                <span className='testimonials-text'>{testimonial.text}</span> <br />
+                <span className='testimonial-author'>{testimonial.person}</span>
+              </div>
+              <FontAwesomeIcon icon='quote-right' className='quote-right' />
+            </>
           )
         })}
       </div>

@@ -1,8 +1,14 @@
 @import '../common/colors.scss';
 
 .testimonials-list {
+  position: relative;
+  margin-top: 100px;
   width: 100%;
   padding: 2% 10%;
+  background-image: url('../../img/beach-back.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
 
   h2,
   .testimonials-wrapper {
@@ -15,19 +21,24 @@
   }
   .testimonials-wrapper {
     display: flex;
-    justify-content: space-around;
+    flex-direction: row;
 
     .testimonial {
+      flex: 1 1 auto;
       text-align: center;
-      margin: 0 15px;
 
       .testimonial-text {
         font-style: italic;
+        margin-left: 10px;
       }
 
       .testimonial-author {
         color: $blue;
+        font-weight: bold;
+        font-size: 2rem;
         font-size: 0.7rem;
+        margin-left: 10px;
+        margin-right: 10px;
       }
     }
   }
