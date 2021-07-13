@@ -110,7 +110,7 @@ export default function Table({ phrases, setUpdate }) {
         </tbody>
       </table>
       {/* ALL THE OPTIONS START FROM HERE BELOW FOR THE PAGINATION - A LOT OF OPTIONS!! */}
-      <div>
+      <div className='pagination'>
         <span>
           Page{''}
           <strong>
@@ -137,7 +137,7 @@ export default function Table({ phrases, setUpdate }) {
           ))}
         </select>
         <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
-          {'<<'}
+          {' << '}
         </button>
         <button onClick={() => previousPage()} disabled={!canPreviousPage}>
           Previous
@@ -146,7 +146,7 @@ export default function Table({ phrases, setUpdate }) {
           Next
         </button>
         <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
-          {'>>'}
+          {' >> '}
         </button>
       </div>
     </>
