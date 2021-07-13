@@ -1,8 +1,7 @@
 import './table.scss'
-import Row from './Row'
 import { useState, useEffect, useContext } from 'react'
 import fetchPhrases from '../../../../requests/admin/fetchPhrases'
-
+import Table from './Table'
 import UserContext from '../../../../UserContext'
 
 export default function BasicTable() {
@@ -17,15 +16,5 @@ export default function BasicTable() {
     setPhrases(loadedPhrases)
   }
 
-  return (
-    <>
-      <div>Header</div>
-      <div>Name</div>
-      <div>Topic</div>
-      <div>Action</div>
-      {phrases
-        ? phrases.map((phrase, index) => <Row key={index} phrase={phrase} setUpdate={setUpdate} update={update} />)
-        : 'Loading'}
-    </>
-  )
+  return <>{phrases ? <Table phrases={phrases} /> : 'Loading'}</>
 }
