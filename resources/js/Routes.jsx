@@ -9,6 +9,7 @@ import City from './pages/city/City'
 import Logout from './pages/logout/Logout'
 import Contact from './pages/contact/Contact'
 import Dashboard from './pages/admin/Dashboard'
+import Profile from './pages/profile/Profile'
 
 import UserContext from './UserContext'
 //admin imports
@@ -27,6 +28,7 @@ export default function Routes() {
       <Route path='/city/:city' component={City} />
       {/* ADMIN DASHBOARD */}
       <Route path='/admin' component={() => (!loggedIn && !isAdmin ? <Redirect to='/' /> : <Dashboard />)} />
+      <Route path='/profile' exact component={Profile} />
     </Switch>
   )
 }

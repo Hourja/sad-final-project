@@ -1,0 +1,9 @@
+@import '../../common/colors.scss';
+@import '../../common/media-queries.scss';
+
+.profile-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}

@@ -20,9 +20,9 @@ function Footer() {
           <Link to='/contact'>Contact</Link>
         </nav>
         <div className='social-footer'>
-          <FontAwesomeIcon icon={['fab', 'facebook']} size='lg' id='social-icon'/>
-          <FontAwesomeIcon icon={['fab', 'instagram']} size='lg' id='social-icon'/>
-          <FontAwesomeIcon icon={['fab', 'twitter']} size='lg' id='social-icon'/>
+          <a href="https://github.com/Hourja/"><FontAwesomeIcon icon={['fab', 'github']} size='lg' id='social-icon'/></a>
+          <a href="https://github.com/amandabcarneiro9"><FontAwesomeIcon icon={['fab', 'github-alt']} size='lg' id='social-icon'/></a>
+          <a href="https://github.com/davidhuertabeltran"><FontAwesomeIcon icon={['fab', 'github-square']} size='lg' id='social-icon' /></a>
         </div>
         <p className='credits-footer'>Made with ❤️ by S.A.D</p>
       </Container>
