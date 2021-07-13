@@ -25,11 +25,10 @@ function BackTopButton() {
   window.addEventListener('scroll', toggleVisible)
 
   return (
-    <div className='top-button'>
+    <div className='top-button' onClick={scrollToTop}>
       <FontAwesomeIcon
         icon='arrow-up'
         size='2x'
-        onClick={scrollToTop}
         style={{ display: visible ? 'inline' : 'none' }}
       />
       <p style={{ display: visible ? 'inline' : 'none' }}>Top</p>
