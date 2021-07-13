@@ -1,3 +1,5 @@
+import { faDAndD } from '@fortawesome/free-brands-svg-icons'
+
 export async function login({ email, password }) {
   try {
     const response = await fetch('/api/token', {
@@ -141,6 +143,43 @@ export async function logout() {
       Authorization: `Bearer ${persistedToken}`
     }
   })
+}
+
+export async function updatePassword({ current_password, password, password_confirmation }, token) {
+  try {
+    const response = await fetch('/api/profile/update-password', {
+      method: 'post',
+      body: JSON.stringify({ current_password, password, password_confirmation }),
+      headers: {
+        Accept: 'application/json',
+        'Content-type': 'application/json',
+        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+        Authorization: `Bearer ${token}`
+      }
+    })
+
+    if (!response.ok) {
+      return {
+        success: false,
+        errors: ['Sorry, something bad happened!']
+      }
+    }
+    //data has errors when the validation fails
+    const data = await response.json()
+
+    if (data.message !== 'success') {
+      return {
+        success: false,
+        errors: ['Your credentials are invalid']
+      }
+    }
+  } catch (error) {
+    //when something goes wrong for instance : internet conection failed
+    return {
+      success: false,
+      errors: ['Your credentials are invalid']
+    }
+  }
 }
 
 function persistToken(token) {
