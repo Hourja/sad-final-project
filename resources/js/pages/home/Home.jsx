@@ -20,7 +20,7 @@ function Homepage() {
   return (
     <>
       <div className='home'>
-        <BackTopButton />
+        {/* <BackTopButton /> */}
         <Container className='__container-fluid' fluid>
           <div className='__welcome '>
             <div className='__text'>
