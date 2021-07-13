@@ -93,7 +93,8 @@ export async function checkFavorite(phraseId, userId, token) {
       headers: {
         Accept: 'application/json',
         'Content-type': 'application/json',
-        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+        Authorization: `Bearer ${token}`
       }
     })
     // in case of 500 or other kinds of errors

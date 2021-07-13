@@ -38,6 +38,7 @@ export default function Topics({ categories }) {
             className={topicId == topic.id ? 'selected' : ''}
           >
             {topic.name}
+            {console.log(topic)}
           </li>
         ))}
       </ul>

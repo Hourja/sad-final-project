@@ -1,27 +1,29 @@
-import { Link, useLocation, useParams } from 'react-router-dom'
-export default function Map({ categories }) {
-  const { categoryId, city } = useParams()
-  const apiKey = ''
+import React, { Component } from 'react'
+import GoogleMapReact from 'google-map-react'
 
-  const category = categories.find((category) => {
-    return category.id === Number(categoryId)
-  })
+import NoCrazy from './NoCrazy.jsx'
 
-  return (
-    <iframe
-      width='600'
-      height='450'
-      loading='lazy'
-      allowFullScreen
-      src={`https://www.google.com/maps/embed/v1/search?key=${apiKey}
-    &q=${category.name}+in+${city}&zoom=12`}
-    ></iframe>
+const AnyReactComponent = ({ text }) => <div>{text}</div>
 
-    // <iframe
-    //   src='https://www.google.com/maps/d/u/0/embed?mid=1HxlZkQPS7UNKW7fVds2CsBx4HPjYeoCb'
-    //   width='640'
-    //   height='480'
-    // ></iframe>
-    // <iframe src="https://www.google.com/maps/d/embed?mid=1z05obk7Met3hFcnQq4RPLqNYqD6r0ZSh&hl=en_US" width="640" height="480"></iframe>
-  )
+class SimpleMap extends Component {
+  static defaultProps = {
+    center: {
+      lat: 59.95,
+      lng: 30.33
+    },
+    zoom: 11
+  }
+
+  render() {
+    return (
+      // Important! Always set the container height explicitly
+      <div style={{ height: '100vh', width: '100%' }}>
+        <GoogleMapReact bootstrapURLKeys={{ key: '' }} defaultCenter={this.props.center} defaultZoom={this.props.zoom}>
+          <NoCrazy lat={52.233333} lng={21.016667} text='HELLO WORLD' />
+        </GoogleMapReact>
+      </div>
+    )
+  }
 }
+
+export default SimpleMap
