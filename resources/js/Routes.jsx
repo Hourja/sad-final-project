@@ -12,7 +12,7 @@ import Dashboard from './pages/admin/Dashboard'
 import Profile from './pages/profile/Profile'
 
 import UserContext from './UserContext'
-//admin imports
+import UpdatePasswordForm from './pages/resetPassword/UpdatePassword'
 
 export default function Routes() {
   const { loggedIn, isAdmin } = useContext(UserContext)
@@ -29,6 +29,7 @@ export default function Routes() {
       {/* ADMIN DASHBOARD */}
       <Route path='/admin' component={() => (!loggedIn && !isAdmin ? <Redirect to='/' /> : <Dashboard />)} />
       <Route path='/profile' exact component={() => (loggedIn ? <Profile /> : <Redirect to='/' />)} />
+      <Route path='/reset-password' exact component={UpdatePasswordForm} />
     </Switch>
   )
 }

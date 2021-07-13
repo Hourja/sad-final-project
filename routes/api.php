@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Laravel\Fortify\Http\Controllers\NewPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,8 @@ Route::post('token', 'UserController@token');
 Route::post('/new-register', 'UserController@register');
 Route::post('logout', 'UserController@logout')->middleware('auth:sanctum');
 
+Route::post('/profile/update-password', 'UserController@updatePassword')->middleware('auth:sanctum');;
+
 
 // Check if user Exists
 Route::get('user', 'UserController@user')->middleware('auth:sanctum');
@@ -63,7 +66,7 @@ Route::middleware(['auth:sanctum', 'isAdmin'])->group(function () {
 
     Route::post('/phrase/new', 'PhraseController@store');
 
-    
+
     Route::prefix('phrases')->group(function () {
         //Phrases Controller
 

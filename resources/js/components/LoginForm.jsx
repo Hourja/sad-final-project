@@ -44,29 +44,29 @@ export default function LoginForm({ children }) {
   }
 
   return (
-    <div className="login-form">
-        {children} 
-        <h1 className="login-title">Login</h1>     
+    <div className='login-form'>
+      {children}
+      <h1 className='login-title'>Login</h1>
 
-        <form className='login' action='/login' method='post' onSubmit={handleSubmit}>
-            <label htmlFor='email'>
-            Email:
-            <input className='login-input' type='email' name='email' value={email} onChange={handleChange} />
-            </label>
+      <form className='login' action='/login' method='post' onSubmit={handleSubmit}>
+        <label htmlFor='email'>
+          Email:
+          <input className='login-input' type='email' name='email' value={email} onChange={handleChange} />
+        </label>
 
-            <label htmlFor='email'>
-            Password:
-            <input className='login-input' type='password' name='password' value={password} onChange={handleChange} />
-            </label>
+        <label htmlFor='email'>
+          Password:
+          <input className='login-input' type='password' name='password' value={password} onChange={handleChange} />
+        </label>
 
-            <button className='login-button'>{loading ? 'In progress...' : 'Login'}</button>
+        <button className='login-button'>{loading ? 'In progress...' : 'Login'}</button>
 
-            {loginFailed && <div className='__error'>Your credentials are invalid</div>}
+        {loginFailed && <div className='__error'>Your credentials are invalid</div>}
 
-            <div className='logged'>
-            Don't have an account? <Link to='/sign-up'>Register</Link>
-            </div>
-        </form>
+        <div className='logged'>
+          Don't have an account? <Link to='/sign-up'>Register</Link>
+        </div>
+      </form>
     </div>
   )
 }
