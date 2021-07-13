@@ -11,7 +11,7 @@ export default function Phrase({ phrase, language }) {
   const [translation, setTranslation] = useState('')
   const { user, token } = useContext(UserContext)
   const [favorite, setFavorite] = useState(true)
-  const [errors, setErrors] = useState(null)
+  // const [errors, setErrors] = useState(null)
   const [popupVisible, setPopupVisible] = useState(false)
 
   const playPhrase = async () => {
