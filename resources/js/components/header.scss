@@ -12,6 +12,11 @@
   text-align: center;
   background-color: $white;
 
+  .avatar {
+    border-radius: 50%;
+    border: 1px solid $light-blue;
+  }
+
   @include for-large {
     height: 100px;
   }
@@ -64,13 +69,13 @@
       display: none;
     }
   }
-  
+
   .hamburger {
     position: absolute;
     top: 50px;
     right: 40px;
     z-index: 1002;
-    svg[data-icon="times"] {
+    svg[data-icon='times'] {
       color: $white;
     }
   }
@@ -123,13 +128,10 @@
               padding: 8px 0;
             }
           }
-          
         }
       }
-      
     }
   }
-
 
   .top-menu {
     width: 50%;
@@ -143,6 +145,7 @@
     .nav-bar {
       display: flex;
       justify-content: space-around;
+      align-items: center;
 
       .cities-link {
         svg {
