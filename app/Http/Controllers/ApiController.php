@@ -134,23 +134,13 @@ class ApiController extends Controller
         $userId = Auth::user()->id;
         $query = <<<EOD
 SELECT
-    `categories`.`id`
+    DISTINCT `categories`.`id`
 FROM
     `categories`
 INNER JOIN `category_topic` ON `category_topic`.`category_id` = `categories`.`id`
-INNER JOIN `topics` ON `topics`.`id` = `category_topic`.`id`
-
-WHERE
-    EXISTS(
-    SELECT
-        *
-    FROM
-        `users`
-    INNER JOIN `phrase_user` ON `phrase_user`.`user_id` = `users`.`id`
-    INNER JOIN `phrases` ON `phrases`.`id` = `phrase_user`.`phrase_id`
-    WHERE
-        `topics`.`id` = `phrases`.`topic_id` AND `users`.`id` = ?
-)
+INNER JOIN `topics` ON `topics`.`id` = `category_topic`.`topic_id`
+INNER JOIN `phrases` ON `phrases`.`topic_id` = `topics`.`id`
+INNER JOIN `phrase_user` ON `phrase_user`.`phrase_id` = `phrases`.`id` AND  `phrase_user`.`user_id` = ?
 EOD;
 
 
