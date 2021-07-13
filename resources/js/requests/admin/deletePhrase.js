@@ -1,4 +1,4 @@
-export default async function deletePhrase(phraseId) {
+export default async function deletePhrase(phraseId, token) {
   try {
     const response = await fetch(`/api/phrases/delete/${phraseId}`, {
       method: 'DELETE',
@@ -6,7 +6,8 @@ export default async function deletePhrase(phraseId) {
       headers: {
         Accept: 'application/json',
         'Content-type': 'application/json',
-        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+        Authorization: `Bearer ${token}`
       }
     })
 

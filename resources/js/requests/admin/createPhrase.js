@@ -1,4 +1,4 @@
-export default async function createPhrase({ translations, phrase, topic }) {
+export default async function createPhrase({ translations, phrase, topic }, token) {
   try {
     const response = await fetch('/api/phrase/new', {
       method: 'POST',
@@ -6,7 +6,8 @@ export default async function createPhrase({ translations, phrase, topic }) {
       headers: {
         Accept: 'application/json',
         'Content-type': 'application/json',
-        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+        Authorization: `Bearer ${token}`
       }
     })
 

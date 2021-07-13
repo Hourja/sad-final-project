@@ -5,11 +5,13 @@ import TopicsList from './TopicsList'
 import createPhrase from '../../../../requests/admin/createPhrase'
 import TranslationInput from './TranslationInput'
 import fetchLanguages from '../../../../requests/admin/fetchLanguages'
+import UserContext from '../../../../UserContext'
 
 export default function NewPhraseForm() {
   const [topics, setTopics] = useState(null)
   const [errors, setErrors] = useState(null)
   const [languages, setLanguages] = useState(null)
+  const { token } = useContext(UserContext)
 
   useEffect(loadLanguages, [])
   async function loadLanguages() {
@@ -42,7 +44,7 @@ export default function NewPhraseForm() {
       topic,
       phrase,
       translations: languages.map((language, index) => {
-        return { language_id: language.id, translation: translations[index] }
+        return { language_id: language.id, translation: translations[index], token }
       })
     })
 

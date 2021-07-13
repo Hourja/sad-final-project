@@ -7,9 +7,8 @@ import UserContext from '../../../../UserContext'
 export default function BasicTable() {
   const [phrases, setPhrases] = useState(null)
   const { token } = useContext(UserContext)
-  const [update, setUpdate] = useState(true)
 
-  useEffect(loadedData, [update])
+  useEffect(loadedData, [])
 
   async function loadedData() {
     const loadedPhrases = await fetchPhrases(token)

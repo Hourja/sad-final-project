@@ -16,7 +16,7 @@ class UserController extends Controller
     {
         $this->validate($input, [
             'name' => 'required|string',
-            'email' => ['required', 'email:rfc,dns', Rule::unique(User::class, 'email')],
+            'email' => ['required', 'email', Rule::unique(User::class, 'email')],
             'password' => ['required', 'confirmed', 'string', Password::min(6)],
             //->numbers()->mixedCase()->symbols()s
         ]);

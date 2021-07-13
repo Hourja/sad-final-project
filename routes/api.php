@@ -63,6 +63,7 @@ Route::middleware(['auth:sanctum', 'isAdmin'])->group(function () {
 
     Route::post('/phrase/new', 'PhraseController@store');
 
+    
     Route::prefix('phrases')->group(function () {
         //Phrases Controller
 
