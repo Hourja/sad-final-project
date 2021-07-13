@@ -2,8 +2,31 @@
 @import '../../common/media-queries.scss';
 
 .profile-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 50px 0;
+
+  .avatar {
+    border-radius: 50%;
+    margin: 25px 0;
+  }
+
+  .profile-title {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.6rem;
+  }
+
+  .user-details {
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
+    align-items: center;
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+    }
+  }
 }

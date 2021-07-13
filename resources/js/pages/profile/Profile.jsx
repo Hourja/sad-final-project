@@ -1,8 +1,7 @@
 import './profile.scss'
-import { useEffect, useState, useContext } from 'react'
-import fetchUsers from '../../requests/fetchUsers'
+import { useContext } from 'react'
 import UserContext from '../../UserContext'
-window.fetchUsers = fetchUsers
+import Gravatar from './Gravatar'
 
 export default function Profile() {
   const { user } = useContext(UserContext)
@@ -10,11 +9,11 @@ export default function Profile() {
   return (
     <div className='profile-page'>
       <h1 className='profile-title'>My profile</h1>
-      {/* <img src={users[0].photo_url} alt={users[0].name} /> */}
+      <Gravatar />
       <div className='user-details'>
-        <p>Name of User {user.name}</p>
-        <p>Email</p>
-        <button>Reset Password</button>
+        <p>{user.name}</p>
+        <p>{user.email}</p>
+        {/* <button>Reset Password</button> */}
       </div>
     </div>
   )
