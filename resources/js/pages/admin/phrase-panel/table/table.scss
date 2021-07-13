@@ -1,8 +1,11 @@
+@import '../../../../common/colors.scss';
+
 table {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
   text-align: center;
+  margin-top: 50px;
 }
 
 table td,
@@ -23,6 +26,23 @@ table th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
-  background-color: #04aa6d;
+  background-color: $blue;
   color: white;
+}
+
+.pagination {
+  margin-top: 20px;
+
+  button {
+    background-color: $blue;
+    margin-left: 5px;
+    box-shadow: 0 0 4px $light-blue;
+    border: 1px solid $white;
+    color: $white;
+    width: 50px;
+
+    &:not(:first-child) {
+      width: 70px;
+    }
+  }
 }
