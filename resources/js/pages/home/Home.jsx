@@ -20,12 +20,15 @@ function Homepage() {
   return (
     <>
       <div className='home'>
-        {/* <BackTopButton /> */}
+        <BackTopButton />
         <Container className='__container-fluid' fluid>
           <div className='__welcome '>
             <div className='__text'>
               <h1>
-                Welcome <strong className='name'>{name}</strong> <FontAwesomeIcon icon='globe-americas' />
+                Welcome <strong className='name'>{name}</strong>{' '}
+                <span className='icon'>
+                  <FontAwesomeIcon icon='globe-americas' />
+                </span>
               </h1>
               <h2>
                 Discover the world & Learn a new language by selecting a <strong className='strong'>city</strong>.

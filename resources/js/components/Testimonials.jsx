@@ -91,7 +91,7 @@ function Testimonial({ testimonial, className, index }) {
   return (
     <div className={`testimonial ${className}`}>
       <span className='testimonials-text'>
-        <FontAwesomeIcon icon='quote-left' />
+        <FontAwesomeIcon icon='quote-left' className='quote-left' />
         {testimonial.text}
         <FontAwesomeIcon icon='quote-right' className='quote-right' />
       </span>
