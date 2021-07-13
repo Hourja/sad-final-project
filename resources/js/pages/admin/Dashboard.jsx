@@ -3,12 +3,15 @@ import { NavLink, useRouteMatch, Route, Switch } from 'react-router-dom'
 import NewPhraseForm from './phrase-panel/create/NewPhraseForm'
 import BasicTable from './phrase-panel/table/BasicTable'
 import EditPhrase from './phrase-panel/edit/EditPhrase'
+import './dashboard.scss'
 
 export default function Dashboard() {
   const { path } = useRouteMatch()
   return (
     <main className='city'>
-      <h1>Dashboard</h1>
+      <NavLink to='/admin' className='admin-link'>
+        Admin Page
+      </NavLink>
 
       <Switch>
         <Route exact path={path} component={DashboardNavigation} />

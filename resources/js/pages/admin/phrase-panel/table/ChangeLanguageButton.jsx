@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import './changeLanguage.scss'
 
 export default function ChangeLanguage({ languageRotation, buttonText }) {
   return (

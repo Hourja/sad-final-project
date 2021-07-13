@@ -54,10 +54,10 @@ export default function ChangePhrase({ phrase }) {
   }
   return (
     <>
-      <>
+      <div className='row'>
         <RowText rowText={rowText} />
         <ChangeLanguage languageRotation={languageRotation} buttonText={buttonText} />
-      </>
+      </div>
     </>
   )
 }

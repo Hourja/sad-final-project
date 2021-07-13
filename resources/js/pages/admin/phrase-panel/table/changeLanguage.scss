@@ -1,0 +1,12 @@
+@import '../../../../common/colors.scss';
+
+button {
+  margin-left: 10px;
+  border: 1px solid $black;
+  color: $blue;
+
+  &:hover {
+    background-color: $blue;
+    color: $white;
+  }
+}

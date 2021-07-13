@@ -26,7 +26,7 @@ export default function Topics({ categories }) {
   const getTopicId = (e) => {
     setTopicId(e.target.dataset.topicid)
   }
-
+  console.log(topicId)
   return (
     <div className='topics-list'>
       <ul className='topics-list-city'>
@@ -38,7 +38,7 @@ export default function Topics({ categories }) {
             className={topicId == topic.id ? 'selected' : ''}
           >
             {topic.name}
-            {console.log(topic)}
+            {/* {console.log(topic)} */}
           </li>
         ))}
       </ul>

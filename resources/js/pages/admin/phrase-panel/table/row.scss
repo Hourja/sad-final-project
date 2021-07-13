@@ -1,0 +1,30 @@
+@import '../../../../common/colors.scss';
+@import '../../../../common/media-queries.scss';
+
+.icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include for-phone {
+    flex-direction: row;
+  }
+
+  .link {
+    display: inline-block;
+    margin-right: 20px;
+    color: $blue;
+
+    &:hover {
+      color: $white;
+    }
+  }
+
+  .trash-icon {
+    color: red;
+
+    &:hover {
+      color: $white;
+    }
+  }
+}
