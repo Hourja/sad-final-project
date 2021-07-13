@@ -48,7 +48,7 @@ function Homepage() {
         </span>
 
         <Link to='/sign-up' className='__sign-up'>
-          Register
+          <p className='__title'>Register</p>
         </Link>
       </div>
       <Container>

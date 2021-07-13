@@ -135,15 +135,13 @@
     .__sign-up {
       display: inline-block;
       width: 250px;
-      height: 40px;
       background-color: $white;
       align-self: center;
       color: $blue;
-      font-size: 2rem;
+      font-size: 1.3rem;
       text-decoration: none;
       text-align: center;
-      border-radius: 5px;
-      padding-top: 5px;
+      padding: 15px;
       border: 1px solid $white;
 
       &:hover {

@@ -29,4 +29,54 @@
       margin-bottom: 25px;
     }
   }
+
+  .__link {
+    position: relative;
+    display: block;
+    color: $blue;
+    font-size: 14px;
+    margin: 30px 25px;
+    border: 1px solid $blue;
+    padding: 14px 60px;
+    overflow: hidden;
+    transition: 0.4s all ease;
+    text-decoration: none;
+    text-align: center;
+
+    &.--active {
+      background-color: $blue;
+      color: $white;
+      border: 1px solid $blue;
+      box-shadow: 0 0 4px opacify($white, 0.2);
+    }
+
+    &:before {
+      background: $blue;
+      color: $white;
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      transition: all 0.4s ease;
+      width: 0%;
+      height: 100%;
+    }
+
+    &:hover {
+      color: $white;
+    }
+
+    &:hover::before {
+      width: 100%;
+    }
+
+    .__title {
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 1.1rem;
+      padding-bottom: 10px;
+    }
+  }
 }

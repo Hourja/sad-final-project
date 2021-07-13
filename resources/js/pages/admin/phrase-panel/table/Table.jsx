@@ -55,7 +55,7 @@ export default function Table({ phrases, setUpdate }) {
 
   return (
     <>
-      <table {...getTableProps()}>
+      <table {...getTableProps()} className='table-admin'>
         <thead>
           {
             // Loop over the header rows

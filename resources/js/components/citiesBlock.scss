@@ -78,11 +78,13 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+
     .__name {
       font-size: 24px;
       text-decoration: none;
       font-weight: bold;
       color: $blue;
+      text-align: center;
 
       &:hover {
         color: $light-blue;
@@ -96,40 +98,97 @@
     }
     .__links {
       display: flex;
-      flex-direction: row;
-      margin-top: 80px;
-      justify-content: space-between;
+      flex-direction: column;
+      margin-top: 10px;
+      // justify-content: space-between;
 
-      @include for-large {
-        font-size: 20px;
+      @include for-desktop-and-large {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        top: 50%;
+        margin-top: 80px;
       }
 
-      @include for-desktop {
-        margin-top: 64px;
-      }
+      // @include for-large {
+      //   font-size: 20px;
+      // }
+
+      // @include for-desktop {
+      //   margin-top: 64px;
+      // }
 
       .__link {
-        background-color: #8dc6db;
-        text-decoration: none;
-        color: #ffffff;
-        font-weight: bold;
-        text-align: center;
-        width: calc(50% - 4px);
-        height: 12vw;
-        box-shadow: 0 0 4px #131c23;
-        border: 1px solid $white;
-        font-size: 4vw;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        // background-color: #8dc6db;
+        // text-decoration: none;
+        // color: #ffffff;
+        // font-weight: bold;
+        // text-align: center;
+        // width: calc(50% - 4px);
+        // height: 12vw;
+        // box-shadow: 0 0 4px #131c23;
+        // border: 1px solid $white;
+        // font-size: 4vw;
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
 
-        @include for-desktop-and-large {
-          font-size: 20px;
-          height: 50px;
+        // @include for-desktop-and-large {
+        //   font-size: 20px;
+        //   height: 50px;
+        // }
+        // &:hover {
+        //   color: $light-blue;
+        //   background-color: $white;
+        // }
+
+        position: relative;
+        display: block;
+        color: $blue;
+        font-size: 14px;
+        margin: 10px 25px;
+        border: 1px solid $blue;
+        padding: 14px 60px;
+        overflow: hidden;
+        transition: 0.4s all ease;
+        text-decoration: none;
+        text-align: center;
+
+        &.--active {
+          background-color: $blue;
+          color: $white;
+          border: 1px solid $blue;
+          box-shadow: 0 0 4px opacify($white, 0.2);
         }
+
+        &:before {
+          background: $blue;
+          color: $white;
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: -1;
+          transition: all 0.4s ease;
+          width: 0%;
+          height: 100%;
+        }
+
         &:hover {
-          color: $light-blue;
-          background-color: $white;
+          color: $white;
+        }
+
+        &:hover::before {
+          width: 100%;
+        }
+
+        .__title {
+          text-transform: uppercase;
+          font-weight: bold;
+          font-size: 1.1rem;
+          padding-bottom: 10px;
         }
       }
     }
