@@ -79,4 +79,11 @@ class UserController extends Controller
 
         return "Valid";
     }
+
+    public function showProfile()
+    {
+        $user = User::get();
+
+        return $user;
+    }
 }

@@ -50,7 +50,7 @@ Route::post('/sendMessage', 'MessageController@sendMessage');
 Route::post('token', 'UserController@token');
 Route::post('/new-register', 'UserController@register');
 Route::post('logout', 'UserController@logout')->middleware('auth:sanctum');
-
+Route::get('/profile', 'UserController@showProfile');
 
 // Check if user Exists
 Route::get('user', 'UserController@user')->middleware('auth:sanctum');
