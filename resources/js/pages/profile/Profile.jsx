@@ -15,6 +15,7 @@ export default function Profile() {
         <p>{user.email}</p>
         {/* <button>Reset Password</button> */}
       </div>
+      zzzz
     </div>
   )
 }

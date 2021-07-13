@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\Fortify\UpdateUserPassword;
+use App\Actions\Fortify\UpdateUserProfileInformation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Validation\Rule;
+use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Support\Facades\Password as ResetPassword;
+
 
 class UserController extends Controller
 {
@@ -80,5 +85,18 @@ class UserController extends Controller
         return "Valid";
     }
 
-   
+
+    public function updatePassword(Request $request,
+    UpdateUserPassword $updater)
+    {
+
+    if ($updater->update($request->user(), $request->all()))
+    {
+      return "success";
+
+    }
+
+    }
+
+
 }
