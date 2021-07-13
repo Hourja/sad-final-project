@@ -87,7 +87,7 @@ export default function Phrase({ phrase, language }) {
       )}
       <div
         className='translation'
-        onClick={(e) => {
+        onClick={() => {
           load ? playPhrase() : setLoad(true)
         }}
       >
