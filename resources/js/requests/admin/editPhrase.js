@@ -20,7 +20,7 @@ export default async function editPhrase(phraseId, { translations, phrase, topic
     }
     //data has errors when the validation fails
     const data = await response.json()
-
+    console.log('test')
     if (data.errors) {
       return {
         success: false,
