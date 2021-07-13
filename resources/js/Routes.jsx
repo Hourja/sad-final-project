@@ -28,7 +28,7 @@ export default function Routes() {
       <Route path='/city/:city' component={City} />
       {/* ADMIN DASHBOARD */}
       <Route path='/admin' component={() => (!loggedIn && !isAdmin ? <Redirect to='/' /> : <Dashboard />)} />
-      <Route path='/profile' exact component={Profile} />
+      <Route path='/profile' exact component={() => (loggedIn ? <Profile /> : <Redirect to='/' />)} />
     </Switch>
   )
 }
