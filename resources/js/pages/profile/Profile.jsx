@@ -6,19 +6,6 @@ window.fetchUsers = fetchUsers
 
 export default function Profile() {
   const { user } = useContext(UserContext)
-  // console.log(user)
-  // const [users, setUsers] = useState(null)
-
-  // useEffect(loadUsers, [])
-
-  // async function loadUsers() {
-  //   const loadedUsers = await fetchUsers()
-  //   setUsers(loadedUsers)
-  // }
-
-  // if (!users) {
-  //   return 'Loading...'
-  // }
 
   return (
     <div className='profile-page'>
