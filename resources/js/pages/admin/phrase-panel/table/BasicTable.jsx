@@ -1,10 +1,7 @@
 import './table.scss'
-import Row from './Row'
-import { useState, useEffect, useContext, useMemo } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import fetchPhrases from '../../../../requests/admin/fetchPhrases'
-import { useTable, useSortBy } from 'react-table'
 import Table from './Table'
-
 import UserContext from '../../../../UserContext'
 
 export default function BasicTable() {

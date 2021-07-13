@@ -1,5 +1,5 @@
 import './table.scss'
-import { useState, useMemo } from 'react'
+import { useMemo } from 'react'
 import { useTable, useSortBy, usePagination } from 'react-table'
 import Row from './Row'
 import ChangePhrase from './ChangePhrase'
@@ -11,12 +11,12 @@ export default function Table({ phrases, setUpdate }) {
         Header: 'Id',
         accessor: 'id'
       },
-      ,
+
       {
         Header: 'Phrase',
         accessor: 'name',
         Cell: (row) => {
-          return <ChangePhrase phrase={row.row.values} setUpdate={setUpdate} phrases={phrases} />
+          return <ChangePhrase phrase={row.row.values} setUpdate={setUpdate} />
         }
       },
       {

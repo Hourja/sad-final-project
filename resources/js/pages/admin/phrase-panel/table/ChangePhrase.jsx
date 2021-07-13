@@ -1,15 +1,26 @@
 import RowText from './RowText'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import ChangeLanguage from './ChangeLanguageButton'
+import fetchTranslations from '../../../../requests/admin/fetchTranslations'
 
-export default function ChangePhrase({ phrase, phrases }) {
+export default function ChangePhrase({ phrase }) {
   //   Logic to change the language on click for each row
   const { name } = phrase
+
   const [language, setLanguage] = useState('eng')
   const [rowText, setRowText] = useState(name)
   const [buttonText, setButtonText] = useState('English')
+  const [translation, setTranslation] = useState(null)
+
   // something is wrong at line 12!
-  const languageData = phrases[phrase.id].translations
+  useEffect(loadedData, [])
+
+  async function loadedData() {
+    const loadedTranslations = await fetchTranslations(phrase.id)
+    setTranslation(loadedTranslations)
+  }
+
+  const languageData = translation
 
   const languageRotation = () => {
     if (languageData) {
@@ -43,8 +54,10 @@ export default function ChangePhrase({ phrase, phrases }) {
   }
   return (
     <>
-      <RowText rowText={rowText} />
-      <ChangeLanguage languageRotation={languageRotation} buttonText={buttonText} />
+      <>
+        <RowText rowText={rowText} />
+        <ChangeLanguage languageRotation={languageRotation} buttonText={buttonText} />
+      </>
     </>
   )
 }

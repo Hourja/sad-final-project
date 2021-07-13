@@ -19,7 +19,6 @@ export default function Phrases({ topicId, language }) {
 
   async function loadPhrases() {
     setPhrases(null)
-    console.log(loggedIn, topicId)
     const loadedPhrases = await (loggedIn && topicId === 'favorite'
       ? fetchMyPhrases(categoryId, token)
       : fetchPhrase(topicId))
