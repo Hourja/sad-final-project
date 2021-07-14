@@ -8,8 +8,11 @@ import fetchLanguages from '../../../../requests/admin/fetchLanguages'
 import Errors from '../../../../components/Errors'
 import editPhrase from '../../../../requests/admin/editPhrase'
 import UserContext from '../../../../UserContext'
+import { useHistory } from 'react-router-dom'
 
 export default function EditPhrase() {
+  const history = useHistory()
+
   const { token } = useContext(UserContext)
   const { phraseId } = useParams()
   const [errors, setErrors] = useState(null)
@@ -85,6 +88,7 @@ export default function EditPhrase() {
     <>
       {languages && translations ? (
         <div className='add-phrase'>
+          <button onClick={() => history.goBack()}>Back to phrases</button>
           <h1 className='__register-title'>Edit Phrase</h1>
           <form className='__register' action='' method='post' onSubmit={handleSubmit}>
             <TopicsList setTopics={setTopics} topics={topics} handleChange={handleChange} />

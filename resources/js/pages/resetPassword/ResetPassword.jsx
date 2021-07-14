@@ -16,7 +16,7 @@ export default function ResetPasswordPage() {
         Forgot you password ?
       </h1>
       <h2 style={{ marginTop: '30px', marginBottom: '30px', fontSize: '20px', textAlign: 'center' }}>
-        To reset your password it's necessary type the same email from your registration
+        Enter the email address associated with your DAS Travel account.{' '}
       </h2>
       <ResetPassword />
     </div>

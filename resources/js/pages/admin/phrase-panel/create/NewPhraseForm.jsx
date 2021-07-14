@@ -7,8 +7,10 @@ import TranslationInput from './TranslationInput'
 import fetchLanguages from '../../../../requests/admin/fetchLanguages'
 import './editPhrase.scss'
 import UserContext from '../../../../UserContext'
+import { useHistory } from 'react-router-dom'
 
 export default function NewPhraseForm() {
+  const history = useHistory()
   const [topics, setTopics] = useState(null)
   const [errors, setErrors] = useState(null)
   const [languages, setLanguages] = useState(null)
@@ -40,7 +42,9 @@ export default function NewPhraseForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-
+    if (topic === '') {
+      return setErrors(['Topic field is required'])
+    }
     const { success, errors } = await createPhrase({
       topic,
       phrase,
@@ -52,6 +56,14 @@ export default function NewPhraseForm() {
     if (!success) {
       return setErrors(errors)
     }
+    setLanguages(languages)
+    setValues({
+      phrase: '',
+      topic: '',
+      translations: languages ? new Array(languages.length).fill('') : []
+    })
+    setLanguages(languages)
+    setErrors(['Phrase created successfully !'])
   }
 
   const onLanguageChange = (index, translation) => {
@@ -61,6 +73,7 @@ export default function NewPhraseForm() {
 
   return (
     <div className='add-phrase'>
+      <button onClick={() => history.goBack()}>Back to Admin</button>
       <h1 className='__register-title'>Add a phrase</h1>
 
       <form className='__register' action='' method='post' onSubmit={handleSubmit}>
