@@ -34,24 +34,29 @@ class PhraseController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request, $this->newPhraseValidations);
+        if ($this->validate($request, $this->newPhraseValidations)){
 
-        $phrase = new Phrase;
-        $phrase->topic_id = $request->topic;
-        $phrase->name = $request->phrase;
-        $phrase->save();
+          $phrase = new Phrase;
+          $phrase->topic_id = $request->topic;
+          $phrase->name = $request->phrase;
+          $phrase->save();
 
-        foreach ($request->translations as $translation) {
+          foreach ($request->translations as $translation) {
 
-            $newTranslation = new Translation;
-            $newTranslation->language_id = $translation['language_id'];
-            $newTranslation->name = $translation['translation'];
-            $newTranslation->phrase_id = $phrase->id;
-            $newTranslation->save();
-        };
+              $newTranslation = new Translation;
+              $newTranslation->language_id = $translation['language_id'];
+              $newTranslation->name = $translation['translation'];
+              $newTranslation->phrase_id = $phrase->id;
+              $newTranslation->save();
+          };
+
+          return ['message' => 'success'];
+        }
 
 
-        return ['message' => 'success'];
+        return ['errors' => 'Incorrect Input'];
+
+
     }
 
     public function update(Request $request, String $phraseId)

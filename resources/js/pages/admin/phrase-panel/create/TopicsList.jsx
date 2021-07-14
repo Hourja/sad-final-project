@@ -20,7 +20,12 @@ export default function TopicsList({ handleChange, setTopics, topics }) {
       {loaded ? (
         <label htmlFor='topic'>
           Choose a topic
-          <select name='topic' onChange={handleChange} style={{ marginLeft: '10px', border: '1px solid #5fa1c1' }}>
+          <select
+            name='topic'
+            onChange={handleChange}
+            style={{ marginLeft: '10px', border: '1px solid #5fa1c1' }}
+            required
+          >
             {topics.map((topic, index) => (
               <option key={index} value={topic.id}>
                 {topic.name}

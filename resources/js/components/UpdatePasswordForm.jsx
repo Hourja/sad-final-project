@@ -43,9 +43,6 @@ export default function UpdatePasswordForm() {
 
   return (
     <div className='login-form'>
-      {/* //   {children}
-    //   <h1 className='login-title'>Login</h1> */}
-
       <form className='login' action='/login' method='post' onSubmit={handleSubmit}>
         <label htmlFor='email'>
           Current Password:

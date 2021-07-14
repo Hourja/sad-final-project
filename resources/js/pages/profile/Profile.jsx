@@ -18,8 +18,12 @@ export default function Profile() {
       <h1 className='profile-title'>My profile</h1>
       <Gravatar size='200' />
       <div className='user-details'>
-        <UpdateProfileForm name={name} email={email} setValues={setValues} />
-        <UpdatePassword />
+        {loggedIn && (
+          <>
+            <UpdateProfileForm name={name} email={email} setValues={setValues} />
+            <UpdatePassword />
+          </>
+        )}
         {/* <button>Reset Password</button> */}
       </div>
       {loggedIn && isAdmin && (

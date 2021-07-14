@@ -30,7 +30,7 @@ export default function Table({ phrases }) {
         }
       }
     ],
-    [update]
+    []
   )
 
   const tableInstance = useTable({ columns, data: phrases }, useSortBy, usePagination)

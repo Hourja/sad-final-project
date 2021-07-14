@@ -37,7 +37,7 @@ export default async function editPhrase(phraseId, { translations, phrase, topic
 
     return {
       success: false,
-      errors: ['Your credentials are invalid']
+      errors: ['Something went wrong']
     }
   }
 }

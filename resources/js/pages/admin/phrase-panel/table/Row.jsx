@@ -12,6 +12,7 @@ export default function Row({ phrase }) {
   const confirmDelete = (e) => {
     !confirm(`You are about to delete [${name}] - Are you sure?`) && e.preventDefault()
     deletePhrase(id)
+    window.location.reload()
   }
 
   return (

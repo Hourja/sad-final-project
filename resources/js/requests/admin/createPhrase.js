@@ -21,17 +21,21 @@ export default async function createPhrase({ translations, phrase, topic }, toke
     //data has errors when the validation fails
     const data = await response.json()
 
-    if (data.message !== 'success') {
+    if (data.errors) {
       return {
         success: false,
-        errors: ['Your credentials are invalid']
+        errors: Object.values(data.errors).flat()
       }
+    }
+
+    if (data.message === 'success') {
+      return { success: true, errors: false }
     }
   } catch (error) {
     //when something goes wrong for instance : internet conection failed
     return {
       success: false,
-      errors: ['Your credentials are invalid']
+      errors: ['Something went wrong']
     }
   }
 }
