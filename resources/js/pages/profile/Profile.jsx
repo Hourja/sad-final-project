@@ -21,6 +21,11 @@ export default function Profile() {
           Admin Panel
         </Link>
       )}
+      {loggedIn && isAdmin && (
+        <Link to='/reset-password' className='__link'>
+          Reset Password
+        </Link>
+      )}
     </div>
   )
 }
