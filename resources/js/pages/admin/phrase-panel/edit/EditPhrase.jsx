@@ -84,9 +84,9 @@ export default function EditPhrase() {
   return (
     <>
       {languages && translations ? (
-        <>
-          <h1 className='register-title'>Edit Phrase</h1>
-          <form className='register' action='' method='post' onSubmit={handleSubmit}>
+        <div className='add-phrase'>
+          <h1 className='__register-title'>Edit Phrase</h1>
+          <form className='__register' action='' method='post' onSubmit={handleSubmit}>
             <TopicsList setTopics={setTopics} topics={topics} handleChange={handleChange} />
 
             <EditPhraseInput phrase={phrase} handleChange={handleChange} />
@@ -100,10 +100,10 @@ export default function EditPhrase() {
                 value={translations[index]}
               />
             ))}
-            <button className='register-button'>Save</button>
+            <button className='__register-button'>Save</button>
             <Errors errors={errors} />
           </form>
-        </>
+        </div>
       ) : (
         'loading'
       )}

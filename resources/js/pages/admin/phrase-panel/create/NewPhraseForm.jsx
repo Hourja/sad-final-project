@@ -5,6 +5,7 @@ import TopicsList from './TopicsList'
 import createPhrase from '../../../../requests/admin/createPhrase'
 import TranslationInput from './TranslationInput'
 import fetchLanguages from '../../../../requests/admin/fetchLanguages'
+import './editPhrase.scss'
 import UserContext from '../../../../UserContext'
 
 export default function NewPhraseForm() {
@@ -59,10 +60,10 @@ export default function NewPhraseForm() {
   }
 
   return (
-    <>
-      <h1 className='register-title'>Add a phrase</h1>
+    <div className='add-phrase'>
+      <h1 className='__register-title'>Add a phrase</h1>
 
-      <form className='register' action='' method='post' onSubmit={handleSubmit}>
+      <form className='__register' action='' method='post' onSubmit={handleSubmit}>
         <TopicsList setTopics={setTopics} topics={topics} handleChange={handleChange} />
 
         <NewPhrase setValues={setValues} phrase={phrase} handleChange={handleChange} />
@@ -73,10 +74,10 @@ export default function NewPhraseForm() {
             ))
           : 'Loading'}
 
-        <button className='register-button'>Add</button>
+        <button className='__register-button'>Add</button>
 
         <Errors errors={errors} />
       </form>
-    </>
+    </div>
   )
 }
