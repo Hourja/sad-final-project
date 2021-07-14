@@ -23,7 +23,7 @@ class UserController extends Controller
         $this->validate($input, [
             'name' => 'required|string',
             'email' => ['required', 'email', Rule::unique(User::class, 'email')],
-            'password' => ['required', 'confirmed', 'string', PasswordRule::min(6)],
+            'password' => ['required', 'confirmed', 'string', PasswordRule::min(8)->numbers()->symbols()->mixedCase()],
             //->numbers()->mixedCase()->symbols()s
         ]);
 
@@ -122,7 +122,7 @@ class UserController extends Controller
         $request->validate([
             'token' => 'required',
             'email' => 'required|email',
-            'password' => ['required', 'confirmed', 'string', PasswordRule::min(6)]
+            'password' => ['required', 'confirmed', 'string', PasswordRule::min(8)->numbers()->symbols()->mixedCase()]
         ]);
 
         $status = Password::reset(
