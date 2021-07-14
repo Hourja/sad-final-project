@@ -65,6 +65,7 @@ export default function LoginForm({ children }) {
 
         <div className='logged'>
           Don't have an account? <Link to='/sign-up'>Register</Link>
+          Problems to login? <Link to='/forgot-my-password'>Reset your password</Link>
         </div>
       </form>
     </div>
