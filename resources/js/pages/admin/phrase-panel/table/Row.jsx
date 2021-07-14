@@ -4,7 +4,7 @@ import deletePhrase from '../../../../requests/admin/deletePhrase'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './row.scss'
 
-export default function Row({ phrase, setUpdate }) {
+export default function Row({ phrase }) {
   const { url } = useRouteMatch()
 
   const { id, name } = phrase
@@ -12,7 +12,6 @@ export default function Row({ phrase, setUpdate }) {
   const confirmDelete = (e) => {
     !confirm(`You are about to delete [${name}] - Are you sure?`) && e.preventDefault()
     deletePhrase(id)
-    setUpdate(!true)
   }
 
   return (

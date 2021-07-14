@@ -1,10 +1,10 @@
 import './table.scss'
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { useTable, useSortBy, usePagination } from 'react-table'
 import Row from './Row'
 import ChangePhrase from './ChangePhrase'
 
-export default function Table({ phrases, setUpdate }) {
+export default function Table({ phrases }) {
   const columns = useMemo(
     () => [
       {
@@ -16,7 +16,7 @@ export default function Table({ phrases, setUpdate }) {
         Header: 'Phrase',
         accessor: 'name',
         Cell: (row) => {
-          return <ChangePhrase phrase={row.row.values} setUpdate={setUpdate} />
+          return <ChangePhrase phrase={row.row.values} />
         }
       },
       {
@@ -26,11 +26,11 @@ export default function Table({ phrases, setUpdate }) {
       {
         Header: 'Action',
         Cell: (row) => {
-          return <Row phrase={row.row.values} setUpdate={setUpdate} />
+          return <Row phrase={row.row.values} />
         }
       }
     ],
-    []
+    [update]
   )
 
   const tableInstance = useTable({ columns, data: phrases }, useSortBy, usePagination)
