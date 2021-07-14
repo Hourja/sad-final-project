@@ -1,4 +1,4 @@
-import '../../components/loginForm.scss'
+import './recoverPassword.scss'
 import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import fetchRecoverPassword from '../../requests/fetchRecoverPassword'
@@ -33,6 +33,7 @@ export default function RecoverPassword() {
   return (
     <>
       <div className='login-page'>
+        <h1>Recover you password</h1>
         <div className='login-form'>
           <form className='login' action='/login' method='post' onSubmit={handleSubmit}>
             <label htmlFor='email'>
