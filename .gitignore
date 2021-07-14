@@ -15,4 +15,8 @@ yarn-error.log
 /.vscode
 /public/js/
 /public/images
+<<<<<<< Updated upstream
 phploy.ini
+=======
+phploy.ini
+>>>>>>> Stashed changes
