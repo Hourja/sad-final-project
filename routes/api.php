@@ -54,6 +54,9 @@ Route::post('logout', 'UserController@logout')->middleware('auth:sanctum');
 
 Route::post('/profile/update-password', 'UserController@updatePassword')->middleware('auth:sanctum');
 Route::post('/profile/update-profile', 'UserController@updateProfile');
+Route::post('/profile/reset-password', 'UserController@resetPassword');
+Route::post('/profile/recover-password', 'UserController@recoverPassword');
+
 
 
 // Check if user Exists
