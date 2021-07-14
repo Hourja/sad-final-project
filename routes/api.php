@@ -52,7 +52,8 @@ Route::post('token', 'UserController@token');
 Route::post('/new-register', 'UserController@register');
 Route::post('logout', 'UserController@logout')->middleware('auth:sanctum');
 
-Route::post('/profile/update-password', 'UserController@updatePassword')->middleware('auth:sanctum');;
+Route::post('/profile/update-password', 'UserController@updatePassword')->middleware('auth:sanctum');
+Route::post('/profile/update-profile', 'UserController@updateProfile');
 
 
 // Check if user Exists

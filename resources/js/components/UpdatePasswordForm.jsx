@@ -72,7 +72,7 @@ export default function UpdatePasswordForm() {
           />
         </label>
 
-        <button className='login-button'>{loading ? 'In progress...' : 'Reset'}</button>
+        <button className='login-button'>{loading ? 'In progress...' : 'Update Password'}</button>
       </form>
     </div>
   )

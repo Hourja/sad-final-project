@@ -12,7 +12,7 @@ use Illuminate\Validation\Rules\Password;
 use Illuminate\Validation\Rule;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Facades\Password as ResetPassword;
-
+use Laravel\Fortify\Contracts\UpdatesUserProfileInformation;
 
 class UserController extends Controller
 {
@@ -95,6 +95,19 @@ class UserController extends Controller
       return "success";
 
     }
+  }
+
+    public function updateProfile(Request $request,
+    UpdatesUserProfileInformation $updater)
+    {
+
+    if ($updater->update($request->user(), $request->all()))
+    {
+      return "success";
+
+    }
+
+
 
     }
 
