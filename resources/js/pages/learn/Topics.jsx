@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom'
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect } from 'react'
 import fetchLanguage from '../../requests/fetchLanguage'
 import Phrases from './Phrases'
 
@@ -7,6 +7,7 @@ export default function Topics({ categories }) {
   const [language, setLanguage] = useState('')
   const [topicId, setTopicId] = useState(null)
   const { categoryId, city } = useParams()
+  const [load, setLoad] = useState(true)
 
   useEffect(loadLanguage, [city])
 
@@ -26,26 +27,27 @@ export default function Topics({ categories }) {
   const getTopicId = (e) => {
     setTopicId(e.target.dataset.topicid)
   }
-  console.log(topicId)
+
   return (
     <div className='topics-list'>
       <ul className='topics-list-city'>
-        {category.topics.map((topic, index) => (
-          <li
-            key={index}
-            onClick={getTopicId}
-            data-topicid={topic.id}
-            className={topicId == topic.id ? 'selected' : ''}
-          >
-            {topic.name}
-            {/* {console.log(topic)} */}
-          </li>
-        ))}
+        {load
+          ? category.topics.map((topic, index) => (
+              <li
+                key={index}
+                onClick={getTopicId}
+                data-topicid={topic.id}
+                className={topicId == topic.id ? 'selected' : ''}
+              >
+                {topic.name}
+              </li>
+            ))
+          : 'Loading'}
       </ul>
 
       <div className='phrases-list'>
         {topicId ? (
-          <Phrases topicId={topicId} language={language} />
+          <Phrases topicId={topicId} language={language} load={load} setLoad={setLoad} />
         ) : (
           <div className='loading-text'>Select a topic from the left</div>
         )}

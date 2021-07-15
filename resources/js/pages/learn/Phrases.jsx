@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react'
 import Phrase from './Phrase'
 import fetchPhrase, { fetchMyPhrases } from '../../requests/fetchPhrase'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useContext } from 'react'
 import UserContext from '../../UserContext'
 import { useParams } from 'react-router-dom'
+import Errors from '../../components/Errors'
 
-export default function Phrases({ topicId, language }) {
-  // const synth = window.speechSynthesis
+export default function Phrases({ topicId, language, load, setLoad }) {
+  const [errors, setErrors] = useState(null)
   const [phrases, setPhrases] = useState(null)
   const { token, loggedIn } = useContext(UserContext)
   const { categoryId } = useParams()
@@ -31,9 +31,17 @@ export default function Phrases({ topicId, language }) {
         <div className='list-phrases-topics'>
           <ul className='list-phrases-translations'>
             {phrases.map((phrase, index) => (
-              <Phrase key={index} phrase={phrase} language={language} />
+              <Phrase
+                key={index}
+                phrase={phrase}
+                language={language}
+                setErrors={setErrors}
+                loadCategories={load}
+                setLoadCategories={setLoad}
+              />
             ))}
           </ul>
+          <Errors errors={errors} />
         </div>
       ) : (
         <div className='loading-text'>Loading...</div>
