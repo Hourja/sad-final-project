@@ -73,7 +73,6 @@ export default function NewPhraseForm() {
 
   return (
     <div className='add-phrase'>
-      <button onClick={() => history.goBack()}>Back to Admin</button>
       <h1 className='__register-title'>Add a phrase</h1>
 
       <form className='__register' action='' method='post' onSubmit={handleSubmit}>
@@ -86,9 +85,15 @@ export default function NewPhraseForm() {
               <TranslationInput key={index} language={language} index={index} onChange={onLanguageChange} />
             ))
           : 'Loading'}
-
-        <button className='__register-button'>Add</button>
-
+        <div className='buttons'>
+          <button className='__register-button'>Add</button>
+          <button
+            onClick={() => history.goBack()}
+            style={{ width: '70px', height: '40px', alignSelf: 'center', textTransform: 'uppercase' }}
+          >
+            Back
+          </button>
+        </div>
         <Errors errors={errors} />
       </form>
     </div>

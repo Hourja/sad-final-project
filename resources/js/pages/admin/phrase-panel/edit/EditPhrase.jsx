@@ -88,7 +88,6 @@ export default function EditPhrase() {
     <>
       {languages && translations ? (
         <div className='add-phrase'>
-          <button onClick={() => history.goBack()}>Back to phrases</button>
           <h1 className='__register-title'>Edit Phrase</h1>
           <form className='__register' action='' method='post' onSubmit={handleSubmit}>
             <TopicsList setTopics={setTopics} topics={topics} handleChange={handleChange} />
@@ -104,7 +103,15 @@ export default function EditPhrase() {
                 value={translations[index]}
               />
             ))}
-            <button className='__register-button'>Save</button>
+            <div className='buttons'>
+              <button className='__register-button'>Save</button>
+              <button
+                onClick={() => history.goBack()}
+                style={{ width: '70px', height: '40px', textTransform: 'uppercase', alignSelf: 'center' }}
+              >
+                Back{' '}
+              </button>
+            </div>
             <Errors errors={errors} />
           </form>
         </div>
