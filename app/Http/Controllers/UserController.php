@@ -24,8 +24,8 @@ class UserController extends Controller
             'name' => 'required|string',
             'email' => ['required', 'email', Rule::unique(User::class, 'email')],
             'password' => ['required', 'confirmed', 'string', PasswordRule::min(8)->numbers()->symbols()->mixedCase()],
-            //->numbers()->mixedCase()->symbols()s
-        ]);
+
+          ]);
 
         User::create([
             'name' => $input['name'],
@@ -88,11 +88,11 @@ class UserController extends Controller
     public function updatePassword(Request $request,
     UpdateUserPassword $updater)
     {
+      if ($request->user()){
+        $updater->update($request->user(), $request->all());
+        return ["message" => "success"];
 
-        if ($updater->update($request->user(), $request->all()))
-        {
-            return "success";
-        }
+      }
     }
 
     public function resetPassword(Request $request)
@@ -101,19 +101,23 @@ class UserController extends Controller
         if($user){
             Password::sendResetLink($request->only('email'));
         }
-        
+
         return ["message" => "success"];
     }
 
     public function updateProfile(Request $request,
     UpdatesUserProfileInformation $updater)
     {
-        if ($updater->update($request->user(), $request->all()))
-        {
-        return "success";
 
-        }
+      if ($request->user()){
+        $updater->update($request->user(), $request->all());
+        return ["message" => "success"];
+
+      }
+
+
     }
+
 
 
 

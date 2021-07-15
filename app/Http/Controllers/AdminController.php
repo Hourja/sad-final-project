@@ -13,8 +13,6 @@ class AdminController extends Controller
      */
     public function index(Request $input)
     {
-        dd($input);
-        // Topic::findOrFail($input['topic']);
 
         $this->validate($input, [
             'phrase' => 'required|string',

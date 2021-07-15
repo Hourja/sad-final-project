@@ -1,15 +1,15 @@
 import './updatePasswordForm.scss'
 
 import React, { useState, useContext } from 'react'
-import { Link, Redirect } from 'react-router-dom'
 import UserContext from '../UserContext'
 import { updatePassword } from '../requests/userRequests'
-
+import Errors from './Errors'
 export default function UpdatePasswordForm() {
-  const { loggedIn, login, token } = useContext(UserContext)
+  const { token } = useContext(UserContext)
+  const [reseting, setReseting] = useState(false)
+  const [errors, setErrors] = useState(null)
+  const [resetSent, setResetSent] = useState(false)
 
-  const [loginFailed, setLoginFailed] = useState(false)
-  const [loading, setLoading] = useState(false)
   const [{ current_password, password, password_confirmation }, setValues] = useState({
     current_password: '',
     password: '',
@@ -19,14 +19,21 @@ export default function UpdatePasswordForm() {
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    setLoading(true)
-    const worked = await updatePassword({ current_password, password, password_confirmation }, token)
+    setErrors(null)
+    if (reseting) return
+    setReseting(true)
 
-    if (!worked) {
-      setLoading(false)
-      setLoginFailed(true)
+    const { success, errors } = await updatePassword({ current_password, password, password_confirmation }, token)
+    setReseting(false)
+
+    if (!success) {
+      setErrors(errors)
       return
     }
+
+    setResetSent(true)
+
+    setTimeout(() => setResetSent(false), 3000)
   }
 
   const handleChange = (event) => {
@@ -68,9 +75,15 @@ export default function UpdatePasswordForm() {
             onChange={handleChange}
           />
         </label>
-
-        <button className='login-button'>{loading ? 'In progress...' : 'Update Password'}</button>
+        <input
+          type='submit'
+          value={reseting ? 'Updating...' : 'Update Password'}
+          disabled={reseting}
+          className='login-button'
+        />{' '}
+        {resetSent && <span className='__message'>Successfully saved your new password</span>}
       </form>
+      <Errors errors={errors} />
     </div>
   )
 }

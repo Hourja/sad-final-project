@@ -3,30 +3,31 @@ import './updateProfileForm.scss'
 import React, { useState, useContext } from 'react'
 import UserContext from '../UserContext'
 import { updateProfile } from '../requests/userRequests'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Redirect, useRouteMatch } from 'react-router'
-
+import Errors from './Errors'
 export default function UpdateProfileForm({ name, email, setValues }) {
   const { token } = useContext(UserContext)
-  const { path } = useRouteMatch()
-
-  const [loginFailed, setLoginFailed] = useState(false)
-  const [loading, setLoading] = useState(false)
-  const [enableFields, setEnableFields] = useState(true)
+  const [errors, setErrors] = useState(null)
+  const [reseting, setReseting] = useState(false)
+  const [resetSent, setResetSent] = useState(false)
 
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    setLoading(true)
-    const worked = await updateProfile({ name, email }, token)
+    setErrors(null)
+    if (reseting) return
+    setReseting(true)
 
-    if (!worked) {
-      setLoading(false)
-      setLoginFailed(true)
+    const { success, errors } = await updateProfile({ name, email }, token)
+    setReseting(false)
+
+    if (!success) {
+      setErrors(errors)
       return
     }
 
-    return <Redirect to='/' />
+    setResetSent(true)
+
+    setTimeout(() => setResetSent(false), 3000)
   }
 
   const handleChange = (event) => {
@@ -41,10 +42,6 @@ export default function UpdateProfileForm({ name, email, setValues }) {
     }
   }
 
-  const enableForm = () => {
-    setEnableFields(!enableFields)
-  }
-
   return (
     <div className='update-profile-form'>
       <form className='login' action='' method='post' onSubmit={handleSubmit}>
@@ -57,8 +54,16 @@ export default function UpdateProfileForm({ name, email, setValues }) {
           <input className='login-input' type='email' name='email' value={email} onChange={handleChange} />
         </label>
 
-        <button className='login-button'>{loading ? 'In progress...' : 'Update'}</button>
+        <input
+          type='submit'
+          value={reseting ? 'Updating...' : 'Update Profile'}
+          disabled={reseting}
+          className='login-button'
+        />
       </form>
+      {resetSent && <span className='__message'>Your profile updated successfully</span>}
+
+      <Errors errors={errors} />
     </div>
   )
 }
