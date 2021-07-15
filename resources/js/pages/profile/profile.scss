@@ -7,6 +7,7 @@
   justify-content: center;
   flex-direction: column;
   margin: 50px 0;
+  width: 100%;
 
   .avatar {
     border-radius: 50%;
@@ -24,9 +25,35 @@
     flex-direction: column;
     align-items: center;
 
-    p {
-      font-size: 1.1rem;
-      margin-bottom: 25px;
+    .update-details {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .name {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+      .email {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+      }
+
+      .change-email-name {
+        font-size: 0.8rem;
+        margin-bottom: 10px;
+        cursor: pointer;
+        .text {
+          text-align: center;
+        }
+      }
+    }
+
+    .update-password {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      font-size: 0.8rem;
     }
   }
 

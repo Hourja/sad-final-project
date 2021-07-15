@@ -4,7 +4,7 @@ import UpdatePasswordForm from '../../components/UpdatePasswordForm'
 
 export default function UpdatePassword() {
   return (
-    <div className='login-page'>
+    <div className='update-password'>
       <UpdatePasswordForm />
     </div>
   )

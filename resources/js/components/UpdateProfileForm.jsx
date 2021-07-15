@@ -1,4 +1,4 @@
-import './loginForm.scss'
+import './updateProfileForm.scss'
 
 import React, { useState, useContext } from 'react'
 import UserContext from '../UserContext'
@@ -46,34 +46,15 @@ export default function UpdateProfileForm({ name, email, setValues }) {
   }
 
   return (
-    <div className='login-form'>
-      <h3 className='login-title'>My Details</h3>
-      <div>
-        <FontAwesomeIcon onClick={enableForm} icon='pen' className='__edit'></FontAwesomeIcon>
-      </div>
-
+    <div className='update-profile-form'>
       <form className='login' action='' method='post' onSubmit={handleSubmit}>
         <label htmlFor='email'>
           Name:
-          <input
-            className='login-input'
-            type='text'
-            name='name'
-            value={name}
-            onChange={handleChange}
-            disabled={enableFields}
-          />
+          <input className='login-input' type='text' name='name' value={name} onChange={handleChange} />
         </label>
         <label htmlFor='email'>
           E-Mail:
-          <input
-            className='login-input'
-            type='email'
-            name='email'
-            value={email}
-            onChange={handleChange}
-            disabled={enableFields}
-          />
+          <input className='login-input' type='email' name='email' value={email} onChange={handleChange} />
         </label>
 
         <button className='login-button'>{loading ? 'In progress...' : 'Update'}</button>
