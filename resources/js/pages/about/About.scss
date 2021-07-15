@@ -80,7 +80,6 @@
         }
         img {
           width: 30%;
-
           align-self: center;
         }
       }
@@ -95,7 +94,7 @@
     h2 {
       margin: 1rem 0;
       font-size: 2rem;
-
+      color: $blue;
       align-self: center;
     }
 
@@ -106,6 +105,7 @@
       font-size: 1rem;
       p {
         line-height: 1.6;
+        text-align: center;
       }
     }
   }
