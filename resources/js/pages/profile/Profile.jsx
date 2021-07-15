@@ -62,7 +62,7 @@ export default function Profile() {
         </div>
         <div className='update-password'>
           <div onClick={changePassword}>
-            <FontAwesomeIcon icon='key' className='__edit' size='0.5x'></FontAwesomeIcon> Change Password
+            <FontAwesomeIcon icon='key' className='__edit'></FontAwesomeIcon> Change Password
           </div>
           {popupVisiblePassword ? <PopupPassword parentClosePopup={closePopupPassword} /> : ''}
         </div>
