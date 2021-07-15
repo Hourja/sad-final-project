@@ -28,8 +28,13 @@ export default function About() {
         <ContactForm>
           <h2>Get In Touch</h2>
           <div className='__text'>
-            <p>If you would like to find out more about how we can help you, please contact-us trough the form bellow. </p>
-            <p>We welcome your comments and suggestions about this website and/or any other issues that you wish to raise.</p>
+            <p>
+              If you would like to find out more about how we can help you, please contact-us trough the form bellow.{' '}
+            </p>
+            <p>
+              We welcome your comments and suggestions about this website and/or any other issues that you wish to
+              raise.
+            </p>
           </div>
         </ContactForm>
       </div>
@@ -43,15 +48,8 @@ function developer(profile) {
       <img src={`/images/${profile.photo_url}`} alt='' />
       <div className='__info'>
         <h3>{profile.nickname}</h3>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut nostrum quasi, voluptate esse officia quam ullam
-          doloremque similique quibusdam omnis odio hic id magni soluta necessitatibus quas iure! Ipsa, aut!
-        </p>
+        <p>{profile.description}</p>
       </div>
     </div>
   )
 }
-
-// {
-//   profile.description
-// }

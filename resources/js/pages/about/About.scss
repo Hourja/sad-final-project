@@ -28,10 +28,12 @@
 
       @include for-desktop-and-large {
         flex-direction: row;
+        width: 100%;
       }
 
       .__developer {
         display: flex;
+        width: 33%;
 
         img {
           border-radius: 50%;
@@ -49,7 +51,6 @@
         }
         flex-direction: row;
         justify-content: center;
-        max-width: 700px;
         margin: 0 1rem;
 
         @include for-phone {
