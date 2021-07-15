@@ -66,6 +66,7 @@
     margin-left: 10px;
     color: $black;
     font-size: 1.2rem;
+    text-align: center;
   }
 
   .__errors {
@@ -74,7 +75,7 @@
 }
 
 .contact__text {
-  // text-align: justify;
+  text-align: center;
   padding: 0 10%;
   p {
     margin: 15px 0;

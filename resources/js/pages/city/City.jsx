@@ -6,7 +6,7 @@ import fetchCity from '../../requests/fetchCity'
 import Learn from '../learn/Learn'
 import Topics from '../learn/Topics'
 import Gallery from '../../components/Gallery'
-import Map from '../discover/Map'
+import NewMap from '../discover/NewMap'
 
 import './city.scss'
 import UserContext from '../../UserContext'
@@ -58,7 +58,7 @@ export default function City() {
       </div>
 
       <Route path={`${path}/discover/:categoryId?`} component={() => <Discover categories={categories} />} />
-      <Route path={`${path}/discover/:categoryId`} component={() => <Map categories={categories} />} />
+      <Route path={`${path}/discover/:categoryId`} component={() => <NewMap categories={categories} />} />
 
       <Route path={`${path}/learn/:categoryId?`} component={() => <Learn categories={categories} />} />
       <Route path={`${path}/learn/:categoryId`} component={() => <Topics categories={categories} />} />
