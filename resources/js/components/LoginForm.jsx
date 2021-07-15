@@ -64,8 +64,14 @@ export default function LoginForm({ children }) {
         {loginFailed && <div className='__error'>Your credentials are invalid</div>}
 
         <div className='logged'>
-          Don't have an account? <Link to='/sign-up'>Register</Link>
-          Problems to login? <Link to='/forgot-my-password'>Reset your password</Link>
+          <div className='register-form-login'>
+            <p>Don't have an account?</p>
+            <Link to='/sign-up'>Register</Link>
+          </div>
+          <div className='forgot-password-form-login'>
+            <p>Problems to login?</p>
+            <Link to='/forgot-my-password'>Reset your password</Link>
+          </div>
         </div>
       </form>
     </div>

@@ -1,4 +1,4 @@
-import './loginForm.scss'
+import './updatePasswordForm.scss'
 
 import React, { useState, useContext } from 'react'
 import { Link, Redirect } from 'react-router-dom'
@@ -42,7 +42,7 @@ export default function UpdatePasswordForm() {
   }
 
   return (
-    <div className='login-form'>
+    <div className='update-password-form'>
       <form className='login' action='/login' method='post' onSubmit={handleSubmit}>
         <label htmlFor='email'>
           Current Password:

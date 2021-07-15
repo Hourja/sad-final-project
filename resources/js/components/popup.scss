@@ -1,0 +1,20 @@
+@import '../common/media-queries.scss';
+@import '../common/colors.scss';
+.changes-popup {
+  position: relative;
+  margin-right: 6px;
+  // width: 40%;
+  .popup-profile {
+    width: 350px;
+    .close-btn {
+      text-align: right;
+      font-size: 0.8rem;
+      width: 4rem;
+      margin-left: auto;
+      height: 2rem;
+    }
+    .popup-container {
+      padding: 0 10% 5% 10%;
+    }
+  }
+}
