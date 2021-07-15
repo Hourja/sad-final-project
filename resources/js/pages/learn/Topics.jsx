@@ -31,23 +31,21 @@ export default function Topics({ categories }) {
   return (
     <div className='topics-list'>
       <ul className='topics-list-city'>
-        {load
-          ? category.topics.map((topic, index) => (
-              <li
-                key={index}
-                onClick={getTopicId}
-                data-topicid={topic.id}
-                className={topicId == topic.id ? 'selected' : ''}
-              >
-                {topic.name}
-              </li>
-            ))
-          : 'Loading'}
+        {category.topics.map((topic, index) => (
+          <li
+            key={index}
+            onClick={getTopicId}
+            data-topicid={topic.id}
+            className={topicId == topic.id ? 'selected' : ''}
+          >
+            {topic.name}
+          </li>
+        ))}
       </ul>
 
       <div className='phrases-list'>
         {topicId ? (
-          <Phrases topicId={topicId} language={language} load={load} setLoad={setLoad} />
+          <Phrases topicId={topicId} language={language} />
         ) : (
           <div className='loading-text'>Select a topic from the left</div>
         )}

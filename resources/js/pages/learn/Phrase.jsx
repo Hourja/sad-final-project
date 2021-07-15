@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { addFavorite, removeFavorite, checkFavorite } from '../../requests/favorites'
 import Popup from './pop-up/Popup'
 
-export default function Phrase({ phrase, language, setErrors, loadCategories, setLoadCategories }) {
+export default function Phrase({ phrase, language, setErrors }) {
   const [load, setLoad] = useState(true)
   const [translation, setTranslation] = useState('')
   const { user, token } = useContext(UserContext)
@@ -40,14 +40,12 @@ export default function Phrase({ phrase, language, setErrors, loadCategories, se
   }
 
   const addFav = async () => {
-    setLoadCategories(false)
     if (!token) {
       showPopup()
       return
     }
 
     const { success, errors } = await addFavorite(phrase.id, user.id, token)
-    setLoadCategories(true)
 
     if (!success) {
       return setErrors(errors)

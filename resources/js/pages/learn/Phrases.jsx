@@ -6,7 +6,7 @@ import UserContext from '../../UserContext'
 import { useParams } from 'react-router-dom'
 import Errors from '../../components/Errors'
 
-export default function Phrases({ topicId, language, load, setLoad }) {
+export default function Phrases({ topicId, language }) {
   const [errors, setErrors] = useState(null)
   const [phrases, setPhrases] = useState(null)
   const { token, loggedIn } = useContext(UserContext)
@@ -31,14 +31,7 @@ export default function Phrases({ topicId, language, load, setLoad }) {
         <div className='list-phrases-topics'>
           <ul className='list-phrases-translations'>
             {phrases.map((phrase, index) => (
-              <Phrase
-                key={index}
-                phrase={phrase}
-                language={language}
-                setErrors={setErrors}
-                loadCategories={load}
-                setLoadCategories={setLoad}
-              />
+              <Phrase key={index} phrase={phrase} language={language} setErrors={setErrors} />
             ))}
           </ul>
           <Errors errors={errors} />
