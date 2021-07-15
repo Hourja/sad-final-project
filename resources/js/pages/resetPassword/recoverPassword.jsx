@@ -2,6 +2,7 @@ import './recoverPassword.scss'
 import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import fetchRecoverPassword from '../../requests/fetchRecoverPassword'
+import Errors from '../../components/Errors'
 
 export default function RecoverPassword() {
   const [{ password, password_confirmation }, setValues] = useState({
@@ -10,16 +11,36 @@ export default function RecoverPassword() {
   })
   const location = useLocation()
   const params = new URLSearchParams(location.search)
+  const [reseting, setReseting] = useState(false)
+  const [errors, setErrors] = useState(null)
+  const [resetSent, setResetSent] = useState(false)
 
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    await fetchRecoverPassword({
+    setErrors(null)
+    if (reseting) return
+    setReseting(true)
+
+    const { success, errors } = await fetchRecoverPassword({
       password,
       password_confirmation,
       token: params.get('token'),
       email: params.get('email')
     })
+    setReseting(false)
+
+    if (!success) {
+      setErrors(errors)
+      return
+    }
+    setValues = {
+      password: '',
+      password_confirmation: ''
+    }
+    setResetSent(true)
+
+    setTimeout(() => setResetSent(false), 3000)
   }
 
   const handleChangePassword = (event) => {
@@ -57,9 +78,15 @@ export default function RecoverPassword() {
                 onChange={handleChangePasswordConfirmation}
               />
             </label>
-
-            <button className='login-button'>Update password</button>
+            <input
+              type='submit'
+              value={reseting ? 'Updating...' : 'Update Password'}
+              disabled={reseting}
+              className='login-button'
+            />
+            {resetSent && <span className='__message'>Successfully saved your new password</span>}
           </form>
+          <Errors errors={errors} />
         </div>
       </div>
     </>

@@ -52,17 +52,10 @@ export default function NewPhraseForm() {
         return { language_id: language.id, translation: translations[index], token }
       })
     })
-
     if (!success) {
       return setErrors(errors)
     }
-    setLanguages(languages)
-    setValues({
-      phrase: '',
-      topic: '',
-      translations: languages ? new Array(languages.length).fill('') : []
-    })
-    setLanguages(languages)
+
     setErrors(['Phrase created successfully !'])
   }
 

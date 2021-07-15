@@ -1,7 +1,7 @@
 import { Link, useLocation, useParams } from 'react-router-dom'
 export default function Map({ categories }) {
   const { categoryId, city } = useParams()
-  const apiKey = ''
+  const apiKey = 'AIzaSyCTPsKlX0_d8bIzcVPnmmPBR8fP38m2-Uo'
   const category = categories.find((category) => {
     return category.id === Number(categoryId)
   })
