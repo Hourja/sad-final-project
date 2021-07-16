@@ -1,15 +1,19 @@
 @import '../common/colors.scss';
 @import '../common/media-queries.scss';
 
+.--theme-light .testimonials-list {
+  background-image: url('../../img/mountain.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
 .testimonials-list {
   position: relative;
   margin-top: 100px;
   height: 250px;
   padding: 30px 0;
-  background-image: url('../../img/mountain.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
+
   color: $black;
 
   h2 {

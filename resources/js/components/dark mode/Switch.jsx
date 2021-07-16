@@ -28,6 +28,8 @@ const Switch = () => {
     if (dark == Moon) {
       setDark(Sun)
     } else setDark(Moon)
+    document.body.classList.toggle('--theme-dark', dark == Moon)
+    document.body.classList.toggle('--theme-light', dark != Moon)
   }
 
   return (

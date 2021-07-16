@@ -29,6 +29,7 @@
       @include for-desktop-and-large {
         flex-direction: row;
         width: 100%;
+        align-items: start;
       }
 
       .__developer {

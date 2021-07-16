@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{ mix('js/index.css') }}">
 </head>
 
-<body>
+<body class="--theme-light">
 
     <div id="app"></div>
 
