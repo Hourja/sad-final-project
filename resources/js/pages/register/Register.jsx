@@ -46,7 +46,7 @@ export default function Register() {
   }
 
   return (
-    <div className="register-page">
+    <div className='register-page'>
       <h1 className='register-title'>Registration</h1>
 
       <form className='register' action='' method='post' onSubmit={handleSubmit}>
@@ -63,6 +63,12 @@ export default function Register() {
         <label htmlFor='password'>
           Password:
           <input className='register-input' type='password' name='password' value={password} onChange={handleChange} />
+          <div className='password-requirements'>
+            <p>- At least 8 characters</p>
+            <p>- At least one uppercase and lowercase</p>
+            <p>- At least one number</p>
+            <p>- At least one symbol/special character</p>
+          </div>
         </label>
 
         <label htmlFor='password_confirmation'>

@@ -48,7 +48,7 @@
 
   @media (prefers-reduced-motion: no-preference) {
     .App-logo {
-      animation: App-logo-spin 10s linear;
+      animation: App-logo-spin 10s linear infinite;
     }
   }
 
@@ -72,7 +72,7 @@
 
   .hamburger {
     position: absolute;
-    top: 50px;
+    top: 30px;
     right: 40px;
     z-index: 1002;
     svg[data-icon='times'] {

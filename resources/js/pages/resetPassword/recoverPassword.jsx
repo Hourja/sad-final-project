@@ -66,6 +66,12 @@ export default function RecoverPassword() {
                 value={password}
                 onChange={handleChangePassword}
               />
+              <div className='password-requirements'>
+                <p>- At least 8 characters</p>
+                <p>- At least one uppercase and lowercase</p>
+                <p>- At least one number</p>
+                <p>- At least one symbol/special character</p>
+              </div>
             </label>
 
             <label htmlFor='email'>

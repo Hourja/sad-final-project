@@ -64,6 +64,12 @@ export default function UpdatePasswordForm() {
         <label htmlFor='email'>
           New Password:
           <input className='login-input' type='password' name='password' value={password} onChange={handleChange} />
+          <div className='password-requirements'>
+            <p>- At least 8 characters</p>
+            <p>- At least one uppercase and lowercase</p>
+            <p>- At least one number</p>
+            <p>- At least one symbol/special character</p>
+          </div>
         </label>
         <label htmlFor='email'>
           Confirm New Password:

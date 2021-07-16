@@ -64,6 +64,8 @@
         }
 
         .__info {
+          display: flex;
+          flex-direction: column;
           margin-left: 2rem;
           margin-top: 2rem;
           align-items: center;
@@ -72,11 +74,11 @@
           &:last-child {
             margin-right: 1rem;
           }
-          h3 {
+          .name {
             font-size: 2rem;
             margin-bottom: 1rem;
           }
-          p {
+          .description {
             line-height: 1.6;
           }
         }

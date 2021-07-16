@@ -3,6 +3,8 @@ import './About.scss'
 import ContactForm from '../../components/ContactForm'
 import fetchProfiles from '../../requests/fetchProfiles'
 window.fetchProfiles = fetchProfiles
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 export default function About() {
   const [profiles, setProfiles] = useState(null)
 
@@ -47,8 +49,13 @@ function developer(profile) {
     <div className='__developer' key={profile.id}>
       <img src={`/images/${profile.photo_url}`} alt='' />
       <div className='__info'>
-        <h3>{profile.nickname}</h3>
-        <p>{profile.description}</p>
+        <h3 className='name'>
+          {profile.nickname}{' '}
+          <a href={profile.github}>
+            <FontAwesomeIcon icon={['fab', 'github']} size='1x' id='social-icon' />
+          </a>
+        </h3>
+        <p className='description'>{profile.description}</p>
       </div>
     </div>
   )
