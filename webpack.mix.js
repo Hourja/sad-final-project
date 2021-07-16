@@ -38,3 +38,6 @@ mix
     }
   })
 mix.disableNotifications()
+
+// add versioning
+mix.version()
