@@ -22,9 +22,7 @@
       justify-content: center;
       align-items: center;
       margin-top: 50px;
-      @include for-phone {
-        flex-direction: column;
-      }
+      flex-direction: column;
 
       @include for-desktop-and-large {
         flex-direction: row;
@@ -34,14 +32,17 @@
 
       .__developer {
         display: flex;
-        width: 33%;
+        width: 80%;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0 1rem;
 
         img {
           border-radius: 50%;
         }
 
         @include for-desktop-and-large {
-          flex-direction: column;
+          width: 33%;
           h3 {
             text-align: center;
           }
@@ -50,9 +51,6 @@
             text-align: justify;
           }
         }
-        flex-direction: row;
-        justify-content: center;
-        margin: 0 1rem;
 
         @include for-phone {
           &:not(:last-child) {
