@@ -17,8 +17,6 @@ function Testimonials() {
     return 'Loading...'
   }
 
-  console.log(testimonials.length)
-
   return (
     <div className='testimonials-list'>
       <h2>Testimonials</h2>
