@@ -15,7 +15,7 @@ class MessageController extends Controller
             'subject' => 'required'
         ]);
 
-        Mail::to('amandabcarneiro9@gmail.com')
+        Mail::to('dastravelapp2021@gmail.com')
             ->send(new ContactUsEmail(
                 $request->input('fullName'),
                  $request->input('email'),
